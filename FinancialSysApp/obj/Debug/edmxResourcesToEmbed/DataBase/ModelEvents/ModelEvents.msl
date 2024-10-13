@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="FinancialSysEventsModelStoreContainer" CdmEntityContainer="FinancialSysEventsEntities">
+    <FunctionImportMapping FunctionImportName="GetActionsaUsers" FunctionName="FinancialSysEventsModel.Store.GetActionsaUsers">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FinancialSysEventsModel.GetActionsaUsers_Result">
+          <ScalarProperty Name="ActionName" ColumnName="ActionName" />
+          <ScalarProperty Name="TableName" ColumnName="TableName" />
+          <ScalarProperty Name="TableRecordId" ColumnName="TableRecordId" />
+          <ScalarProperty Name="Column1" ColumnName="Column1" />
+          <ScalarProperty Name="EmployeeName" ColumnName="EmployeeName" />
+          <ScalarProperty Name="User_ID" ColumnName="User_ID" />
+          <ScalarProperty Name="FormName" ColumnName="FormName" />
+          <ScalarProperty Name="User_systemUnitesName" ColumnName="User_systemUnitesName" />
+          <ScalarProperty Name="LoginTime" ColumnName="LoginTime" />
+          <ScalarProperty Name="LogoutTime" ColumnName="LogoutTime" />
+          <ScalarProperty Name="PeriodTime" ColumnName="PeriodTime" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetLogInLogOutDataUsers" FunctionName="FinancialSysEventsModel.Store.GetLogInLogOutDataUsers">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FinancialSysEventsModel.GetLogInLogOutDataUsers_Result">
+          <ScalarProperty Name="EmployeeName" ColumnName="EmployeeName" />
+          <ScalarProperty Name="User_systemUnitesName" ColumnName="User_systemUnitesName" />
+          <ScalarProperty Name="LoginTime" ColumnName="LoginTime" />
+          <ScalarProperty Name="LogoutTime" ColumnName="LogoutTime" />
+          <ScalarProperty Name="PeriodTime" ColumnName="PeriodTime" />
+          <ScalarProperty Name="User_ID" ColumnName="User_ID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

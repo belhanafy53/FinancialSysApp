@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="FinancialSysModelStoreContainer" CdmEntityContainer="FinancialSysEntities">
+    <FunctionImportMapping FunctionImportName="GetResUltForBalance" FunctionName="FinancialSysModel.Store.GetResUltForBalance">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FinancialSysModel.GetResUltForBalance_Result">
+          <ScalarProperty Name="رقم_الحساب" ColumnName="رقم الحساب" />
+          <ScalarProperty Name="اسم_الحساب" ColumnName="اسم الحساب" />
+          <ScalarProperty Name="قيد_افتتاحى_مدين" ColumnName="قيد افتتاحى مدين" />
+          <ScalarProperty Name="قيد_افتتاحى_دائن" ColumnName="قيد افتتاحى دائن" />
+          <ScalarProperty Name="عمليات_مدين" ColumnName="عمليات مدين" />
+          <ScalarProperty Name="عمليات_دائن" ColumnName="عمليات دائن" />
+          <ScalarProperty Name="نقدى_مدين" ColumnName="نقدى مدين" />
+          <ScalarProperty Name="نقدى_دائن" ColumnName="نقدى دائن" />
+          <ScalarProperty Name="الرصيد" ColumnName="الرصيد" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="InsertTOAcc_Items" FunctionName="FinancialSysModel.Store.InsertTOAcc_Items" />
+    <FunctionImportMapping FunctionImportName="InsertTOAcc_MainRes" FunctionName="FinancialSysModel.Store.InsertTOAcc_MainRes" />
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="FinancialSysModel.Store.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="SP_Assest_Analysis" FunctionName="FinancialSysModel.Store.SP_Assest_Analysis">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FinancialSysModel.SP_Assest_Analysis_Result">
+          <ScalarProperty Name="JRN_CD" ColumnName="JRN_CD" />
+          <ScalarProperty Name="ACC_NO" ColumnName="ACC_NO" />
+          <ScalarProperty Name="DB_VL" ColumnName="DB_VL" />
+          <ScalarProperty Name="CR_VL" ColumnName="CR_VL" />
+          <ScalarProperty Name="ACC_NM_Ar" ColumnName="ACC_NM_Ar" />
+          <ScalarProperty Name="MANACC" ColumnName="MANACC" />
+          <ScalarProperty Name="ACC_TY" ColumnName="ACC_TY" />
+          <ScalarProperty Name="TR_DT" ColumnName="TR_DT" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_BalancTrial1" FunctionName="FinancialSysModel.Store.SP_BalancTrial1">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FinancialSysModel.SP_BalancTrial1_Result">
+          <ScalarProperty Name="رقم_الحساب" ColumnName="رقم_الحساب" />
+          <ScalarProperty Name="اسم_الحساب" ColumnName="اسم_الحساب" />
+          <ScalarProperty Name="قيد_افتتاحى_مدين" ColumnName="قيد_افتتاحى_مدين" />
+          <ScalarProperty Name="قيد_افتتاحى_دائن" ColumnName="قيد_افتتاحى_دائن" />
+          <ScalarProperty Name="عمليات_مدين" ColumnName="عمليات_مدين" />
+          <ScalarProperty Name="عمليات_دائن" ColumnName="عمليات_دائن" />
+          <ScalarProperty Name="نقدى_مدين" ColumnName="نقدى_مدين" />
+          <ScalarProperty Name="نقدى_دائن" ColumnName="نقدى_دائن" />
+          <ScalarProperty Name="الرصيد" ColumnName="الرصيد" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="FinancialSysModel.Store.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="FinancialSysModel.Store.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="FinancialSysModel.Store.sp_helpdiagramdefinition">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FinancialSysModel.sp_helpdiagramdefinition_Result">
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="FinancialSysModel.Store.sp_helpdiagrams">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FinancialSysModel.sp_helpdiagrams_Result">
+          <ScalarProperty Name="Database" ColumnName="Database" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="FinancialSysModel.Store.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="FinancialSysModel.Store.sp_upgraddiagrams" />
+    <FunctionImportMapping FunctionImportName="ST_Catch_AccountNm" FunctionName="FinancialSysModel.Store.ST_Catch_AccountNm" />
+    <FunctionImportMapping FunctionImportName="STP_AlterIndex" FunctionName="FinancialSysModel.Store.STP_AlterIndex" />
+    <FunctionImportMapping FunctionImportName="TotalRestriction_DayRP" FunctionName="FinancialSysModel.Store.TotalRestriction_DayRP">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FinancialSysModel.TotalRestriction_DayRP_Result">
+          <ScalarProperty Name="CountRN" ColumnName="CountRN" />
+          <ScalarProperty Name="Restriction_Date" ColumnName="Restriction_Date" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

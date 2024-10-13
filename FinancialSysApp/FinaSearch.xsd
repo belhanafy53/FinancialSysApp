@@ -1,0 +1,529 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="FinaSearch" targetNamespace="http://tempuri.org/FinaSearch.xsd" xmlns:mstns="http://tempuri.org/FinaSearch.xsd" xmlns="http://tempuri.org/FinaSearch.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="FinancialSysConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="FinancialSysConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.FinancialSysApp.Properties.Settings.GlobalReference.Default.FinancialSysConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="SearchingTableAdapter" GeneratorDataComponentClassName="SearchingTableAdapter" Name="Searching" UserDataComponentName="SearchingTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="FinancialSysConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByMainLog" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="FillByMainLog" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="FillByMainLog">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        TOP (100) PERCENT Tbl_AccountingRestriction.Restriction_NO AS [رقم المستند], Tbl_AccountingRestriction.Restriction_Date AS [تاريخ المستند], Tbl_AccountingRestrictions_Kind.Name AS اليومية, 
+                         Tbl_Accounting_Guid.Account_NO AS [رقم الحساب], Tbl_Accounting_Guid.Name AS الحساب, SUM(DISTINCT Tbl_AccountingRestrictionItems.Debit_Value) AS مدين, SUM(DISTINCT Tbl_AccountingRestrictionItems.Credit_Value) AS دائن, 
+                         TBL_Document.Document_NO AS [رقم المراجعة], Tbl_DocumentCategory.Name AS البيان, Tbl_Beneficiary.Name AS [اسم المستفيد], Tbl_BeneficiaryKind.Name AS [نوع المستفيد], Tbl_ExchangeCenter.Name AS [مركز الصرف], 
+                         Tbl_OrderKind.Name AS [نوع الأمر], Tbl_Order.Order_NO AS [رقم الأمر], Tbl_Order.Order_Date AS [تاريخ الأمر], Tbl_Handler.Name AS المناول, Tbl_Management.Name AS الإدارة, Tbl_ResponspilityCenters.Name AS [مركز المسؤلية], 
+                         Tbl_RestrictionItemsCategory.Name AS التصنيف
+FROM            Tbl_BeneficiaryKind RIGHT OUTER JOIN
+                         Tbl_Order INNER JOIN
+                         Tbl_OrderKind ON Tbl_Order.OrderKind_ID = Tbl_OrderKind.ID RIGHT OUTER JOIN
+                         Tbl_Handler RIGHT OUTER JOIN
+                         Tbl_Beneficiary INNER JOIN
+                         Tbl_DocumentBenefcairy ON Tbl_Beneficiary.ID = Tbl_DocumentBenefcairy.Beneficiary_ID RIGHT OUTER JOIN
+                         TBL_Document INNER JOIN
+                         Tbl_AccountingRestriction ON TBL_Document.ID = Tbl_AccountingRestriction.Document_ID ON Tbl_DocumentBenefcairy.Document_ID = TBL_Document.ID LEFT OUTER JOIN
+                         Tbl_AccountingRestrictionItems INNER JOIN
+                         Tbl_Accounting_Guid ON Tbl_Accounting_Guid.ID = Tbl_AccountingRestrictionItems.Accounting_Guid_ID INNER JOIN
+                         Tbl_AccountingRestrictions_Kind ON Tbl_AccountingRestrictionItems.AccountingRestrictionKind_ID = Tbl_AccountingRestrictions_Kind.ID ON 
+                         Tbl_AccountingRestriction.ID = Tbl_AccountingRestrictionItems.AccountingRestriction_ID LEFT OUTER JOIN
+                         Tbl_RestrictionItemsCategory ON Tbl_AccountingRestrictionItems.RestrictionItemsCategory_ID = Tbl_RestrictionItemsCategory.ID LEFT OUTER JOIN
+                         Tbl_DocumentCategory ON TBL_Document.DocumentCategory_ID = Tbl_DocumentCategory.ID LEFT OUTER JOIN
+                         Tbl_ResponspilityCenters ON TBL_Document.responspilityID = Tbl_ResponspilityCenters.ID LEFT OUTER JOIN
+                         Tbl_Management ON TBL_Document.Management_ID = Tbl_Management.ID ON Tbl_Handler.ID = TBL_Document.Handler_ID ON Tbl_Order.ID = TBL_Document.Order_ID ON 
+                         Tbl_BeneficiaryKind.ID = Tbl_Beneficiary.BeneficiaryKind_ID LEFT OUTER JOIN
+                         Tbl_ExchangeCenter ON Tbl_Management.ExchangeCenter_ID = Tbl_ExchangeCenter.ID AND TBL_Document.ExchangeCenter_ID = Tbl_ExchangeCenter.ID
+WHERE        (Tbl_AccountingRestriction.Restriction_Date BETWEEN @P AND @P1) AND (Tbl_AccountingRestrictions_Kind.ID = @i) AND (Tbl_AccountingRestriction.FYear = @F) OR
+                         (Tbl_AccountingRestriction.Restriction_Date BETWEEN @P AND @P1) AND (Tbl_AccountingRestrictions_Kind.ID = @i) AND (Tbl_AccountingRestriction.FYear = @F) OR
+                         (Tbl_AccountingRestriction.Restriction_Date BETWEEN @P AND @P1) AND (Tbl_AccountingRestrictions_Kind.ID = @i) AND (Tbl_AccountingRestriction.FYear = @F) OR
+                         (Tbl_AccountingRestriction.Restriction_Date BETWEEN @P AND @P1) AND (Tbl_AccountingRestrictions_Kind.ID = @i) AND (Tbl_AccountingRestriction.FYear = @F) OR
+                         (Tbl_AccountingRestriction.Restriction_Date BETWEEN @P AND @P1) AND (Tbl_AccountingRestrictions_Kind.ID = @i) AND (Tbl_AccountingRestriction.FYear = @F) OR
+                         (Tbl_AccountingRestriction.Restriction_Date BETWEEN @P AND @P1) AND (Tbl_AccountingRestrictions_Kind.ID = @i) AND (Tbl_AccountingRestriction.FYear = @F)
+GROUP BY Tbl_AccountingRestriction.Restriction_NO, Tbl_AccountingRestriction.Restriction_Date, Tbl_AccountingRestrictions_Kind.Name, Tbl_Accounting_Guid.Account_NO, Tbl_Accounting_Guid.Name, TBL_Document.Document_NO, 
+                         Tbl_DocumentCategory.Name, Tbl_Beneficiary.Name, Tbl_BeneficiaryKind.Name, Tbl_ExchangeCenter.Name, Tbl_OrderKind.Name, Tbl_Order.Order_NO, Tbl_Order.Order_Date, Tbl_Handler.Name, Tbl_Management.Name, 
+                         Tbl_ResponspilityCenters.Name, Tbl_RestrictionItemsCategory.Name
+ORDER BY [رقم المستند], [تاريخ المستند]</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="P" ColumnName="Restriction_Date" DataSourceName="FinancialSys.dbo.Tbl_AccountingRestriction" DataTypeServer="date" DbType="AnsiString" Direction="Input" ParameterName="@P" Precision="0" ProviderType="Date" Scale="0" Size="3" SourceColumn="تاريخ المستند" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="P1" ColumnName="Restriction_Date" DataSourceName="FinancialSys.dbo.Tbl_AccountingRestriction" DataTypeServer="date" DbType="AnsiString" Direction="Input" ParameterName="@P1" Precision="0" ProviderType="Date" Scale="0" Size="3" SourceColumn="تاريخ المستند" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="i" ColumnName="ID" DataSourceName="FinancialSys.dbo.Tbl_AccountingRestrictions_Kind" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@i" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="ID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="F" ColumnName="FYear" DataSourceName="FinancialSys.dbo.Tbl_AccountingRestriction" DataTypeServer="nchar(10)" DbType="String" Direction="Input" ParameterName="@F" Precision="0" ProviderType="NChar" Scale="0" Size="10" SourceColumn="FYear" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="رقم المستند" DataSetColumn="رقم المستند" />
+              <Mapping SourceColumn="تاريخ المستند" DataSetColumn="تاريخ المستند" />
+              <Mapping SourceColumn="اليومية" DataSetColumn="اليومية" />
+              <Mapping SourceColumn="رقم الحساب" DataSetColumn="رقم الحساب" />
+              <Mapping SourceColumn="الحساب" DataSetColumn="الحساب" />
+              <Mapping SourceColumn="مدين" DataSetColumn="مدين" />
+              <Mapping SourceColumn="دائن" DataSetColumn="دائن" />
+              <Mapping SourceColumn="رقم المراجعة" DataSetColumn="رقم المراجعة" />
+              <Mapping SourceColumn="البيان" DataSetColumn="البيان" />
+              <Mapping SourceColumn="اسم المستفيد" DataSetColumn="اسم المستفيد" />
+              <Mapping SourceColumn="نوع المستفيد" DataSetColumn="نوع المستفيد" />
+              <Mapping SourceColumn="مركز الصرف" DataSetColumn="مركز الصرف" />
+              <Mapping SourceColumn="نوع الأمر" DataSetColumn="نوع الأمر" />
+              <Mapping SourceColumn="رقم الأمر" DataSetColumn="رقم الأمر" />
+              <Mapping SourceColumn="تاريخ الأمر" DataSetColumn="تاريخ الأمر" />
+              <Mapping SourceColumn="المناول" DataSetColumn="المناول" />
+              <Mapping SourceColumn="الإدارة" DataSetColumn="الإدارة" />
+              <Mapping SourceColumn="مركز المسؤلية" DataSetColumn="مركز المسؤلية" />
+              <Mapping SourceColumn="التصنيف" DataSetColumn="التصنيف" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="FinancialSysConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy" GeneratorSourceName="FillBy" GetMethodModifier="Public" GetMethodName="GetDataBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillBy">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        TOP (100) PERCENT Tbl_AccountingRestriction.Restriction_NO AS [رقم المستند], Tbl_AccountingRestriction.Restriction_Date AS [تاريخ المستند], Tbl_AccountingRestrictions_Kind.Name AS اليومية, 
+                         Tbl_Accounting_Guid.Account_NO AS [رقم الحساب], Tbl_Accounting_Guid.Name AS الحساب, SUM(DISTINCT Tbl_AccountingRestrictionItems.Debit_Value) AS مدين, SUM(DISTINCT Tbl_AccountingRestrictionItems.Credit_Value) AS دائن, 
+                         TBL_Document.Document_NO AS [رقم المراجعة], Tbl_DocumentCategory.Name AS البيان, Tbl_Beneficiary.Name AS [اسم المستفيد], Tbl_BeneficiaryKind.Name AS [نوع المستفيد], Tbl_ExchangeCenter.Name AS [مركز الصرف], 
+                         Tbl_OrderKind.Name AS [نوع الأمر], Tbl_Order.Order_NO AS [رقم الأمر], Tbl_Order.Order_Date AS [تاريخ الأمر], Tbl_Handler.Name AS المناول, Tbl_Management.Name AS الإدارة, Tbl_ResponspilityCenters.Name AS [مركز المسؤلية], 
+                         Tbl_RestrictionItemsCategory.Name AS التصنيف
+FROM            Tbl_BeneficiaryKind RIGHT OUTER JOIN
+                         Tbl_Order INNER JOIN
+                         Tbl_OrderKind ON Tbl_Order.OrderKind_ID = Tbl_OrderKind.ID RIGHT OUTER JOIN
+                         Tbl_Handler RIGHT OUTER JOIN
+                         Tbl_Beneficiary INNER JOIN
+                         Tbl_DocumentBenefcairy ON Tbl_Beneficiary.ID = Tbl_DocumentBenefcairy.Beneficiary_ID RIGHT OUTER JOIN
+                         TBL_Document INNER JOIN
+                         Tbl_AccountingRestriction ON TBL_Document.ID = Tbl_AccountingRestriction.Document_ID ON Tbl_DocumentBenefcairy.Document_ID = TBL_Document.ID LEFT OUTER JOIN
+                         Tbl_AccountingRestrictionItems INNER JOIN
+                         Tbl_Accounting_Guid ON Tbl_Accounting_Guid.ID = Tbl_AccountingRestrictionItems.Accounting_Guid_ID INNER JOIN
+                         Tbl_AccountingRestrictions_Kind ON Tbl_AccountingRestrictionItems.AccountingRestrictionKind_ID = Tbl_AccountingRestrictions_Kind.ID ON 
+                         Tbl_AccountingRestriction.ID = Tbl_AccountingRestrictionItems.AccountingRestriction_ID LEFT OUTER JOIN
+                         Tbl_RestrictionItemsCategory ON Tbl_AccountingRestrictionItems.RestrictionItemsCategory_ID = Tbl_RestrictionItemsCategory.ID LEFT OUTER JOIN
+                         Tbl_DocumentCategory ON TBL_Document.DocumentCategory_ID = Tbl_DocumentCategory.ID LEFT OUTER JOIN
+                         Tbl_ResponspilityCenters ON TBL_Document.responspilityID = Tbl_ResponspilityCenters.ID LEFT OUTER JOIN
+                         Tbl_Management ON TBL_Document.Management_ID = Tbl_Management.ID ON Tbl_Handler.ID = TBL_Document.Handler_ID ON Tbl_Order.ID = TBL_Document.Order_ID ON 
+                         Tbl_BeneficiaryKind.ID = Tbl_Beneficiary.BeneficiaryKind_ID LEFT OUTER JOIN
+                         Tbl_ExchangeCenter ON Tbl_Management.ExchangeCenter_ID = Tbl_ExchangeCenter.ID AND TBL_Document.ExchangeCenter_ID = Tbl_ExchangeCenter.ID
+GROUP BY Tbl_AccountingRestriction.Restriction_NO, Tbl_AccountingRestriction.Restriction_Date, Tbl_AccountingRestrictions_Kind.Name, Tbl_Accounting_Guid.Account_NO, Tbl_Accounting_Guid.Name, TBL_Document.Document_NO, 
+                         Tbl_DocumentCategory.Name, Tbl_Beneficiary.Name, Tbl_BeneficiaryKind.Name, Tbl_ExchangeCenter.Name, Tbl_OrderKind.Name, Tbl_Order.Order_NO, Tbl_Order.Order_Date, Tbl_Handler.Name, Tbl_Management.Name, 
+                         Tbl_ResponspilityCenters.Name, Tbl_RestrictionItemsCategory.Name
+ORDER BY [رقم المستند], [تاريخ المستند]</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Tbl_FinanctialSearchTableAdapter" GeneratorDataComponentClassName="Tbl_FinanctialSearchTableAdapter" Name="Tbl_FinanctialSearch" UserDataComponentName="Tbl_FinanctialSearchTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="FinancialSysConnectionString (Settings)" DbObjectName="FinancialSys.dbo.Tbl_FinanctialSearch" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        Restriction_NO AS [رقم المستند], Restriction_Date AS [تاريخ المستند], NameOfDay AS اليومية, Account_NO AS [رقم الحساب], AccountName AS [أسم الحساب], Debit_Value AS مدين, Credit_Value AS دائن, Document_NO AS [رقم المراجعة], 
+                         NameOfDescription AS البيان, NameOfBenificary AS [اسم المستفيد], NameOfKindBenificary AS [نوع المستفيد], NameOfEx AS [مركز الصرف], NameOfOrder AS الأمر, Order_NO AS [رقم الأمر], Order_Date AS [تاريخ الأمر], NameOfHandelr AS المناول, 
+                         NameOfManagament AS الإدارة, NameOfRespon AS [مركز المسؤلية], NameOfCategory AS التصنيف, UsrName, Fyear
+FROM            Tbl_FinanctialSearch
+WHERE        (UsrName = @P)
+ORDER BY [رقم الحساب]</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="P" ColumnName="UsrName" DataSourceName="FinancialSys.dbo.Tbl_FinanctialSearch" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@P" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="UsrName" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="رقم المستند" DataSetColumn="رقم المستند" />
+              <Mapping SourceColumn="تاريخ المستند" DataSetColumn="تاريخ المستند" />
+              <Mapping SourceColumn="اليومية" DataSetColumn="اليومية" />
+              <Mapping SourceColumn="رقم الحساب" DataSetColumn="رقم الحساب" />
+              <Mapping SourceColumn="أسم الحساب" DataSetColumn="أسم الحساب" />
+              <Mapping SourceColumn="مدين" DataSetColumn="مدين" />
+              <Mapping SourceColumn="دائن" DataSetColumn="دائن" />
+              <Mapping SourceColumn="رقم المراجعة" DataSetColumn="رقم المراجعة" />
+              <Mapping SourceColumn="البيان" DataSetColumn="البيان" />
+              <Mapping SourceColumn="اسم المستفيد" DataSetColumn="اسم المستفيد" />
+              <Mapping SourceColumn="نوع المستفيد" DataSetColumn="نوع المستفيد" />
+              <Mapping SourceColumn="مركز الصرف" DataSetColumn="مركز الصرف" />
+              <Mapping SourceColumn="الأمر" DataSetColumn="الأمر" />
+              <Mapping SourceColumn="رقم الأمر" DataSetColumn="رقم الأمر" />
+              <Mapping SourceColumn="تاريخ الأمر" DataSetColumn="تاريخ الأمر" />
+              <Mapping SourceColumn="المناول" DataSetColumn="المناول" />
+              <Mapping SourceColumn="الإدارة" DataSetColumn="الإدارة" />
+              <Mapping SourceColumn="مركز المسؤلية" DataSetColumn="مركز المسؤلية" />
+              <Mapping SourceColumn="التصنيف" DataSetColumn="التصنيف" />
+              <Mapping SourceColumn="UsrName" DataSetColumn="UsrName" />
+              <Mapping SourceColumn="Fyear" DataSetColumn="Fyear" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="CountOfRestrictionTableAdapter" GeneratorDataComponentClassName="CountOfRestrictionTableAdapter" Name="CountOfRestriction" UserDataComponentName="CountOfRestrictionTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="FinancialSysConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillCount" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="FillCount" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="FillCount">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        COUNT(DISTINCT Restriction_NO) AS Expr1
+FROM            Tbl_FinanctialSearch</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Expr1" DataSetColumn="Expr1" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="BenifaryTableAdapter" GeneratorDataComponentClassName="BenifaryTableAdapter" Name="Benifary" UserDataComponentName="BenifaryTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="FinancialSysConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        Tbl_Beneficiary.Name AS [اسم المستفيد / التابع], Tbl_BeneficiaryKind.Name AS النوع, SUM(DISTINCT Tbl_DocumentBenefcairy.ChecqeValue) AS [قيمة الشيك]
+FROM            Tbl_BeneficiaryKind INNER JOIN
+                         Tbl_Beneficiary ON Tbl_BeneficiaryKind.ID = Tbl_Beneficiary.BeneficiaryKind_ID INNER JOIN
+                         Tbl_DocumentBenefcairy ON Tbl_Beneficiary.ID = Tbl_DocumentBenefcairy.Beneficiary_ID INNER JOIN
+                         Tbl_AccountingRestriction ON Tbl_DocumentBenefcairy.Document_ID = Tbl_AccountingRestriction.Document_ID
+GROUP BY Tbl_Beneficiary.Name, Tbl_BeneficiaryKind.Name, Tbl_AccountingRestriction.FYear, Tbl_AccountingRestriction.Restriction_Date, Tbl_AccountingRestriction.Restriction_NO
+HAVING        (Tbl_AccountingRestriction.Restriction_Date = @D) AND (Tbl_AccountingRestriction.Restriction_NO = @N)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="D" ColumnName="Restriction_Date" DataSourceName="FinancialSys.dbo.Tbl_AccountingRestriction" DataTypeServer="date" DbType="AnsiString" Direction="Input" ParameterName="@D" Precision="0" ProviderType="Date" Scale="0" Size="3" SourceColumn="Restriction_Date" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="N" ColumnName="Restriction_NO" DataSourceName="FinancialSys.dbo.Tbl_AccountingRestriction" DataTypeServer="numeric(18, 0)" DbType="Decimal" Direction="Input" ParameterName="@N" Precision="18" ProviderType="Decimal" Scale="0" Size="9" SourceColumn="Restriction_NO" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="النوع" DataSetColumn="النوع" />
+              <Mapping SourceColumn="قيمة الشيك" DataSetColumn="قيمة الشيك" />
+              <Mapping SourceColumn="اسم المستفيد / التابع" DataSetColumn="اسم المستفيد / التابع" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="AccountStatmentTableAdapter" GeneratorDataComponentClassName="AccountStatmentTableAdapter" Name="AccountStatment" UserDataComponentName="AccountStatmentTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="FinancialSysConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT A.Account_NO AS [Account_NO] , 
+                               A.Name AS [Name],
+                               ISNULL(SUM(CASE WHEN VB.Debit_Value IS NOT NULL THEN VB.Debit_Value ELSE 0 END), 0) AS TotalDebitCash,
+                               ISNULL(SUM(CASE WHEN VB.Credit_Value IS NOT NULL THEN VB.Credit_Value ELSE 0 END), 0) AS TotalCredit,VB.Restriction_Date
+                        FROM dbo.Tbl_Accounting_Guid AS A
+                        LEFT JOIN dbo.Vie_Balance AS VB ON VB.Account_NO LIKE A.Account_NO + '%'
+                                                       AND VB.FYear = @Fyear
+                                                       
+                                                       AND VB.Restriction_Date Between @StartDate And  @EndDate
+
+                                                       AND VB.AccountingRestrictionKind_ID = @RestrictionKind
+                        GROUP BY A.Account_NO, A.Name,VB.Restriction_Date,A.AccountsKind_ID
+HAVING        (A.AccountsKind_ID = 2) And (VB.Restriction_Date IS NOT NULL) 
+                        ORDER BY A.Account_NO ASC</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Fyear" ColumnName="FYear" DataSourceName="FinancialSys.dbo.Vie_Balance" DataTypeServer="nchar(10)" DbType="String" Direction="Input" ParameterName="@Fyear" Precision="0" ProviderType="NChar" Scale="0" Size="10" SourceColumn="FYear" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="StartDate" ColumnName="Restriction_Date" DataSourceName="FinancialSys.dbo.Vie_Balance" DataTypeServer="date" DbType="AnsiString" Direction="Input" ParameterName="@StartDate" Precision="0" ProviderType="Date" Scale="0" Size="3" SourceColumn="Restriction_Date" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="EndDate" ColumnName="Restriction_Date" DataSourceName="FinancialSys.dbo.Vie_Balance" DataTypeServer="date" DbType="AnsiString" Direction="Input" ParameterName="@EndDate" Precision="0" ProviderType="Date" Scale="0" Size="3" SourceColumn="Restriction_Date" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="RestrictionKind" ColumnName="AccountingRestrictionKind_ID" DataSourceName="FinancialSys.dbo.Vie_Balance" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@RestrictionKind" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="AccountingRestrictionKind_ID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Account_NO" DataSetColumn="Account_NO" />
+              <Mapping SourceColumn="Name" DataSetColumn="Name" />
+              <Mapping SourceColumn="TotalDebitCash" DataSetColumn="TotalDebitCash" />
+              <Mapping SourceColumn="TotalCredit" DataSetColumn="TotalCredit" />
+              <Mapping SourceColumn="Restriction_Date" DataSetColumn="Restriction_Date" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="FinaSearch" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="FinaSearch" msprop:Generator_UserDSName="FinaSearch">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Searching" msprop:Generator_TableClassName="SearchingDataTable" msprop:Generator_TableVarName="tableSearching" msprop:Generator_TablePropName="Searching" msprop:Generator_RowDeletingName="SearchingRowDeleting" msprop:Generator_RowChangingName="SearchingRowChanging" msprop:Generator_RowEvHandlerName="SearchingRowChangeEventHandler" msprop:Generator_RowDeletedName="SearchingRowDeleted" msprop:Generator_UserTableName="Searching" msprop:Generator_RowChangedName="SearchingRowChanged" msprop:Generator_RowEvArgName="SearchingRowChangeEvent" msprop:Generator_RowClassName="SearchingRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="رقم_x0020_المستند" msprop:Generator_ColumnVarNameInTable="columnرقم_المستند" msprop:Generator_ColumnPropNameInRow="رقم_المستند" msprop:Generator_ColumnPropNameInTable="رقم_المستندColumn" msprop:Generator_UserColumnName="رقم المستند" type="xs:decimal" />
+              <xs:element name="تاريخ_x0020_المستند" msprop:Generator_ColumnVarNameInTable="columnتاريخ_المستند" msprop:Generator_ColumnPropNameInRow="تاريخ_المستند" msprop:Generator_ColumnPropNameInTable="تاريخ_المستندColumn" msprop:Generator_UserColumnName="تاريخ المستند" type="xs:dateTime" />
+              <xs:element name="اليومية" msprop:Generator_ColumnVarNameInTable="columnاليومية" msprop:Generator_ColumnPropNameInRow="اليومية" msprop:Generator_ColumnPropNameInTable="اليوميةColumn" msprop:Generator_UserColumnName="اليومية" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="رقم_x0020_الحساب" msprop:Generator_ColumnVarNameInTable="columnرقم_الحساب" msprop:Generator_ColumnPropNameInRow="رقم_الحساب" msprop:Generator_ColumnPropNameInTable="رقم_الحسابColumn" msprop:Generator_UserColumnName="رقم الحساب" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="الحساب" msprop:Generator_ColumnVarNameInTable="columnالحساب" msprop:Generator_ColumnPropNameInRow="الحساب" msprop:Generator_ColumnPropNameInTable="الحسابColumn" msprop:Generator_UserColumnName="الحساب" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="مدين" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnمدين" msprop:Generator_ColumnPropNameInRow="مدين" msprop:Generator_ColumnPropNameInTable="مدينColumn" msprop:Generator_UserColumnName="مدين" type="xs:decimal" minOccurs="0" />
+              <xs:element name="دائن" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnدائن" msprop:Generator_ColumnPropNameInRow="دائن" msprop:Generator_ColumnPropNameInTable="دائنColumn" msprop:Generator_UserColumnName="دائن" type="xs:decimal" minOccurs="0" />
+              <xs:element name="رقم_x0020_المراجعة" msprop:Generator_ColumnVarNameInTable="columnرقم_المراجعة" msprop:Generator_ColumnPropNameInRow="رقم_المراجعة" msprop:Generator_ColumnPropNameInTable="رقم_المراجعةColumn" msprop:Generator_UserColumnName="رقم المراجعة" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="البيان" msprop:Generator_ColumnVarNameInTable="columnالبيان" msprop:Generator_ColumnPropNameInRow="البيان" msprop:Generator_ColumnPropNameInTable="البيانColumn" msprop:Generator_UserColumnName="البيان" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="اسم_x0020_المستفيد" msprop:Generator_ColumnVarNameInTable="columnاسم_المستفيد" msprop:Generator_ColumnPropNameInRow="اسم_المستفيد" msprop:Generator_ColumnPropNameInTable="اسم_المستفيدColumn" msprop:Generator_UserColumnName="اسم المستفيد" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="نوع_x0020_المستفيد" msprop:Generator_ColumnVarNameInTable="columnنوع_المستفيد" msprop:Generator_ColumnPropNameInRow="نوع_المستفيد" msprop:Generator_ColumnPropNameInTable="نوع_المستفيدColumn" msprop:Generator_UserColumnName="نوع المستفيد" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="مركز_x0020_الصرف" msprop:Generator_ColumnVarNameInTable="columnمركز_الصرف" msprop:Generator_ColumnPropNameInRow="مركز_الصرف" msprop:Generator_ColumnPropNameInTable="مركز_الصرفColumn" msprop:Generator_UserColumnName="مركز الصرف" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="نوع_x0020_الأمر" msprop:Generator_ColumnVarNameInTable="columnنوع_الأمر" msprop:Generator_ColumnPropNameInRow="نوع_الأمر" msprop:Generator_ColumnPropNameInTable="نوع_الأمرColumn" msprop:Generator_UserColumnName="نوع الأمر" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="رقم_x0020_الأمر" msprop:Generator_ColumnVarNameInTable="columnرقم_الأمر" msprop:Generator_ColumnPropNameInRow="رقم_الأمر" msprop:Generator_ColumnPropNameInTable="رقم_الأمرColumn" msprop:Generator_UserColumnName="رقم الأمر" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="تاريخ_x0020_الأمر" msprop:Generator_ColumnVarNameInTable="columnتاريخ_الأمر" msprop:Generator_ColumnPropNameInRow="تاريخ_الأمر" msprop:Generator_ColumnPropNameInTable="تاريخ_الأمرColumn" msprop:Generator_UserColumnName="تاريخ الأمر" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="المناول" msprop:Generator_ColumnVarNameInTable="columnالمناول" msprop:Generator_ColumnPropNameInRow="المناول" msprop:Generator_ColumnPropNameInTable="المناولColumn" msprop:Generator_UserColumnName="المناول" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="الإدارة" msprop:Generator_ColumnVarNameInTable="columnالإدارة" msprop:Generator_ColumnPropNameInRow="الإدارة" msprop:Generator_ColumnPropNameInTable="الإدارةColumn" msprop:Generator_UserColumnName="الإدارة" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="مركز_x0020_المسؤلية" msprop:Generator_ColumnVarNameInTable="columnمركز_المسؤلية" msprop:Generator_ColumnPropNameInRow="مركز_المسؤلية" msprop:Generator_ColumnPropNameInTable="مركز_المسؤليةColumn" msprop:Generator_UserColumnName="مركز المسؤلية" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="التصنيف" msprop:Generator_ColumnVarNameInTable="columnالتصنيف" msprop:Generator_ColumnPropNameInRow="التصنيف" msprop:Generator_ColumnPropNameInTable="التصنيفColumn" msprop:Generator_UserColumnName="التصنيف" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Tbl_FinanctialSearch" msprop:Generator_TableClassName="Tbl_FinanctialSearchDataTable" msprop:Generator_TableVarName="tableTbl_FinanctialSearch" msprop:Generator_TablePropName="Tbl_FinanctialSearch" msprop:Generator_RowDeletingName="Tbl_FinanctialSearchRowDeleting" msprop:Generator_RowChangingName="Tbl_FinanctialSearchRowChanging" msprop:Generator_RowEvHandlerName="Tbl_FinanctialSearchRowChangeEventHandler" msprop:Generator_RowDeletedName="Tbl_FinanctialSearchRowDeleted" msprop:Generator_UserTableName="Tbl_FinanctialSearch" msprop:Generator_RowChangedName="Tbl_FinanctialSearchRowChanged" msprop:Generator_RowEvArgName="Tbl_FinanctialSearchRowChangeEvent" msprop:Generator_RowClassName="Tbl_FinanctialSearchRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="رقم_x0020_المستند" msprop:Generator_ColumnVarNameInTable="columnرقم_المستند" msprop:Generator_ColumnPropNameInRow="رقم_المستند" msprop:Generator_ColumnPropNameInTable="رقم_المستندColumn" msprop:Generator_UserColumnName="رقم المستند" type="xs:int" minOccurs="0" />
+              <xs:element name="تاريخ_x0020_المستند" msprop:Generator_ColumnVarNameInTable="columnتاريخ_المستند" msprop:Generator_ColumnPropNameInRow="تاريخ_المستند" msprop:Generator_ColumnPropNameInTable="تاريخ_المستندColumn" msprop:Generator_UserColumnName="تاريخ المستند" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="اليومية" msprop:Generator_ColumnVarNameInTable="columnاليومية" msprop:Generator_ColumnPropNameInRow="اليومية" msprop:Generator_ColumnPropNameInTable="اليوميةColumn" msprop:Generator_UserColumnName="اليومية" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="120" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="رقم_x0020_الحساب" msprop:Generator_ColumnVarNameInTable="columnرقم_الحساب" msprop:Generator_ColumnPropNameInRow="رقم_الحساب" msprop:Generator_ColumnPropNameInTable="رقم_الحسابColumn" msprop:Generator_UserColumnName="رقم الحساب" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="120" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="أسم_x0020_الحساب" msprop:Generator_ColumnVarNameInTable="columnأسم_الحساب" msprop:Generator_ColumnPropNameInRow="أسم_الحساب" msprop:Generator_ColumnPropNameInTable="أسم_الحسابColumn" msprop:Generator_UserColumnName="أسم الحساب" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="120" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="مدين" msprop:Generator_ColumnVarNameInTable="columnمدين" msprop:Generator_ColumnPropNameInRow="مدين" msprop:Generator_ColumnPropNameInTable="مدينColumn" msprop:Generator_UserColumnName="مدين" type="xs:decimal" minOccurs="0" />
+              <xs:element name="دائن" msprop:Generator_ColumnVarNameInTable="columnدائن" msprop:Generator_ColumnPropNameInRow="دائن" msprop:Generator_ColumnPropNameInTable="دائنColumn" msprop:Generator_UserColumnName="دائن" type="xs:decimal" minOccurs="0" />
+              <xs:element name="رقم_x0020_المراجعة" msprop:Generator_ColumnVarNameInTable="columnرقم_المراجعة" msprop:Generator_ColumnPropNameInRow="رقم_المراجعة" msprop:Generator_ColumnPropNameInTable="رقم_المراجعةColumn" msprop:Generator_UserColumnName="رقم المراجعة" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="120" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="البيان" msprop:Generator_ColumnVarNameInTable="columnالبيان" msprop:Generator_ColumnPropNameInRow="البيان" msprop:Generator_ColumnPropNameInTable="البيانColumn" msprop:Generator_UserColumnName="البيان" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="120" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="اسم_x0020_المستفيد" msprop:Generator_ColumnVarNameInTable="columnاسم_المستفيد" msprop:Generator_ColumnPropNameInRow="اسم_المستفيد" msprop:Generator_ColumnPropNameInTable="اسم_المستفيدColumn" msprop:Generator_UserColumnName="اسم المستفيد" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="120" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="نوع_x0020_المستفيد" msprop:Generator_ColumnVarNameInTable="columnنوع_المستفيد" msprop:Generator_ColumnPropNameInRow="نوع_المستفيد" msprop:Generator_ColumnPropNameInTable="نوع_المستفيدColumn" msprop:Generator_UserColumnName="نوع المستفيد" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="120" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="مركز_x0020_الصرف" msprop:Generator_ColumnVarNameInTable="columnمركز_الصرف" msprop:Generator_ColumnPropNameInRow="مركز_الصرف" msprop:Generator_ColumnPropNameInTable="مركز_الصرفColumn" msprop:Generator_UserColumnName="مركز الصرف" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="120" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="الأمر" msprop:Generator_ColumnVarNameInTable="columnالأمر" msprop:Generator_ColumnPropNameInRow="الأمر" msprop:Generator_ColumnPropNameInTable="الأمرColumn" msprop:Generator_UserColumnName="الأمر" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="120" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="رقم_x0020_الأمر" msprop:Generator_ColumnVarNameInTable="columnرقم_الأمر" msprop:Generator_ColumnPropNameInRow="رقم_الأمر" msprop:Generator_ColumnPropNameInTable="رقم_الأمرColumn" msprop:Generator_UserColumnName="رقم الأمر" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="120" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="تاريخ_x0020_الأمر" msprop:Generator_ColumnVarNameInTable="columnتاريخ_الأمر" msprop:Generator_ColumnPropNameInRow="تاريخ_الأمر" msprop:Generator_ColumnPropNameInTable="تاريخ_الأمرColumn" msprop:Generator_UserColumnName="تاريخ الأمر" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="المناول" msprop:Generator_ColumnVarNameInTable="columnالمناول" msprop:Generator_ColumnPropNameInRow="المناول" msprop:Generator_ColumnPropNameInTable="المناولColumn" msprop:Generator_UserColumnName="المناول" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="120" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="الإدارة" msprop:Generator_ColumnVarNameInTable="columnالإدارة" msprop:Generator_ColumnPropNameInRow="الإدارة" msprop:Generator_ColumnPropNameInTable="الإدارةColumn" msprop:Generator_UserColumnName="الإدارة" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="120" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="مركز_x0020_المسؤلية" msprop:Generator_ColumnVarNameInTable="columnمركز_المسؤلية" msprop:Generator_ColumnPropNameInRow="مركز_المسؤلية" msprop:Generator_ColumnPropNameInTable="مركز_المسؤليةColumn" msprop:Generator_UserColumnName="مركز المسؤلية" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="120" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="التصنيف" msprop:Generator_ColumnVarNameInTable="columnالتصنيف" msprop:Generator_ColumnPropNameInRow="التصنيف" msprop:Generator_ColumnPropNameInTable="التصنيفColumn" msprop:Generator_UserColumnName="التصنيف" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="120" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="UsrName" msprop:Generator_ColumnVarNameInTable="columnUsrName" msprop:Generator_ColumnPropNameInRow="UsrName" msprop:Generator_ColumnPropNameInTable="UsrNameColumn" msprop:Generator_UserColumnName="UsrName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Fyear" msprop:Generator_ColumnVarNameInTable="columnFyear" msprop:Generator_ColumnPropNameInRow="Fyear" msprop:Generator_ColumnPropNameInTable="FyearColumn" msprop:Generator_UserColumnName="Fyear" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="CountOfRestriction" msprop:Generator_TableClassName="CountOfRestrictionDataTable" msprop:Generator_TableVarName="tableCountOfRestriction" msprop:Generator_RowChangedName="CountOfRestrictionRowChanged" msprop:Generator_TablePropName="CountOfRestriction" msprop:Generator_RowDeletingName="CountOfRestrictionRowDeleting" msprop:Generator_RowChangingName="CountOfRestrictionRowChanging" msprop:Generator_RowEvHandlerName="CountOfRestrictionRowChangeEventHandler" msprop:Generator_RowDeletedName="CountOfRestrictionRowDeleted" msprop:Generator_RowClassName="CountOfRestrictionRow" msprop:Generator_UserTableName="CountOfRestriction" msprop:Generator_RowEvArgName="CountOfRestrictionRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Expr1" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnExpr1" msprop:Generator_ColumnPropNameInRow="Expr1" msprop:Generator_ColumnPropNameInTable="Expr1Column" msprop:Generator_UserColumnName="Expr1" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Benifary" msprop:Generator_TableClassName="BenifaryDataTable" msprop:Generator_TableVarName="tableBenifary" msprop:Generator_TablePropName="Benifary" msprop:Generator_RowDeletingName="BenifaryRowDeleting" msprop:Generator_RowChangingName="BenifaryRowChanging" msprop:Generator_RowEvHandlerName="BenifaryRowChangeEventHandler" msprop:Generator_RowDeletedName="BenifaryRowDeleted" msprop:Generator_UserTableName="Benifary" msprop:Generator_RowChangedName="BenifaryRowChanged" msprop:Generator_RowEvArgName="BenifaryRowChangeEvent" msprop:Generator_RowClassName="BenifaryRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="النوع" msprop:Generator_ColumnVarNameInTable="columnالنوع" msprop:Generator_ColumnPropNameInRow="النوع" msprop:Generator_ColumnPropNameInTable="النوعColumn" msprop:Generator_UserColumnName="النوع">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="قيمة_x0020_الشيك" msprop:Generator_ColumnVarNameInTable="columnقيمة_الشيك" msprop:Generator_ColumnPropNameInRow="قيمة_الشيك" msprop:Generator_ColumnPropNameInTable="قيمة_الشيكColumn" msprop:Generator_UserColumnName="قيمة الشيك" type="xs:decimal" minOccurs="0" />
+              <xs:element name="اسم_x0020_المستفيد_x0020__x002F__x0020_التابع" msprop:Generator_ColumnVarNameInTable="_columnاسم_المستفيد___التابع" msprop:Generator_ColumnPropNameInRow="_اسم_المستفيد___التابع" msprop:Generator_ColumnPropNameInTable="_اسم_المستفيد___التابعColumn" msprop:Generator_UserColumnName="اسم المستفيد / التابع">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="AccountStatment" msprop:Generator_TableClassName="AccountStatmentDataTable" msprop:Generator_TableVarName="tableAccountStatment" msprop:Generator_TablePropName="AccountStatment" msprop:Generator_RowDeletingName="AccountStatmentRowDeleting" msprop:Generator_RowChangingName="AccountStatmentRowChanging" msprop:Generator_RowEvHandlerName="AccountStatmentRowChangeEventHandler" msprop:Generator_RowDeletedName="AccountStatmentRowDeleted" msprop:Generator_UserTableName="AccountStatment" msprop:Generator_RowChangedName="AccountStatmentRowChanged" msprop:Generator_RowEvArgName="AccountStatmentRowChangeEvent" msprop:Generator_RowClassName="AccountStatmentRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Account_NO" msprop:Generator_ColumnVarNameInTable="columnAccount_NO" msprop:Generator_ColumnPropNameInRow="Account_NO" msprop:Generator_ColumnPropNameInTable="Account_NOColumn" msprop:Generator_UserColumnName="Account_NO">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_UserColumnName="Name">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TotalDebitCash" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTotalDebitCash" msprop:Generator_ColumnPropNameInRow="TotalDebitCash" msprop:Generator_ColumnPropNameInTable="TotalDebitCashColumn" msprop:Generator_UserColumnName="TotalDebitCash" type="xs:decimal" minOccurs="0" />
+              <xs:element name="TotalCredit" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTotalCredit" msprop:Generator_ColumnPropNameInRow="TotalCredit" msprop:Generator_ColumnPropNameInTable="TotalCreditColumn" msprop:Generator_UserColumnName="TotalCredit" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Restriction_Date" msprop:Generator_ColumnVarNameInTable="columnRestriction_Date" msprop:Generator_ColumnPropNameInRow="Restriction_Date" msprop:Generator_ColumnPropNameInTable="Restriction_DateColumn" msprop:Generator_UserColumnName="Restriction_Date" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

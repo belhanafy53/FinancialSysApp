@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FinancialSysModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Tbl_Management">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ExchangeCenter_ID" Type="Int32" />
+    <Property Name="Parent_ID" Type="Int32" Nullable="false" />
+    <Property Name="ManagementCategory_ID" Type="Int32" />
+  </EntityType>
+  <EntityContainer Name="FinancialSysEntities3" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Tbl_Management" EntityType="Self.Tbl_Management" />
+  </EntityContainer>
+</Schema>

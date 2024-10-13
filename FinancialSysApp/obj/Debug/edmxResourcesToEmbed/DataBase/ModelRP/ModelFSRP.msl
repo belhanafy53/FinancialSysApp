@@ -1,0 +1,685 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="FinancialSysModelStoreContainer" CdmEntityContainer="FinancialSysEntities">
+    <EntitySetMapping Name="Details">
+      <EntityTypeMapping TypeName="FinancialSysModel.Detail">
+        <MappingFragment StoreEntitySet="Detail">
+          <ScalarProperty Name="JRN_CD" ColumnName="JRN_CD" />
+          <ScalarProperty Name="TR_NO" ColumnName="TR_NO" />
+          <ScalarProperty Name="LN_NO" ColumnName="LN_NO" />
+          <ScalarProperty Name="ACC_NO" ColumnName="ACC_NO" />
+          <ScalarProperty Name="TR_DS" ColumnName="TR_DS" />
+          <ScalarProperty Name="DB_VL" ColumnName="DB_VL" />
+          <ScalarProperty Name="CR_VL" ColumnName="CR_VL" />
+          <ScalarProperty Name="TR_DT" ColumnName="TR_DT" />
+          <ScalarProperty Name="ACC_NM_Ar" ColumnName="ACC_NM_Ar" />
+          <ScalarProperty Name="ACC_TY" ColumnName="ACC_TY" />
+          <ScalarProperty Name="MANACC" ColumnName="MANACC" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="FinancialSysModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_Accounting_Guid">
+      <EntityTypeMapping TypeName="FinancialSysModel.Tbl_Accounting_Guid">
+        <MappingFragment StoreEntitySet="Tbl_Accounting_Guid">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Account_NO" ColumnName="Account_NO" />
+          <ScalarProperty Name="Parent_ID" ColumnName="Parent_ID" />
+          <ScalarProperty Name="From_Date" ColumnName="From_Date" />
+          <ScalarProperty Name="To_Date" ColumnName="To_Date" />
+          <ScalarProperty Name="AccountsKind_ID" ColumnName="AccountsKind_ID" />
+          <ScalarProperty Name="PersonalAccount" ColumnName="PersonalAccount" />
+          <ScalarProperty Name="Advac_AccountingNO" ColumnName="Advac_AccountingNO" />
+          <ScalarProperty Name="ExpensesAccount" ColumnName="ExpensesAccount" />
+          <ScalarProperty Name="HighamountsAccount" ColumnName="HighamountsAccount" />
+          <ScalarProperty Name="BrokerAccount" ColumnName="BrokerAccount" />
+          <ScalarProperty Name="ExtrasFinancialYear" ColumnName="ExtrasFinancialYear" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_AccountingRestriction">
+      <EntityTypeMapping TypeName="FinancialSysModel.Tbl_AccountingRestriction">
+        <MappingFragment StoreEntitySet="Tbl_AccountingRestriction">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Restriction_NO" ColumnName="Restriction_NO" />
+          <ScalarProperty Name="Restriction_Date" ColumnName="Restriction_Date" />
+          <ScalarProperty Name="Document_ID" ColumnName="Document_ID" />
+          <ScalarProperty Name="AccountingRestrictionKind_ID" ColumnName="AccountingRestrictionKind_ID" />
+          <ScalarProperty Name="AcountingRestrictionCorrRelation_ID" ColumnName="AcountingRestrictionCorrRelation_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_AccountingRestrictionItems">
+      <EntityTypeMapping TypeName="FinancialSysModel.Tbl_AccountingRestrictionItems">
+        <MappingFragment StoreEntitySet="Tbl_AccountingRestrictionItems">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Row_No" ColumnName="Row_No" />
+          <ScalarProperty Name="AccountingRestriction_ID" ColumnName="AccountingRestriction_ID" />
+          <ScalarProperty Name="Accounting_Guid_ID" ColumnName="Accounting_Guid_ID" />
+          <ScalarProperty Name="Debit_Value" ColumnName="Debit_Value" />
+          <ScalarProperty Name="Credit_Value" ColumnName="Credit_Value" />
+          <ScalarProperty Name="RestrictionItemsCategory_ID" ColumnName="RestrictionItemsCategory_ID" />
+          <ScalarProperty Name="Activities_ID" ColumnName="Activities_ID" />
+          <ScalarProperty Name="CostCenters_ID" ColumnName="CostCenters_ID" />
+          <ScalarProperty Name="AccountingRestrictionKind_ID" ColumnName="AccountingRestrictionKind_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_AccountingRestrictions_Kind">
+      <EntityTypeMapping TypeName="FinancialSysModel.Tbl_AccountingRestrictions_Kind">
+        <MappingFragment StoreEntitySet="Tbl_AccountingRestrictions_Kind">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_AccountsKind">
+      <EntityTypeMapping TypeName="FinancialSysModel.Tbl_AccountsKind">
+        <MappingFragment StoreEntitySet="Tbl_AccountsKind">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Parent_id" ColumnName="Parent_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_Activities">
+      <EntityTypeMapping TypeName="FinancialSysModel.Tbl_Activities">
+        <MappingFragment StoreEntitySet="Tbl_Activities">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_Auth_Users_Forms">
+      <EntityTypeMapping TypeName="FinancialSysModel.Tbl_Auth_Users_Forms">
+        <MappingFragment StoreEntitySet="Tbl_Auth_Users_Forms">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Form_SysUnites_ID" ColumnName="Form_SysUnites_ID" />
+          <ScalarProperty Name="Procedure_ID" ColumnName="Procedure_ID" />
+          <ScalarProperty Name="User_ID" ColumnName="User_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_Banks">
+      <EntityTypeMapping TypeName="FinancialSysModel.Tbl_Banks">
+        <MappingFragment StoreEntitySet="Tbl_Banks">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Parent_ID" ColumnName="Parent_ID" />
+          <ScalarProperty Name="AccountBanking_NO" ColumnName="AccountBanking_NO" />
+          <ScalarProperty Name="IBanBanking_NO" ColumnName="IBanBanking_NO" />
+          <ScalarProperty Name="Accounting_GuidID" ColumnName="Accounting_GuidID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_Beneficiary">
+      <EntityTypeMapping TypeName="FinancialSysModel.Tbl_Beneficiary">
+        <MappingFragment StoreEntitySet="Tbl_Beneficiary">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="BeneficiaryKind_ID" ColumnName="BeneficiaryKind_ID" />
+          <ScalarProperty Name="ID_Emp" ColumnName="ID_Emp" />
+          <ScalarProperty Name="ID_Cust" ColumnName="ID_Cust" />
+          <ScalarProperty Name="ID_Supp" ColumnName="ID_Supp" />
+          <ScalarProperty Name="ID_Mng" ColumnName="ID_Mng" />
+          <ScalarProperty Name="Parent_ID" ColumnName="Parent_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_BeneficiaryKind">
+      <EntityTypeMapping TypeName="FinancialSysModel.Tbl_BeneficiaryKind">
+        <MappingFragment StoreEntitySet="Tbl_BeneficiaryKind">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_CenteralDeviceNotes">
+      <EntityTypeMapping TypeName="FinancialSysModel.Tbl_CenteralDeviceNotes">
+        <MappingFragment StoreEntitySet="Tbl_CenteralDeviceNotes">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="CentralDeviceNotes" ColumnName="CentralDeviceNotes" />
+          <ScalarProperty Name="NoteDate" ColumnName="NoteDate" />
+          <ScalarProperty Name="AccountRestriction_ID" ColumnName="AccountRestriction_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_CentralDeviceReplies">
+      <EntityTypeMapping TypeName="FinancialSysModel.Tbl_CentralDeviceReplies">
+        <MappingFragment StoreEntitySet="Tbl_CentralDeviceReplies">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="CentralDeviceReplies" ColumnName="CentralDeviceReplies" />
+          <ScalarProperty Name="ReplyDate" ColumnName="ReplyDate" />
+          <ScalarProperty Name="CentralDeviceNotes_ID" ColumnName="CentralDeviceNotes_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_ChequeKind">
+      <EntityTypeMapping TypeName="FinancialSysModel.Tbl_ChequeKind">
+        <MappingFragment StoreEntitySet="Tbl_ChequeKind">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_Cheques">
+      <EntityTypeMapping TypeName="FinancialSysModel.Tbl_Cheques">
+        <MappingFragment StoreEntitySet="Tbl_Cheques">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ChequeNO" ColumnName="ChequeNO" />
+          <ScalarProperty Name="ChequeDate" ColumnName="ChequeDate" />
+          <ScalarProperty Name="ChequeValue" ColumnName="ChequeValue" />
+          <ScalarProperty Name="Bank_ID" ColumnName="Bank_ID" />
+          <ScalarProperty Name="AccountingRestriction_ID" ColumnName="AccountingRestriction_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_CostCenters">
+      <EntityTypeMapping TypeName="FinancialSysModel.Tbl_CostCenters">
+        <MappingFragment StoreEntitySet="Tbl_CostCenters">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_Customer">
+      <EntityTypeMapping TypeName="FinancialSysModel.Tbl_Customer">
+        <MappingFragment StoreEntitySet="Tbl_Customer">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Tax_Card" ColumnName="Tax_Card" />
+          <ScalarProperty Name="Trade_Record" ColumnName="Trade_Record" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_DateRange">
+      <EntityTypeMapping TypeName="FinancialSysModel.Tbl_DateRange">
+        <MappingFragment StoreEntitySet="Tbl_DateRange">
+          <ScalarProperty Name="DateF" ColumnName="DateF" />
+          <ScalarProperty Name="DateT" ColumnName="DateT" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBL_Document">
+      <EntityTypeMapping TypeName="FinancialSysModel.TBL_Document">
+        <MappingFragment StoreEntitySet="TBL_Document">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="DocumentCategory_ID" ColumnName="DocumentCategory_ID" />
+          <ScalarProperty Name="Beneficiary_ID" ColumnName="Beneficiary_ID" />
+          <ScalarProperty Name="ExchangeCenter_ID" ColumnName="ExchangeCenter_ID" />
+          <ScalarProperty Name="Order_ID" ColumnName="Order_ID" />
+          <ScalarProperty Name="Handler_ID" ColumnName="Handler_ID" />
+          <ScalarProperty Name="Document_NO" ColumnName="Document_NO" />
+          <ScalarProperty Name="Document_Date" ColumnName="Document_Date" />
+          <ScalarProperty Name="Audit_NO" ColumnName="Audit_NO" />
+          <ScalarProperty Name="Management_ID" ColumnName="Management_ID" />
+          <ScalarProperty Name="responspilityID" ColumnName="responspilityID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_DocumentCategory">
+      <EntityTypeMapping TypeName="FinancialSysModel.Tbl_DocumentCategory">
+        <MappingFragment StoreEntitySet="Tbl_DocumentCategory">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_Employee">
+      <EntityTypeMapping TypeName="FinancialSysModel.Tbl_Employee">
+        <MappingFragment StoreEntitySet="Tbl_Employee">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="NationalId" ColumnName="NationalId" />
+          <ScalarProperty Name="Management_ID" ColumnName="Management_ID" />
+          <ScalarProperty Name="GenderID" ColumnName="GenderID" />
+          <ScalarProperty Name="WorkerJob" ColumnName="WorkerJob" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="StatusDate" ColumnName="StatusDate" />
+          <ScalarProperty Name="StatusDetail" ColumnName="StatusDetail" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_ExchangeCenter">
+      <EntityTypeMapping TypeName="FinancialSysModel.Tbl_ExchangeCenter">
+        <MappingFragment StoreEntitySet="Tbl_ExchangeCenter">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Mnagement_ID" ColumnName="Mnagement_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_Fiscalyear">
+      <EntityTypeMapping TypeName="FinancialSysModel.Tbl_Fiscalyear">
+        <MappingFragment StoreEntitySet="Tbl_Fiscalyear">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="DateFrom" ColumnName="DateFrom" />
+          <ScalarProperty Name="DateTo" ColumnName="DateTo" />
+          <ScalarProperty Name="Open_Close" ColumnName="Open_Close" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_Forms">
+      <EntityTypeMapping TypeName="FinancialSysModel.Tbl_Forms">
+        <MappingFragment StoreEntitySet="Tbl_Forms">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Name_English" ColumnName="Name_English" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_FormsUserTypeUser">
+      <EntityTypeMapping TypeName="FinancialSysModel.Tbl_FormsUserTypeUser">
+        <MappingFragment StoreEntitySet="Tbl_FormsUserTypeUser">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="SysUnites_ID" ColumnName="SysUnites_ID" />
+          <ScalarProperty Name="MenuProgUnit_ID" ColumnName="MenuProgUnit_ID" />
+          <ScalarProperty Name="UserType_ID" ColumnName="UserType_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_Handler">
+      <EntityTypeMapping TypeName="FinancialSysModel.Tbl_Handler">
+        <MappingFragment StoreEntitySet="Tbl_Handler">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Employee_ID" ColumnName="Employee_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_HummanResource">
+      <EntityTypeMapping TypeName="FinancialSysModel.Tbl_HummanResource">
+        <MappingFragment StoreEntitySet="Tbl_HummanResource">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Abgady" ColumnName="Abgady" />
+          <ScalarProperty Name="InsuranceNo" ColumnName="InsuranceNo" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="NationalID" ColumnName="NationalID" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="Degree" ColumnName="Degree" />
+          <ScalarProperty Name="DegreeDate" ColumnName="DegreeDate" />
+          <ScalarProperty Name="DegreeDueDate" ColumnName="DegreeDueDate" />
+          <ScalarProperty Name="WorkerJob" ColumnName="WorkerJob" />
+          <ScalarProperty Name="JobName" ColumnName="JobName" />
+          <ScalarProperty Name="Job" ColumnName="Job" />
+          <ScalarProperty Name="JobCategory" ColumnName="JobCategory" />
+          <ScalarProperty Name="JobDate" ColumnName="JobDate" />
+          <ScalarProperty Name="ManagementName" ColumnName="ManagementName" />
+          <ScalarProperty Name="ManagementDate" ColumnName="ManagementDate" />
+          <ScalarProperty Name="WorkrNo" ColumnName="WorkrNo" />
+          <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+          <ScalarProperty Name="Gender2" ColumnName="Gender2" />
+          <ScalarProperty Name="StatusDate" ColumnName="StatusDate" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="StatusDetail" ColumnName="StatusDetail" />
+          <ScalarProperty Name="FieldJob" ColumnName="FieldJob" />
+          <ScalarProperty Name="WorkerAddress" ColumnName="WorkerAddress" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="Sectores" ColumnName="Sectores" />
+          <ScalarProperty Name="Sectore" ColumnName="Sectore" />
+          <ScalarProperty Name="FullTimeMember" ColumnName="FullTimeMember" />
+          <ScalarProperty Name="GeneralManagement" ColumnName="GeneralManagement" />
+          <ScalarProperty Name="Management" ColumnName="Management" />
+          <ScalarProperty Name="TempDate" ColumnName="TempDate" />
+          <ScalarProperty Name="InstallDate" ColumnName="InstallDate" />
+          <ScalarProperty Name="TotalPeriod" ColumnName="TotalPeriod" />
+          <ScalarProperty Name="SupposedDate" ColumnName="SupposedDate" />
+          <ScalarProperty Name="ComprehensiveRewardDate" ColumnName="ComprehensiveRewardDate" />
+          <ScalarProperty Name="FileNo" ColumnName="FileNo" />
+          <ScalarProperty Name="ComplexBuilding" ColumnName="ComplexBuilding" />
+          <ScalarProperty Name="Building" ColumnName="Building" />
+          <ScalarProperty Name="RoleBuilding" ColumnName="RoleBuilding" />
+          <ScalarProperty Name="Room" ColumnName="Room" />
+          <ScalarProperty Name="Neighborhood" ColumnName="Neighborhood" />
+          <ScalarProperty Name="GovernorateBuilding" ColumnName="GovernorateBuilding" />
+          <ScalarProperty Name="BuildingAddress" ColumnName="BuildingAddress" />
+          <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Qualification" ColumnName="Qualification" />
+          <ScalarProperty Name="Appreciation" ColumnName="Appreciation" />
+          <ScalarProperty Name="GraduateYear" ColumnName="GraduateYear" />
+          <ScalarProperty Name="SicialStatus" ColumnName="SicialStatus" />
+          <ScalarProperty Name="GovernorateBirth" ColumnName="GovernorateBirth" />
+          <ScalarProperty Name="GovernorateLiving" ColumnName="GovernorateLiving" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_Indebtedness">
+      <EntityTypeMapping TypeName="FinancialSysModel.Tbl_Indebtedness">
+        <MappingFragment StoreEntitySet="Tbl_Indebtedness">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="IndebtednessKind_ID" ColumnName="IndebtednessKind_ID" />
+          <ScalarProperty Name="AccountingRestrictionItems_ID" ColumnName="AccountingRestrictionItems_ID" />
+          <ScalarProperty Name="DebitIndebtedness" ColumnName="DebitIndebtedness" />
+          <ScalarProperty Name="CreditIndebtedness" ColumnName="CreditIndebtedness" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_IndebtednessBeneficiary">
+      <EntityTypeMapping TypeName="FinancialSysModel.Tbl_IndebtednessBeneficiary">
+        <MappingFragment StoreEntitySet="Tbl_IndebtednessBeneficiary">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Indebtedness_ID" ColumnName="Indebtedness_ID" />
+          <ScalarProperty Name="Beneficiary_ID" ColumnName="Beneficiary_ID" />
+          <ScalarProperty Name="DebitValue" ColumnName="DebitValue" />
+          <ScalarProperty Name="CreditValue" ColumnName="CreditValue" />
+          <ScalarProperty Name="IndebtednessReason" ColumnName="IndebtednessReason" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_IndebtednessKind">
+      <EntityTypeMapping TypeName="FinancialSysModel.Tbl_IndebtednessKind">
+        <MappingFragment StoreEntitySet="Tbl_IndebtednessKind">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_Items">
+      <EntityTypeMapping TypeName="FinancialSysModel.Tbl_Items">
+        <MappingFragment StoreEntitySet="Tbl_Items">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Parent_ID" ColumnName="Parent_ID" />
+          <ScalarProperty Name="ItemCategoryID" ColumnName="ItemCategoryID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_Management">
+      <EntityTypeMapping TypeName="FinancialSysModel.Tbl_Management">
+        <MappingFragment StoreEntitySet="Tbl_Management">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Management_ID" ColumnName="Management_ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ExchangeCenter_ID" ColumnName="ExchangeCenter_ID" />
+          <ScalarProperty Name="Parent_ID" ColumnName="Parent_ID" />
+          <ScalarProperty Name="ManagementCategory_ID" ColumnName="ManagementCategory_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_ManagementCategory">
+      <EntityTypeMapping TypeName="FinancialSysModel.Tbl_ManagementCategory">
+        <MappingFragment StoreEntitySet="Tbl_ManagementCategory">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_MenuProgramUnites">
+      <EntityTypeMapping TypeName="FinancialSysModel.Tbl_MenuProgramUnites">
+        <MappingFragment StoreEntitySet="Tbl_MenuProgramUnites">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Parent_ID" ColumnName="Parent_ID" />
+          <ScalarProperty Name="Forms_ID" ColumnName="Forms_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_MenuProgUnit_SysUnites">
+      <EntityTypeMapping TypeName="FinancialSysModel.Tbl_MenuProgUnit_SysUnites">
+        <MappingFragment StoreEntitySet="Tbl_MenuProgUnit_SysUnites">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="SysUnites_ID" ColumnName="SysUnites_ID" />
+          <ScalarProperty Name="MenuProgUnit_ID" ColumnName="MenuProgUnit_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_NormativeCosts">
+      <EntityTypeMapping TypeName="FinancialSysModel.Tbl_NormativeCosts">
+        <MappingFragment StoreEntitySet="Tbl_NormativeCosts">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="AccountGuid_ID" ColumnName="AccountGuid_ID" />
+          <ScalarProperty Name="CostCenterActivities_ID" ColumnName="CostCenterActivities_ID" />
+          <ScalarProperty Name="FlagCostsCenterActivities" ColumnName="FlagCostsCenterActivities" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="From_Date" ColumnName="From_Date" />
+          <ScalarProperty Name="To_Date" ColumnName="To_Date" />
+          <ScalarProperty Name="Percentage" ColumnName="Percentage" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_Order">
+      <EntityTypeMapping TypeName="FinancialSysModel.Tbl_Order">
+        <MappingFragment StoreEntitySet="Tbl_Order">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="OrderKind_ID" ColumnName="OrderKind_ID" />
+          <ScalarProperty Name="Order_NO" ColumnName="Order_NO" />
+          <ScalarProperty Name="Order_Date" ColumnName="Order_Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_OrderHandlers">
+      <EntityTypeMapping TypeName="FinancialSysModel.Tbl_OrderHandlers">
+        <MappingFragment StoreEntitySet="Tbl_OrderHandlers">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Order_ID" ColumnName="Order_ID" />
+          <ScalarProperty Name="Handler_ID" ColumnName="Handler_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_OrderKind">
+      <EntityTypeMapping TypeName="FinancialSysModel.Tbl_OrderKind">
+        <MappingFragment StoreEntitySet="Tbl_OrderKind">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_Procedures">
+      <EntityTypeMapping TypeName="FinancialSysModel.Tbl_Procedures">
+        <MappingFragment StoreEntitySet="Tbl_Procedures">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_ProceduresForms">
+      <EntityTypeMapping TypeName="FinancialSysModel.Tbl_ProceduresForms">
+        <MappingFragment StoreEntitySet="Tbl_ProceduresForms">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Form_ID" ColumnName="Form_ID" />
+          <ScalarProperty Name="Procedure_ID" ColumnName="Procedure_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_ResponspilityCenters">
+      <EntityTypeMapping TypeName="FinancialSysModel.Tbl_ResponspilityCenters">
+        <MappingFragment StoreEntitySet="Tbl_ResponspilityCenters">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Parent_ID" ColumnName="Parent_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_RestrictionItemsCategory">
+      <EntityTypeMapping TypeName="FinancialSysModel.Tbl_RestrictionItemsCategory">
+        <MappingFragment StoreEntitySet="Tbl_RestrictionItemsCategory">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_RestrictionItemsCategory_With_AccountNumber">
+      <EntityTypeMapping TypeName="FinancialSysModel.Tbl_RestrictionItemsCategory_With_AccountNumber">
+        <MappingFragment StoreEntitySet="Tbl_RestrictionItemsCategory_With_AccountNumber">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="AccountNo_ID" ColumnName="AccountNo_ID" />
+          <ScalarProperty Name="RestrictionItemsCategoryID" ColumnName="RestrictionItemsCategoryID" />
+          <ScalarProperty Name="Descrption" ColumnName="Descrption" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBL_RESULT">
+      <EntityTypeMapping TypeName="FinancialSysModel.TBL_RESULT">
+        <MappingFragment StoreEntitySet="TBL_RESULT">
+          <ScalarProperty Name="ACC_NO" ColumnName="ACC_NO" />
+          <ScalarProperty Name="ACC_NM_Ar" ColumnName="ACC_NM_Ar" />
+          <ScalarProperty Name="OPDB" ColumnName="OPDB" />
+          <ScalarProperty Name="OPCR" ColumnName="OPCR" />
+          <ScalarProperty Name="PRDB" ColumnName="PRDB" />
+          <ScalarProperty Name="PRCR" ColumnName="PRCR" />
+          <ScalarProperty Name="MDB" ColumnName="MDB" />
+          <ScalarProperty Name="MCR" ColumnName="MCR" />
+          <ScalarProperty Name="TOT" ColumnName="TOT" />
+          <ScalarProperty Name="DateF" ColumnName="DateF" />
+          <ScalarProperty Name="DateT" ColumnName="DateT" />
+          <ScalarProperty Name="YMonth" ColumnName="YMonth" />
+          <ScalarProperty Name="YYear" ColumnName="YYear" />
+          <ScalarProperty Name="YMonth1" ColumnName="YMonth1" />
+          <ScalarProperty Name="YYear1" ColumnName="YYear1" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_Supplier">
+      <EntityTypeMapping TypeName="FinancialSysModel.Tbl_Supplier">
+        <MappingFragment StoreEntitySet="Tbl_Supplier">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Tax_Card" ColumnName="Tax_Card" />
+          <ScalarProperty Name="Tax_FileNo" ColumnName="Tax_FileNo" />
+          <ScalarProperty Name="TaxAuthority_ID" ColumnName="TaxAuthority_ID" />
+          <ScalarProperty Name="SuplierKind" ColumnName="SuplierKind" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_SupplierKind">
+      <EntityTypeMapping TypeName="FinancialSysModel.Tbl_SupplierKind">
+        <MappingFragment StoreEntitySet="Tbl_SupplierKind">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_SystemUnites">
+      <EntityTypeMapping TypeName="FinancialSysModel.Tbl_SystemUnites">
+        <MappingFragment StoreEntitySet="Tbl_SystemUnites">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_TaxAuthority">
+      <EntityTypeMapping TypeName="FinancialSysModel.Tbl_TaxAuthority">
+        <MappingFragment StoreEntitySet="Tbl_TaxAuthority">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBL_Temp_MatchAccounts">
+      <EntityTypeMapping TypeName="FinancialSysModel.TBL_Temp_MatchAccounts">
+        <MappingFragment StoreEntitySet="TBL_Temp_MatchAccounts">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ACC_NO" ColumnName="ACC_NO" />
+          <ScalarProperty Name="ACC_NM_Ar" ColumnName="ACC_NM_Ar" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_TempMatchingRestrictions">
+      <EntityTypeMapping TypeName="FinancialSysModel.Tbl_TempMatchingRestrictions">
+        <MappingFragment StoreEntitySet="Tbl_TempMatchingRestrictions">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Restriction_NO" ColumnName="Restriction_NO" />
+          <ScalarProperty Name="Restriction_Date" ColumnName="Restriction_Date" />
+          <ScalarProperty Name="AccountingRestrictionKind_ID" ColumnName="AccountingRestrictionKind_ID" />
+          <ScalarProperty Name="Accounting_Guid_ID" ColumnName="Accounting_Guid_ID" />
+          <ScalarProperty Name="Debit_Value" ColumnName="Debit_Value" />
+          <ScalarProperty Name="Credit_Value" ColumnName="Credit_Value" />
+          <ScalarProperty Name="TransfeerDate" ColumnName="TransfeerDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_User">
+      <EntityTypeMapping TypeName="FinancialSysModel.Tbl_User">
+        <MappingFragment StoreEntitySet="Tbl_User">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+          <ScalarProperty Name="Employee_id" ColumnName="Employee_id" />
+          <ScalarProperty Name="UserType_ID" ColumnName="UserType_ID" />
+          <ScalarProperty Name="UserStatus_ID" ColumnName="UserStatus_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_User_SysUnites">
+      <EntityTypeMapping TypeName="FinancialSysModel.Tbl_User_SysUnites">
+        <MappingFragment StoreEntitySet="Tbl_User_SysUnites">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Emp_ID" ColumnName="Emp_ID" />
+          <ScalarProperty Name="SysUnites_ID" ColumnName="SysUnites_ID" />
+          <ScalarProperty Name="From_Date" ColumnName="From_Date" />
+          <ScalarProperty Name="To_Date" ColumnName="To_Date" />
+          <ScalarProperty Name="SysUnite_StatusID" ColumnName="SysUnite_StatusID" />
+          <ScalarProperty Name="User_ID" ColumnName="User_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_UserAuthForms">
+      <EntityTypeMapping TypeName="FinancialSysModel.Tbl_UserAuthForms">
+        <MappingFragment StoreEntitySet="Tbl_UserAuthForms">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="User_ID" ColumnName="User_ID" />
+          <ScalarProperty Name="MenuProgUnit_ID" ColumnName="MenuProgUnit_ID" />
+          <ScalarProperty Name="SysUnites_ID" ColumnName="SysUnites_ID" />
+          <ScalarProperty Name="UserType_ID" ColumnName="UserType_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_UsersProcedureForm">
+      <EntityTypeMapping TypeName="FinancialSysModel.Tbl_UsersProcedureForm">
+        <MappingFragment StoreEntitySet="Tbl_UsersProcedureForm">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="User_ID" ColumnName="User_ID" />
+          <ScalarProperty Name="ProceduresForms_ID" ColumnName="ProceduresForms_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_UserStatus">
+      <EntityTypeMapping TypeName="FinancialSysModel.Tbl_UserStatus">
+        <MappingFragment StoreEntitySet="Tbl_UserStatus">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_UserType">
+      <EntityTypeMapping TypeName="FinancialSysModel.Tbl_UserType">
+        <MappingFragment StoreEntitySet="Tbl_UserType">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_ValueAddedTax">
+      <EntityTypeMapping TypeName="FinancialSysModel.Tbl_ValueAddedTax">
+        <MappingFragment StoreEntitySet="Tbl_ValueAddedTax">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

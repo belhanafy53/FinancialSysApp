@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ExtraYears" targetNamespace="http://tempuri.org/ExtraYears.xsd" xmlns:mstns="http://tempuri.org/ExtraYears.xsd" xmlns="http://tempuri.org/ExtraYears.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="FinancialSysConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="FinancialSysConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.FinancialSysApp.Properties.Settings.GlobalReference.Default.FinancialSysConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable1TableAdapter" GeneratorDataComponentClassName="DataTable1TableAdapter" Name="DataTable1" UserDataComponentName="DataTable1TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="FinancialSysConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        ar.Restriction_NO, ar.Restriction_Date, ag.Account_NO AS رقم_الحساب, ag.Name AS اسم_الحساب, ari.Debit_Value AS مدين, ari.Credit_Value AS دائن, ar.FYear, ag2.Account_NO AS رقم_الحساب_المقابل, ag2.Name AS اسم_الحساب_المقابل, 
+                         ari2.Debit_Value AS مدين_للحساب_المقابل, ari2.Credit_Value AS دائن_للحساب_المقابل, dc.Name AS البيان
+FROM            Tbl_AccountingRestrictions_Kind AS ark INNER JOIN
+                         Tbl_AccountingRestrictionItems AS ari ON ark.ID = ari.AccountingRestrictionKind_ID INNER JOIN
+                         Tbl_Accounting_Guid AS ag ON ari.Accounting_Guid_ID = ag.ID INNER JOIN
+                         Tbl_AccountingRestriction AS ar ON ari.AccountingRestriction_ID = ar.ID INNER JOIN
+                         TBL_Document AS doc ON ar.Document_ID = doc.ID INNER JOIN
+                         Tbl_DocumentCategory AS dc ON doc.DocumentCategory_ID = dc.ID LEFT OUTER JOIN
+                         Tbl_AccountingRestrictionItems AS ari2 ON ar.ID = ari2.AccountingRestriction_ID AND ari2.ID &lt;&gt; ari.ID LEFT OUTER JOIN
+                         Tbl_Accounting_Guid AS ag2 ON ari2.Accounting_Guid_ID = ag2.ID</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="رقم_الحساب" DataSetColumn="رقم_الحساب" />
+              <Mapping SourceColumn="اسم_الحساب" DataSetColumn="اسم_الحساب" />
+              <Mapping SourceColumn="مدين" DataSetColumn="مدين" />
+              <Mapping SourceColumn="دائن" DataSetColumn="دائن" />
+              <Mapping SourceColumn="FYear" DataSetColumn="FYear" />
+              <Mapping SourceColumn="رقم_الحساب_المقابل" DataSetColumn="رقم_الحساب_المقابل" />
+              <Mapping SourceColumn="اسم_الحساب_المقابل" DataSetColumn="اسم_الحساب_المقابل" />
+              <Mapping SourceColumn="مدين_للحساب_المقابل" DataSetColumn="مدين_للحساب_المقابل" />
+              <Mapping SourceColumn="دائن_للحساب_المقابل" DataSetColumn="دائن_للحساب_المقابل" />
+              <Mapping SourceColumn="البيان" DataSetColumn="البيان" />
+              <Mapping SourceColumn="Restriction_NO" DataSetColumn="Restriction_NO" />
+              <Mapping SourceColumn="Restriction_Date" DataSetColumn="Restriction_Date" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="ExtraYears" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="ExtraYears" msprop:Generator_UserDSName="ExtraYears">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowClassName="DataTable1Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="رقم_الحساب" msprop:Generator_ColumnVarNameInTable="columnرقم_الحساب" msprop:Generator_ColumnPropNameInRow="رقم_الحساب" msprop:Generator_ColumnPropNameInTable="رقم_الحسابColumn" msprop:Generator_UserColumnName="رقم_الحساب">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="اسم_الحساب" msprop:Generator_ColumnVarNameInTable="columnاسم_الحساب" msprop:Generator_ColumnPropNameInRow="اسم_الحساب" msprop:Generator_ColumnPropNameInTable="اسم_الحسابColumn" msprop:Generator_UserColumnName="اسم_الحساب">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="مدين" msprop:Generator_ColumnVarNameInTable="columnمدين" msprop:Generator_ColumnPropNameInRow="مدين" msprop:Generator_ColumnPropNameInTable="مدينColumn" msprop:Generator_UserColumnName="مدين" type="xs:decimal" />
+              <xs:element name="دائن" msprop:Generator_ColumnVarNameInTable="columnدائن" msprop:Generator_ColumnPropNameInRow="دائن" msprop:Generator_ColumnPropNameInTable="دائنColumn" msprop:Generator_UserColumnName="دائن" type="xs:decimal" />
+              <xs:element name="FYear" msprop:Generator_ColumnVarNameInTable="columnFYear" msprop:Generator_ColumnPropNameInRow="FYear" msprop:Generator_ColumnPropNameInTable="FYearColumn" msprop:Generator_UserColumnName="FYear" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="رقم_الحساب_المقابل" msprop:Generator_ColumnVarNameInTable="columnرقم_الحساب_المقابل" msprop:Generator_ColumnPropNameInRow="رقم_الحساب_المقابل" msprop:Generator_ColumnPropNameInTable="رقم_الحساب_المقابلColumn" msprop:Generator_UserColumnName="رقم_الحساب_المقابل" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="اسم_الحساب_المقابل" msprop:Generator_ColumnVarNameInTable="columnاسم_الحساب_المقابل" msprop:Generator_ColumnPropNameInRow="اسم_الحساب_المقابل" msprop:Generator_ColumnPropNameInTable="اسم_الحساب_المقابلColumn" msprop:Generator_UserColumnName="اسم_الحساب_المقابل" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="مدين_للحساب_المقابل" msprop:Generator_ColumnVarNameInTable="columnمدين_للحساب_المقابل" msprop:Generator_ColumnPropNameInRow="مدين_للحساب_المقابل" msprop:Generator_ColumnPropNameInTable="مدين_للحساب_المقابلColumn" msprop:Generator_UserColumnName="مدين_للحساب_المقابل" type="xs:decimal" minOccurs="0" />
+              <xs:element name="دائن_للحساب_المقابل" msprop:Generator_ColumnVarNameInTable="columnدائن_للحساب_المقابل" msprop:Generator_ColumnPropNameInRow="دائن_للحساب_المقابل" msprop:Generator_ColumnPropNameInTable="دائن_للحساب_المقابلColumn" msprop:Generator_UserColumnName="دائن_للحساب_المقابل" type="xs:decimal" minOccurs="0" />
+              <xs:element name="البيان" msprop:Generator_ColumnVarNameInTable="columnالبيان" msprop:Generator_ColumnPropNameInRow="البيان" msprop:Generator_ColumnPropNameInTable="البيانColumn" msprop:Generator_UserColumnName="البيان">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Restriction_NO" msprop:Generator_ColumnVarNameInTable="columnRestriction_NO" msprop:Generator_ColumnPropNameInRow="Restriction_NO" msprop:Generator_ColumnPropNameInTable="Restriction_NOColumn" msprop:Generator_UserColumnName="Restriction_NO" type="xs:decimal" />
+              <xs:element name="Restriction_Date" msprop:Generator_ColumnVarNameInTable="columnRestriction_Date" msprop:Generator_ColumnPropNameInRow="Restriction_Date" msprop:Generator_ColumnPropNameInTable="Restriction_DateColumn" msprop:Generator_UserColumnName="Restriction_Date" type="xs:dateTime" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,183 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "E:\\FSysN\\FinancialSysApp\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{10DF81E3-51D7-49FB-8AA4-49B75E9ED211}|FinancialSysApp\\FinancialSysApp.csproj|e:\\fsysn\\financialsysapp\\financialsysapp\\forms\\banks\\chequefrm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{10DF81E3-51D7-49FB-8AA4-49B75E9ED211}|FinancialSysApp\\FinancialSysApp.csproj|solutionrelative:financialsysapp\\forms\\banks\\chequefrm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{10DF81E3-51D7-49FB-8AA4-49B75E9ED211}|FinancialSysApp\\FinancialSysApp.csproj|e:\\fsysn\\financialsysapp\\financialsysapp\\forms\\banks\\chequefrm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{10DF81E3-51D7-49FB-8AA4-49B75E9ED211}|FinancialSysApp\\FinancialSysApp.csproj|solutionrelative:financialsysapp\\forms\\banks\\chequefrm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{10DF81E3-51D7-49FB-8AA4-49B75E9ED211}|FinancialSysApp\\FinancialSysApp.csproj|e:\\fsysn\\financialsysapp\\financialsysapp\\forms\\basiccodeforms\\findordersfrm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{10DF81E3-51D7-49FB-8AA4-49B75E9ED211}|FinancialSysApp\\FinancialSysApp.csproj|solutionrelative:financialsysapp\\forms\\basiccodeforms\\findordersfrm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{10DF81E3-51D7-49FB-8AA4-49B75E9ED211}|FinancialSysApp\\FinancialSysApp.csproj|e:\\fsysn\\financialsysapp\\financialsysapp\\forms\\documentsforms\\orderfrm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{10DF81E3-51D7-49FB-8AA4-49B75E9ED211}|FinancialSysApp\\FinancialSysApp.csproj|solutionrelative:financialsysapp\\forms\\documentsforms\\orderfrm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{10DF81E3-51D7-49FB-8AA4-49B75E9ED211}|FinancialSysApp\\FinancialSysApp.csproj|E:\\FSysN\\FinancialSysApp\\financialsysapp\\forms\\basiccodeforms\\findordersfrm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{10DF81E3-51D7-49FB-8AA4-49B75E9ED211}|FinancialSysApp\\FinancialSysApp.csproj|solutionrelative:financialsysapp\\forms\\basiccodeforms\\findordersfrm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{10DF81E3-51D7-49FB-8AA4-49B75E9ED211}|FinancialSysApp\\FinancialSysApp.csproj|E:\\FSysN\\FinancialSysApp\\financialsysapp\\forms\\basiccodeforms\\letterwarrantyfrm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{10DF81E3-51D7-49FB-8AA4-49B75E9ED211}|FinancialSysApp\\FinancialSysApp.csproj|solutionrelative:financialsysapp\\forms\\basiccodeforms\\letterwarrantyfrm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{10DF81E3-51D7-49FB-8AA4-49B75E9ED211}|FinancialSysApp\\FinancialSysApp.csproj|E:\\FSysN\\FinancialSysApp\\financialsysapp\\forms\\basiccodeforms\\letterwarrantyfrm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{10DF81E3-51D7-49FB-8AA4-49B75E9ED211}|FinancialSysApp\\FinancialSysApp.csproj|solutionrelative:financialsysapp\\forms\\basiccodeforms\\letterwarrantyfrm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 12,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e506b91c-c606-466a-90a9-123d1d1e12b3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{9183c819-01e4-3cc8-b93b-edcdbb0ef36c}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{7ad0d46f-df4a-3d4b-9f9b-8322f9c21927}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:12:0:{2456bd12-ecf7-4988-a4a6-67d49173f565}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:11:0:{2456bd12-ecf7-4988-a4a6-67d49173f565}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{13b12e3e-c1b4-4539-9371-4fe9a0d523fc}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{13b12e3e-c1b4-4539-9371-4fe9a0d523fc}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ChequeFrm.cs",
+              "DocumentMoniker": "E:\\FSysN\\FinancialSysApp\\FinancialSysApp\\Forms\\Banks\\ChequeFrm.cs",
+              "RelativeDocumentMoniker": "FinancialSysApp\\Forms\\Banks\\ChequeFrm.cs",
+              "ToolTip": "E:\\FSysN\\FinancialSysApp\\FinancialSysApp\\Forms\\Banks\\ChequeFrm.cs",
+              "RelativeToolTip": "FinancialSysApp\\Forms\\Banks\\ChequeFrm.cs",
+              "ViewState": "AgIAAEsPAAAAAAAAAAAuwGcPAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-05T09:06:18.57Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "OrderFrm.cs [Design]",
+              "DocumentMoniker": "E:\\FSysN\\FinancialSysApp\\FinancialSysApp\\Forms\\DocumentsForms\\OrderFrm.cs",
+              "RelativeDocumentMoniker": "FinancialSysApp\\Forms\\DocumentsForms\\OrderFrm.cs",
+              "ToolTip": "E:\\FSysN\\FinancialSysApp\\FinancialSysApp\\Forms\\DocumentsForms\\OrderFrm.cs [Design]",
+              "RelativeToolTip": "FinancialSysApp\\Forms\\DocumentsForms\\OrderFrm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-05T08:53:18.534Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ChequeFrm.cs [Design]",
+              "DocumentMoniker": "E:\\FSysN\\FinancialSysApp\\FinancialSysApp\\Forms\\Banks\\ChequeFrm.cs",
+              "RelativeDocumentMoniker": "FinancialSysApp\\Forms\\Banks\\ChequeFrm.cs",
+              "ToolTip": "E:\\FSysN\\FinancialSysApp\\FinancialSysApp\\Forms\\Banks\\ChequeFrm.cs [Design]",
+              "RelativeToolTip": "FinancialSysApp\\Forms\\Banks\\ChequeFrm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-05T08:41:47.411Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "FindOrdersFrm.cs",
+              "DocumentMoniker": "E:\\FSysN\\FinancialSysApp\\FinancialSysApp\\Forms\\BasicCodeForms\\FindOrdersFrm.cs",
+              "RelativeDocumentMoniker": "FinancialSysApp\\Forms\\BasicCodeForms\\FindOrdersFrm.cs",
+              "ToolTip": "E:\\FSysN\\FinancialSysApp\\FinancialSysApp\\Forms\\BasicCodeForms\\FindOrdersFrm.cs",
+              "RelativeToolTip": "FinancialSysApp\\Forms\\BasicCodeForms\\FindOrdersFrm.cs",
+              "ViewState": "AgIAAEcAAAAAAAAAAAAhwFgAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-04T09:11:48.342Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "FindOrdersFrm.cs [Design]",
+              "DocumentMoniker": "E:\\FSysN\\FinancialSysApp\\FinancialSysApp\\Forms\\BasicCodeForms\\FindOrdersFrm.cs",
+              "RelativeDocumentMoniker": "FinancialSysApp\\Forms\\BasicCodeForms\\FindOrdersFrm.cs",
+              "ToolTip": "E:\\FSysN\\FinancialSysApp\\FinancialSysApp\\Forms\\BasicCodeForms\\FindOrdersFrm.cs [Design]",
+              "RelativeToolTip": "FinancialSysApp\\Forms\\BasicCodeForms\\FindOrdersFrm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-04T09:15:59.463Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "LetterWarrantyFrm.cs",
+              "DocumentMoniker": "E:\\FSysN\\FinancialSysApp\\FinancialSysApp\\Forms\\BasicCodeForms\\LetterWarrantyFrm.cs",
+              "RelativeDocumentMoniker": "FinancialSysApp\\Forms\\BasicCodeForms\\LetterWarrantyFrm.cs",
+              "ToolTip": "E:\\FSysN\\FinancialSysApp\\FinancialSysApp\\Forms\\BasicCodeForms\\LetterWarrantyFrm.cs",
+              "RelativeToolTip": "FinancialSysApp\\Forms\\BasicCodeForms\\LetterWarrantyFrm.cs",
+              "ViewState": "AgIAADYCAAAAAAAAAAAjwE8CAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-04T09:10:17.501Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "LetterWarrantyFrm.cs [Design]",
+              "DocumentMoniker": "E:\\FSysN\\FinancialSysApp\\FinancialSysApp\\Forms\\BasicCodeForms\\LetterWarrantyFrm.cs",
+              "RelativeDocumentMoniker": "FinancialSysApp\\Forms\\BasicCodeForms\\LetterWarrantyFrm.cs",
+              "ToolTip": "E:\\FSysN\\FinancialSysApp\\FinancialSysApp\\Forms\\BasicCodeForms\\LetterWarrantyFrm.cs [Design]",
+              "RelativeToolTip": "FinancialSysApp\\Forms\\BasicCodeForms\\LetterWarrantyFrm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-04T09:10:05.691Z",
+              "EditorCaption": " [Design]"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

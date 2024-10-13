@@ -1,0 +1,1024 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FinancialSysModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Detail">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="JRN_CD" Type="varchar" MaxLength="3" />
+    <Property Name="TR_NO" Type="int" />
+    <Property Name="LN_NO" Type="smallint" />
+    <Property Name="ACC_NO" Type="varchar" MaxLength="15" />
+    <Property Name="TR_DS" Type="varchar" MaxLength="40" />
+    <Property Name="DB_VL" Type="float" />
+    <Property Name="CR_VL" Type="float" />
+    <Property Name="TR_DT" Type="datetime" />
+    <Property Name="ACC_NM_Ar" Type="varchar" MaxLength="30" />
+    <Property Name="ACC_TY" Type="smallint" />
+    <Property Name="MANACC" Type="varchar" MaxLength="15" />
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Tbl_Accounting_Guid">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Account_NO" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Parent_ID" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="From_Date" Type="date" Nullable="false" />
+    <Property Name="To_Date" Type="date" />
+    <Property Name="AccountsKind_ID" Type="int" />
+    <Property Name="PersonalAccount" Type="int" />
+    <Property Name="Advac_AccountingNO" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Tbl_AccountingRestriction">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Restriction_NO" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="Restriction_Date" Type="date" Nullable="false" />
+    <Property Name="Document_ID" Type="int" />
+    <Property Name="AccountingRestrictionKind_ID" Type="int" />
+    <Property Name="AcountingRestrictionCorrRelation_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Tbl_AccountingRestrictionItems">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Row_No" Type="smallint" Nullable="false" />
+    <Property Name="AccountingRestriction_ID" Type="int" Nullable="false" />
+    <Property Name="Accounting_Guid_ID" Type="int" Nullable="false" />
+    <Property Name="Debit_Value" Type="numeric" Precision="18" Scale="3" Nullable="false" />
+    <Property Name="Credit_Value" Type="numeric" Precision="18" Scale="3" Nullable="false" />
+    <Property Name="RestrictionItemsCategory_ID" Type="int" />
+    <Property Name="Activities_ID" Type="int" />
+  </EntityType>
+  <EntityType Name="Tbl_AccountingRestrictions_Kind">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Tbl_AccountsKind">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Parent_id" Type="int" />
+  </EntityType>
+  <EntityType Name="Tbl_Activities">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="150" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Tbl_Auth_Users_Forms">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Form_SysUnites_ID" Type="int" Nullable="false" />
+    <Property Name="Procedure_ID" Type="int" Nullable="false" />
+    <Property Name="User_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Tbl_Banks">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Tbl_Beneficiary">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="BeneficiaryKind_ID" Type="int" />
+    <Property Name="ID_Emp" Type="int" />
+    <Property Name="ID_Cust" Type="int" />
+    <Property Name="ID_Supp" Type="int" />
+  </EntityType>
+  <EntityType Name="Tbl_BeneficiaryKind">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Tbl_CenteralDeviceNotes">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CentralDeviceNotes" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="NoteDate" Type="date" />
+    <Property Name="AccountRestriction_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Tbl_CentralDeviceReplies">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CentralDeviceReplies" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ReplyDate" Type="date" />
+    <Property Name="CentralDeviceNotes_ID" Type="int" />
+  </EntityType>
+  <EntityType Name="Tbl_ChequeKind">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="Tbl_Cheques">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ChequeNO" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="ChequeDate" Type="date" Nullable="false" />
+    <Property Name="ChequeValue" Type="numeric" Precision="18" Scale="3" Nullable="false" />
+    <Property Name="Bank_ID" Type="int" Nullable="false" />
+    <Property Name="AccountingRestriction_ID" Type="int" />
+  </EntityType>
+  <EntityType Name="Tbl_CostCenters">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="250" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Tbl_Customer">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="Address" Type="nvarchar(max)" />
+    <Property Name="Phone" Type="nvarchar(max)" />
+    <Property Name="Tax_Card" Type="nvarchar(max)" />
+    <Property Name="Trade_Record" Type="nvarchar(max)" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'FinancialSys.dbo.Tbl_DateRange' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="Tbl_DateRange">
+          <Property Name="DateF" Type="date" />
+          <Property Name="DateT" Type="date" />
+        </EntityType>-->
+  <EntityType Name="TBL_Document">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="DocumentCategory_ID" Type="int" Nullable="false" />
+    <Property Name="Beneficiary_ID" Type="int" Nullable="false" />
+    <Property Name="ExchangeCenter_ID" Type="int" />
+    <Property Name="Order_ID" Type="int" />
+    <Property Name="OrderHandler_ID" Type="int" />
+    <Property Name="Document_NO" Type="nvarchar" MaxLength="30" />
+    <Property Name="Document_Date" Type="date" />
+    <Property Name="Audit_NO" Type="nvarchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="Tbl_DocumentCategory">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Tbl_Employee">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="NationalId" Type="nvarchar" MaxLength="50" />
+    <Property Name="Management_ID" Type="int" Nullable="false" />
+    <Property Name="GenderID" Type="int" />
+  </EntityType>
+  <EntityType Name="Tbl_ExchangeCenter">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Mnagement_ID" Type="int" />
+  </EntityType>
+  <EntityType Name="Tbl_Form_SysUnites">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Form_ID" Type="int" Nullable="false" />
+    <Property Name="SysUnites_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Tbl_Forms">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="Name_English" Type="nchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="Tbl_Indebtedness">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IndebtednessKind_ID" Type="int" Nullable="false" />
+    <Property Name="AccountingRestrictionDetails_ID" Type="int" Nullable="false" />
+    <Property Name="Category_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Tbl_IndebtednessKind">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Tbl_Management">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Management_ID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ExchangeCenter_ID" Type="int" />
+    <Property Name="Parent_ID" Type="int" />
+    <Property Name="ManagementCategory_ID" Type="int" />
+  </EntityType>
+  <EntityType Name="Tbl_ManagementCategory">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Tbl_Order">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OrderKind_ID" Type="int" Nullable="false" />
+    <Property Name="Order_NO" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Order_Date" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Tbl_OrderHandler">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Employee_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Tbl_OrderKind">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Tbl_Procedures">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Tbl_RestrictionItemsCategory">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'FinancialSys.dbo.TBL_RESULT' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="TBL_RESULT">
+          <Property Name="ACC_NO" Type="nvarchar" MaxLength="50" />
+          <Property Name="ACC_NM_Ar" Type="nvarchar(max)" />
+          <Property Name="OPDB" Type="decimal" Precision="18" Scale="3" />
+          <Property Name="OPCR" Type="decimal" Precision="18" Scale="3" />
+          <Property Name="PRDB" Type="decimal" Precision="18" Scale="3" />
+          <Property Name="PRCR" Type="decimal" Precision="18" Scale="3" />
+          <Property Name="MDB" Type="decimal" Precision="18" Scale="3" />
+          <Property Name="MCR" Type="decimal" Precision="18" Scale="3" />
+          <Property Name="TOT" Type="float" />
+        </EntityType>-->
+  <EntityType Name="Tbl_Supplier">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="Address" Type="nvarchar(max)" />
+    <Property Name="Phone" Type="nvarchar(max)" />
+    <Property Name="Tax_Card" Type="nvarchar(max)" />
+    <Property Name="Tax_FileNo" Type="nvarchar(max)" />
+    <Property Name="TaxAuthority_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Tbl_SystemUnites">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="250" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Tbl_TaxAuthority">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TaxAuthority_Code" Type="nvarchar" MaxLength="50" />
+    <Property Name="Name" Type="nvarchar" MaxLength="250" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Tbl_User">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ImagePath" Type="nvarchar" MaxLength="100" />
+    <Property Name="Employee_id" Type="int" />
+    <Property Name="UserType_ID" Type="int" />
+  </EntityType>
+  <EntityType Name="Tbl_User_SysUnites">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Emp_ID" Type="int" Nullable="false" />
+    <Property Name="SysUnites_ID" Type="int" Nullable="false" />
+    <Property Name="From_Date" Type="date" />
+    <Property Name="To_Date" Type="date" />
+  </EntityType>
+  <EntityType Name="Tbl_UserType">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_Tbl_Accounting_Guid_Tbl_AccountsKind">
+    <End Role="Tbl_AccountsKind" Type="Self.Tbl_AccountsKind" Multiplicity="0..1" />
+    <End Role="Tbl_Accounting_Guid" Type="Self.Tbl_Accounting_Guid" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_AccountsKind">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Tbl_Accounting_Guid">
+        <PropertyRef Name="AccountsKind_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tbl_AccountingRestriction_Tbl_AccountingRestrictions_Kind">
+    <End Role="Tbl_AccountingRestrictions_Kind" Type="Self.Tbl_AccountingRestrictions_Kind" Multiplicity="0..1" />
+    <End Role="Tbl_AccountingRestriction" Type="Self.Tbl_AccountingRestriction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_AccountingRestrictions_Kind">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Tbl_AccountingRestriction">
+        <PropertyRef Name="AccountingRestrictionKind_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tbl_AccountingRestrictionDetail_Tbl_Accounting_Guid">
+    <End Role="Tbl_Accounting_Guid" Type="Self.Tbl_Accounting_Guid" Multiplicity="1" />
+    <End Role="Tbl_AccountingRestrictionItems" Type="Self.Tbl_AccountingRestrictionItems" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_Accounting_Guid">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Tbl_AccountingRestrictionItems">
+        <PropertyRef Name="Accounting_Guid_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tbl_AccountingRestrictionDetail_Tbl_AccountingRestriction">
+    <End Role="Tbl_AccountingRestriction" Type="Self.Tbl_AccountingRestriction" Multiplicity="1" />
+    <End Role="Tbl_AccountingRestrictionItems" Type="Self.Tbl_AccountingRestrictionItems" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_AccountingRestriction">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Tbl_AccountingRestrictionItems">
+        <PropertyRef Name="AccountingRestriction_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tbl_AccountingRestrictionItems_Tbl_Activities">
+    <End Role="Tbl_Activities" Type="Self.Tbl_Activities" Multiplicity="0..1" />
+    <End Role="Tbl_AccountingRestrictionItems" Type="Self.Tbl_AccountingRestrictionItems" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_Activities">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Tbl_AccountingRestrictionItems">
+        <PropertyRef Name="Activities_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tbl_AccountingRestrictionItems_Tbl_RestrictionItemsCategory">
+    <End Role="Tbl_RestrictionItemsCategory" Type="Self.Tbl_RestrictionItemsCategory" Multiplicity="0..1" />
+    <End Role="Tbl_AccountingRestrictionItems" Type="Self.Tbl_AccountingRestrictionItems" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_RestrictionItemsCategory">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Tbl_AccountingRestrictionItems">
+        <PropertyRef Name="RestrictionItemsCategory_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tbl_AccountingRestrictions_TBL_Document">
+    <End Role="TBL_Document" Type="Self.TBL_Document" Multiplicity="0..1" />
+    <End Role="Tbl_AccountingRestriction" Type="Self.Tbl_AccountingRestriction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_Document">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Tbl_AccountingRestriction">
+        <PropertyRef Name="Document_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tbl_AccountsKind_Tbl_AccountsKind">
+    <End Role="Tbl_AccountsKind" Type="Self.Tbl_AccountsKind" Multiplicity="0..1" />
+    <End Role="Tbl_AccountsKind1" Type="Self.Tbl_AccountsKind" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_AccountsKind">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Tbl_AccountsKind1">
+        <PropertyRef Name="Parent_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tbl_Auth_Users_Forms_Tbl_Auth_Users_Forms">
+    <End Role="Tbl_Procedures" Type="Self.Tbl_Procedures" Multiplicity="1" />
+    <End Role="Tbl_Auth_Users_Forms" Type="Self.Tbl_Auth_Users_Forms" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_Procedures">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Tbl_Auth_Users_Forms">
+        <PropertyRef Name="Procedure_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tbl_Auth_Users_Forms_Tbl_Form_SysUnites">
+    <End Role="Tbl_Form_SysUnites" Type="Self.Tbl_Form_SysUnites" Multiplicity="1" />
+    <End Role="Tbl_Auth_Users_Forms" Type="Self.Tbl_Auth_Users_Forms" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_Form_SysUnites">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Tbl_Auth_Users_Forms">
+        <PropertyRef Name="Form_SysUnites_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tbl_Auth_Users_Forms_Tbl_User">
+    <End Role="Tbl_User" Type="Self.Tbl_User" Multiplicity="1" />
+    <End Role="Tbl_Auth_Users_Forms" Type="Self.Tbl_Auth_Users_Forms" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Tbl_Auth_Users_Forms">
+        <PropertyRef Name="User_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tbl_Beneficiary_Tbl_BeneficiaryKind">
+    <End Role="Tbl_BeneficiaryKind" Type="Self.Tbl_BeneficiaryKind" Multiplicity="0..1" />
+    <End Role="Tbl_Beneficiary" Type="Self.Tbl_Beneficiary" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_BeneficiaryKind">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Tbl_Beneficiary">
+        <PropertyRef Name="BeneficiaryKind_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tbl_Beneficiary_Tbl_Customer">
+    <End Role="Tbl_Customer" Type="Self.Tbl_Customer" Multiplicity="0..1" />
+    <End Role="Tbl_Beneficiary" Type="Self.Tbl_Beneficiary" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_Customer">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Tbl_Beneficiary">
+        <PropertyRef Name="ID_Cust" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tbl_Beneficiary_Tbl_Employee">
+    <End Role="Tbl_Employee" Type="Self.Tbl_Employee" Multiplicity="0..1" />
+    <End Role="Tbl_Beneficiary" Type="Self.Tbl_Beneficiary" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_Employee">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Tbl_Beneficiary">
+        <PropertyRef Name="ID_Emp" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tbl_Beneficiary_Tbl_Supplier">
+    <End Role="Tbl_Supplier" Type="Self.Tbl_Supplier" Multiplicity="0..1" />
+    <End Role="Tbl_Beneficiary" Type="Self.Tbl_Beneficiary" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_Supplier">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Tbl_Beneficiary">
+        <PropertyRef Name="ID_Supp" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tbl_CenteralDeviceNotes_Tbl_AccountingRestriction">
+    <End Role="Tbl_AccountingRestriction" Type="Self.Tbl_AccountingRestriction" Multiplicity="1" />
+    <End Role="Tbl_CenteralDeviceNotes" Type="Self.Tbl_CenteralDeviceNotes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_AccountingRestriction">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Tbl_CenteralDeviceNotes">
+        <PropertyRef Name="AccountRestriction_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tbl_CentralDeviceReplies_Tbl_CentralDeviceReplies">
+    <End Role="Tbl_CenteralDeviceNotes" Type="Self.Tbl_CenteralDeviceNotes" Multiplicity="0..1" />
+    <End Role="Tbl_CentralDeviceReplies" Type="Self.Tbl_CentralDeviceReplies" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_CenteralDeviceNotes">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Tbl_CentralDeviceReplies">
+        <PropertyRef Name="CentralDeviceNotes_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tbl_Cheques_Tbl_AccountingRestriction">
+    <End Role="Tbl_AccountingRestriction" Type="Self.Tbl_AccountingRestriction" Multiplicity="0..1" />
+    <End Role="Tbl_Cheques" Type="Self.Tbl_Cheques" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_AccountingRestriction">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Tbl_Cheques">
+        <PropertyRef Name="AccountingRestriction_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBL_Document_Tbl_DocumentCategory">
+    <End Role="Tbl_DocumentCategory" Type="Self.Tbl_DocumentCategory" Multiplicity="1" />
+    <End Role="TBL_Document" Type="Self.TBL_Document" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_DocumentCategory">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TBL_Document">
+        <PropertyRef Name="DocumentCategory_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBL_Document_Tbl_Order">
+    <End Role="Tbl_Order" Type="Self.Tbl_Order" Multiplicity="0..1" />
+    <End Role="TBL_Document" Type="Self.TBL_Document" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_Order">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TBL_Document">
+        <PropertyRef Name="Order_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBL_Document_Tbl_OrderHandler">
+    <End Role="Tbl_OrderHandler" Type="Self.Tbl_OrderHandler" Multiplicity="0..1" />
+    <End Role="TBL_Document" Type="Self.TBL_Document" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_OrderHandler">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TBL_Document">
+        <PropertyRef Name="OrderHandler_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tbl_Form_SysUnites_Tbl_Forms">
+    <End Role="Tbl_Forms" Type="Self.Tbl_Forms" Multiplicity="1" />
+    <End Role="Tbl_Form_SysUnites" Type="Self.Tbl_Form_SysUnites" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_Forms">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Tbl_Form_SysUnites">
+        <PropertyRef Name="Form_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tbl_Form_SysUnites_Tbl_SystemUnites">
+    <End Role="Tbl_SystemUnites" Type="Self.Tbl_SystemUnites" Multiplicity="1" />
+    <End Role="Tbl_Form_SysUnites" Type="Self.Tbl_Form_SysUnites" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_SystemUnites">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Tbl_Form_SysUnites">
+        <PropertyRef Name="SysUnites_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tbl_Indebtedness_Tbl_AccountingRestrictionDetail">
+    <End Role="Tbl_AccountingRestrictionItems" Type="Self.Tbl_AccountingRestrictionItems" Multiplicity="1" />
+    <End Role="Tbl_Indebtedness" Type="Self.Tbl_Indebtedness" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_AccountingRestrictionItems">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Tbl_Indebtedness">
+        <PropertyRef Name="AccountingRestrictionDetails_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tbl_Indebtedness_Tbl_Category">
+    <End Role="Tbl_RestrictionItemsCategory" Type="Self.Tbl_RestrictionItemsCategory" Multiplicity="1" />
+    <End Role="Tbl_Indebtedness" Type="Self.Tbl_Indebtedness" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_RestrictionItemsCategory">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Tbl_Indebtedness">
+        <PropertyRef Name="Category_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tbl_Indebtedness_Tbl_IndebtednessKind">
+    <End Role="Tbl_IndebtednessKind" Type="Self.Tbl_IndebtednessKind" Multiplicity="1" />
+    <End Role="Tbl_Indebtedness" Type="Self.Tbl_Indebtedness" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_IndebtednessKind">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Tbl_Indebtedness">
+        <PropertyRef Name="IndebtednessKind_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tbl_Management_Tbl_ExchangeCenter">
+    <End Role="Tbl_ExchangeCenter" Type="Self.Tbl_ExchangeCenter" Multiplicity="0..1" />
+    <End Role="Tbl_Management" Type="Self.Tbl_Management" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_ExchangeCenter">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Tbl_Management">
+        <PropertyRef Name="ExchangeCenter_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tbl_Management_Tbl_ManagementCategory">
+    <End Role="Tbl_ManagementCategory" Type="Self.Tbl_ManagementCategory" Multiplicity="0..1" />
+    <End Role="Tbl_Management" Type="Self.Tbl_Management" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_ManagementCategory">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Tbl_Management">
+        <PropertyRef Name="ManagementCategory_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tbl_Order_Tbl_OrderKind">
+    <End Role="Tbl_OrderKind" Type="Self.Tbl_OrderKind" Multiplicity="1" />
+    <End Role="Tbl_Order" Type="Self.Tbl_Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_OrderKind">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Tbl_Order">
+        <PropertyRef Name="OrderKind_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tbl_OrderHandler_Tbl_Employee">
+    <End Role="Tbl_Employee" Type="Self.Tbl_Employee" Multiplicity="1" />
+    <End Role="Tbl_OrderHandler" Type="Self.Tbl_OrderHandler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_Employee">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Tbl_OrderHandler">
+        <PropertyRef Name="Employee_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tbl_Supplier_Tbl_TaxAuthority">
+    <End Role="Tbl_TaxAuthority" Type="Self.Tbl_TaxAuthority" Multiplicity="1" />
+    <End Role="Tbl_Supplier" Type="Self.Tbl_Supplier" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_TaxAuthority">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Tbl_Supplier">
+        <PropertyRef Name="TaxAuthority_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tbl_User_SysUnites_Tbl_Employee">
+    <End Role="Tbl_Employee" Type="Self.Tbl_Employee" Multiplicity="1" />
+    <End Role="Tbl_User_SysUnites" Type="Self.Tbl_User_SysUnites" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_Employee">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Tbl_User_SysUnites">
+        <PropertyRef Name="Emp_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tbl_User_SysUnites_Tbl_User_SysUnites">
+    <End Role="Tbl_SystemUnites" Type="Self.Tbl_SystemUnites" Multiplicity="1" />
+    <End Role="Tbl_User_SysUnites" Type="Self.Tbl_User_SysUnites" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_SystemUnites">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Tbl_User_SysUnites">
+        <PropertyRef Name="SysUnites_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tbl_User_Tbl_Employee">
+    <End Role="Tbl_Employee" Type="Self.Tbl_Employee" Multiplicity="0..1" />
+    <End Role="Tbl_User" Type="Self.Tbl_User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_Employee">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Tbl_User">
+        <PropertyRef Name="Employee_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tbl_User_Tbl_UserType">
+    <End Role="Tbl_UserType" Type="Self.Tbl_UserType" Multiplicity="0..1" />
+    <End Role="Tbl_User" Type="Self.Tbl_User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_UserType">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Tbl_User">
+        <PropertyRef Name="UserType_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+  <Function Name="MonyCR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="float">
+    <Parameter Name="ACC_NO" Type="varchar" Mode="In" />
+    <Parameter Name="Date1" Type="datetime" Mode="In" />
+    <Parameter Name="Date2" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="MonyDB" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="float">
+    <Parameter Name="ACC_NO" Type="varchar" Mode="In" />
+    <Parameter Name="Date1" Type="date" Mode="In" />
+    <Parameter Name="Date2" Type="date" Mode="In" />
+  </Function>
+  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="STP_AlterIndex" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="FinancialSysModelStoreContainer">
+    <EntitySet Name="Detail" EntityType="Self.Detail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Accounting_Guid" EntityType="Self.Tbl_Accounting_Guid" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_AccountingRestriction" EntityType="Self.Tbl_AccountingRestriction" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_AccountingRestrictionItems" EntityType="Self.Tbl_AccountingRestrictionItems" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_AccountingRestrictions_Kind" EntityType="Self.Tbl_AccountingRestrictions_Kind" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_AccountsKind" EntityType="Self.Tbl_AccountsKind" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Activities" EntityType="Self.Tbl_Activities" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Auth_Users_Forms" EntityType="Self.Tbl_Auth_Users_Forms" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Banks" EntityType="Self.Tbl_Banks" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Beneficiary" EntityType="Self.Tbl_Beneficiary" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_BeneficiaryKind" EntityType="Self.Tbl_BeneficiaryKind" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_CenteralDeviceNotes" EntityType="Self.Tbl_CenteralDeviceNotes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_CentralDeviceReplies" EntityType="Self.Tbl_CentralDeviceReplies" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_ChequeKind" EntityType="Self.Tbl_ChequeKind" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Cheques" EntityType="Self.Tbl_Cheques" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_CostCenters" EntityType="Self.Tbl_CostCenters" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Customer" EntityType="Self.Tbl_Customer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBL_Document" EntityType="Self.TBL_Document" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_DocumentCategory" EntityType="Self.Tbl_DocumentCategory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Employee" EntityType="Self.Tbl_Employee" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_ExchangeCenter" EntityType="Self.Tbl_ExchangeCenter" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Form_SysUnites" EntityType="Self.Tbl_Form_SysUnites" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Forms" EntityType="Self.Tbl_Forms" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Indebtedness" EntityType="Self.Tbl_Indebtedness" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_IndebtednessKind" EntityType="Self.Tbl_IndebtednessKind" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Management" EntityType="Self.Tbl_Management" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_ManagementCategory" EntityType="Self.Tbl_ManagementCategory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Order" EntityType="Self.Tbl_Order" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_OrderHandler" EntityType="Self.Tbl_OrderHandler" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_OrderKind" EntityType="Self.Tbl_OrderKind" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Procedures" EntityType="Self.Tbl_Procedures" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_RestrictionItemsCategory" EntityType="Self.Tbl_RestrictionItemsCategory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Supplier" EntityType="Self.Tbl_Supplier" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_SystemUnites" EntityType="Self.Tbl_SystemUnites" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_TaxAuthority" EntityType="Self.Tbl_TaxAuthority" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_User" EntityType="Self.Tbl_User" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_User_SysUnites" EntityType="Self.Tbl_User_SysUnites" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_UserType" EntityType="Self.Tbl_UserType" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Tbl_Accounting_Guid_Tbl_AccountsKind" Association="Self.FK_Tbl_Accounting_Guid_Tbl_AccountsKind">
+      <End Role="Tbl_AccountsKind" EntitySet="Tbl_AccountsKind" />
+      <End Role="Tbl_Accounting_Guid" EntitySet="Tbl_Accounting_Guid" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tbl_AccountingRestriction_Tbl_AccountingRestrictions_Kind" Association="Self.FK_Tbl_AccountingRestriction_Tbl_AccountingRestrictions_Kind">
+      <End Role="Tbl_AccountingRestrictions_Kind" EntitySet="Tbl_AccountingRestrictions_Kind" />
+      <End Role="Tbl_AccountingRestriction" EntitySet="Tbl_AccountingRestriction" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tbl_AccountingRestrictionDetail_Tbl_Accounting_Guid" Association="Self.FK_Tbl_AccountingRestrictionDetail_Tbl_Accounting_Guid">
+      <End Role="Tbl_Accounting_Guid" EntitySet="Tbl_Accounting_Guid" />
+      <End Role="Tbl_AccountingRestrictionItems" EntitySet="Tbl_AccountingRestrictionItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tbl_AccountingRestrictionDetail_Tbl_AccountingRestriction" Association="Self.FK_Tbl_AccountingRestrictionDetail_Tbl_AccountingRestriction">
+      <End Role="Tbl_AccountingRestriction" EntitySet="Tbl_AccountingRestriction" />
+      <End Role="Tbl_AccountingRestrictionItems" EntitySet="Tbl_AccountingRestrictionItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tbl_AccountingRestrictionItems_Tbl_Activities" Association="Self.FK_Tbl_AccountingRestrictionItems_Tbl_Activities">
+      <End Role="Tbl_Activities" EntitySet="Tbl_Activities" />
+      <End Role="Tbl_AccountingRestrictionItems" EntitySet="Tbl_AccountingRestrictionItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tbl_AccountingRestrictionItems_Tbl_RestrictionItemsCategory" Association="Self.FK_Tbl_AccountingRestrictionItems_Tbl_RestrictionItemsCategory">
+      <End Role="Tbl_RestrictionItemsCategory" EntitySet="Tbl_RestrictionItemsCategory" />
+      <End Role="Tbl_AccountingRestrictionItems" EntitySet="Tbl_AccountingRestrictionItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tbl_AccountingRestrictions_TBL_Document" Association="Self.FK_Tbl_AccountingRestrictions_TBL_Document">
+      <End Role="TBL_Document" EntitySet="TBL_Document" />
+      <End Role="Tbl_AccountingRestriction" EntitySet="Tbl_AccountingRestriction" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tbl_AccountsKind_Tbl_AccountsKind" Association="Self.FK_Tbl_AccountsKind_Tbl_AccountsKind">
+      <End Role="Tbl_AccountsKind" EntitySet="Tbl_AccountsKind" />
+      <End Role="Tbl_AccountsKind1" EntitySet="Tbl_AccountsKind" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tbl_Auth_Users_Forms_Tbl_Auth_Users_Forms" Association="Self.FK_Tbl_Auth_Users_Forms_Tbl_Auth_Users_Forms">
+      <End Role="Tbl_Procedures" EntitySet="Tbl_Procedures" />
+      <End Role="Tbl_Auth_Users_Forms" EntitySet="Tbl_Auth_Users_Forms" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tbl_Auth_Users_Forms_Tbl_Form_SysUnites" Association="Self.FK_Tbl_Auth_Users_Forms_Tbl_Form_SysUnites">
+      <End Role="Tbl_Form_SysUnites" EntitySet="Tbl_Form_SysUnites" />
+      <End Role="Tbl_Auth_Users_Forms" EntitySet="Tbl_Auth_Users_Forms" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tbl_Auth_Users_Forms_Tbl_User" Association="Self.FK_Tbl_Auth_Users_Forms_Tbl_User">
+      <End Role="Tbl_User" EntitySet="Tbl_User" />
+      <End Role="Tbl_Auth_Users_Forms" EntitySet="Tbl_Auth_Users_Forms" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tbl_Beneficiary_Tbl_BeneficiaryKind" Association="Self.FK_Tbl_Beneficiary_Tbl_BeneficiaryKind">
+      <End Role="Tbl_BeneficiaryKind" EntitySet="Tbl_BeneficiaryKind" />
+      <End Role="Tbl_Beneficiary" EntitySet="Tbl_Beneficiary" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tbl_Beneficiary_Tbl_Customer" Association="Self.FK_Tbl_Beneficiary_Tbl_Customer">
+      <End Role="Tbl_Customer" EntitySet="Tbl_Customer" />
+      <End Role="Tbl_Beneficiary" EntitySet="Tbl_Beneficiary" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tbl_Beneficiary_Tbl_Employee" Association="Self.FK_Tbl_Beneficiary_Tbl_Employee">
+      <End Role="Tbl_Employee" EntitySet="Tbl_Employee" />
+      <End Role="Tbl_Beneficiary" EntitySet="Tbl_Beneficiary" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tbl_Beneficiary_Tbl_Supplier" Association="Self.FK_Tbl_Beneficiary_Tbl_Supplier">
+      <End Role="Tbl_Supplier" EntitySet="Tbl_Supplier" />
+      <End Role="Tbl_Beneficiary" EntitySet="Tbl_Beneficiary" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tbl_CenteralDeviceNotes_Tbl_AccountingRestriction" Association="Self.FK_Tbl_CenteralDeviceNotes_Tbl_AccountingRestriction">
+      <End Role="Tbl_AccountingRestriction" EntitySet="Tbl_AccountingRestriction" />
+      <End Role="Tbl_CenteralDeviceNotes" EntitySet="Tbl_CenteralDeviceNotes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tbl_CentralDeviceReplies_Tbl_CentralDeviceReplies" Association="Self.FK_Tbl_CentralDeviceReplies_Tbl_CentralDeviceReplies">
+      <End Role="Tbl_CenteralDeviceNotes" EntitySet="Tbl_CenteralDeviceNotes" />
+      <End Role="Tbl_CentralDeviceReplies" EntitySet="Tbl_CentralDeviceReplies" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tbl_Cheques_Tbl_AccountingRestriction" Association="Self.FK_Tbl_Cheques_Tbl_AccountingRestriction">
+      <End Role="Tbl_AccountingRestriction" EntitySet="Tbl_AccountingRestriction" />
+      <End Role="Tbl_Cheques" EntitySet="Tbl_Cheques" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBL_Document_Tbl_DocumentCategory" Association="Self.FK_TBL_Document_Tbl_DocumentCategory">
+      <End Role="Tbl_DocumentCategory" EntitySet="Tbl_DocumentCategory" />
+      <End Role="TBL_Document" EntitySet="TBL_Document" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBL_Document_Tbl_Order" Association="Self.FK_TBL_Document_Tbl_Order">
+      <End Role="Tbl_Order" EntitySet="Tbl_Order" />
+      <End Role="TBL_Document" EntitySet="TBL_Document" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBL_Document_Tbl_OrderHandler" Association="Self.FK_TBL_Document_Tbl_OrderHandler">
+      <End Role="Tbl_OrderHandler" EntitySet="Tbl_OrderHandler" />
+      <End Role="TBL_Document" EntitySet="TBL_Document" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tbl_Form_SysUnites_Tbl_Forms" Association="Self.FK_Tbl_Form_SysUnites_Tbl_Forms">
+      <End Role="Tbl_Forms" EntitySet="Tbl_Forms" />
+      <End Role="Tbl_Form_SysUnites" EntitySet="Tbl_Form_SysUnites" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tbl_Form_SysUnites_Tbl_SystemUnites" Association="Self.FK_Tbl_Form_SysUnites_Tbl_SystemUnites">
+      <End Role="Tbl_SystemUnites" EntitySet="Tbl_SystemUnites" />
+      <End Role="Tbl_Form_SysUnites" EntitySet="Tbl_Form_SysUnites" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tbl_Indebtedness_Tbl_AccountingRestrictionDetail" Association="Self.FK_Tbl_Indebtedness_Tbl_AccountingRestrictionDetail">
+      <End Role="Tbl_AccountingRestrictionItems" EntitySet="Tbl_AccountingRestrictionItems" />
+      <End Role="Tbl_Indebtedness" EntitySet="Tbl_Indebtedness" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tbl_Indebtedness_Tbl_Category" Association="Self.FK_Tbl_Indebtedness_Tbl_Category">
+      <End Role="Tbl_RestrictionItemsCategory" EntitySet="Tbl_RestrictionItemsCategory" />
+      <End Role="Tbl_Indebtedness" EntitySet="Tbl_Indebtedness" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tbl_Indebtedness_Tbl_IndebtednessKind" Association="Self.FK_Tbl_Indebtedness_Tbl_IndebtednessKind">
+      <End Role="Tbl_IndebtednessKind" EntitySet="Tbl_IndebtednessKind" />
+      <End Role="Tbl_Indebtedness" EntitySet="Tbl_Indebtedness" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tbl_Management_Tbl_ExchangeCenter" Association="Self.FK_Tbl_Management_Tbl_ExchangeCenter">
+      <End Role="Tbl_ExchangeCenter" EntitySet="Tbl_ExchangeCenter" />
+      <End Role="Tbl_Management" EntitySet="Tbl_Management" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tbl_Management_Tbl_ManagementCategory" Association="Self.FK_Tbl_Management_Tbl_ManagementCategory">
+      <End Role="Tbl_ManagementCategory" EntitySet="Tbl_ManagementCategory" />
+      <End Role="Tbl_Management" EntitySet="Tbl_Management" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tbl_Order_Tbl_OrderKind" Association="Self.FK_Tbl_Order_Tbl_OrderKind">
+      <End Role="Tbl_OrderKind" EntitySet="Tbl_OrderKind" />
+      <End Role="Tbl_Order" EntitySet="Tbl_Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tbl_OrderHandler_Tbl_Employee" Association="Self.FK_Tbl_OrderHandler_Tbl_Employee">
+      <End Role="Tbl_Employee" EntitySet="Tbl_Employee" />
+      <End Role="Tbl_OrderHandler" EntitySet="Tbl_OrderHandler" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tbl_Supplier_Tbl_TaxAuthority" Association="Self.FK_Tbl_Supplier_Tbl_TaxAuthority">
+      <End Role="Tbl_TaxAuthority" EntitySet="Tbl_TaxAuthority" />
+      <End Role="Tbl_Supplier" EntitySet="Tbl_Supplier" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tbl_User_SysUnites_Tbl_Employee" Association="Self.FK_Tbl_User_SysUnites_Tbl_Employee">
+      <End Role="Tbl_Employee" EntitySet="Tbl_Employee" />
+      <End Role="Tbl_User_SysUnites" EntitySet="Tbl_User_SysUnites" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tbl_User_SysUnites_Tbl_User_SysUnites" Association="Self.FK_Tbl_User_SysUnites_Tbl_User_SysUnites">
+      <End Role="Tbl_SystemUnites" EntitySet="Tbl_SystemUnites" />
+      <End Role="Tbl_User_SysUnites" EntitySet="Tbl_User_SysUnites" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tbl_User_Tbl_Employee" Association="Self.FK_Tbl_User_Tbl_Employee">
+      <End Role="Tbl_Employee" EntitySet="Tbl_Employee" />
+      <End Role="Tbl_User" EntitySet="Tbl_User" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tbl_User_Tbl_UserType" Association="Self.FK_Tbl_User_Tbl_UserType">
+      <End Role="Tbl_UserType" EntitySet="Tbl_UserType" />
+      <End Role="Tbl_User" EntitySet="Tbl_User" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

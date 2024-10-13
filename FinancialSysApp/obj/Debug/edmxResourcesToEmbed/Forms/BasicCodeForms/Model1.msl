@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="FinancialSysModel1StoreContainer" CdmEntityContainer="FinancialSysEntities3">
+    <EntitySetMapping Name="Tbl_Management">
+      <EntityTypeMapping TypeName="FinancialSysModel1.Tbl_Management">
+        <MappingFragment StoreEntitySet="Tbl_Management">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ExchangeCenter_ID" ColumnName="ExchangeCenter_ID" />
+          <ScalarProperty Name="Parent_ID" ColumnName="Parent_ID" />
+          <ScalarProperty Name="ManagementCategory_ID" ColumnName="ManagementCategory_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

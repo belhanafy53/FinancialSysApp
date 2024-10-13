@@ -1,0 +1,255 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="Letters" targetNamespace="http://tempuri.org/Letters.xsd" xmlns:mstns="http://tempuri.org/Letters.xsd" xmlns="http://tempuri.org/Letters.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="FinancialSysConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="FinancialSysConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.FinancialSysApp.Properties.Settings.GlobalReference.Default.FinancialSysConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="PrintLetterTableAdapter" GeneratorDataComponentClassName="PrintLetterTableAdapter" Name="PrintLetter" UserDataComponentName="PrintLetterTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="FinancialSysConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        Tbl_LetterWarranty.ID AS 'الكود', Tbl_LetterWarrantyKind.Name AS 'نوع_الخطاب', Tbl_Supplier.Name AS 'المورد', Tbl_LetterWarranty.LetterWarrantyNo AS 'رقم_الخطاب', Tbl_LetterWarranty.LetterWarrantyDate AS 'تاريخ_الحطاب', 
+                         Tbl_LetterWarranty.LetterWarrantyExpireDate AS 'تاريخ_صلاحية_الخطاب', Tbl_LetterWarranty.FileNo AS 'رقم_الملف', Tbl_LetterWarranty.Value AS 'المبلغ', Tbl_LetterWarranty.CurrencyID AS 'كود_العمله', 
+                         Tbl_LetterWarranty.SupID AS 'كود_المورد', Tbl_LetterWarranty.LetterWarrantyPurpose AS 'الغرض_من_الامر', Tbl_LetterWarranty.ManagementID AS 'كود_الجهه', Tbl_LetterWarranty.LetterWarrantyKind, 
+                         Tbl_LetterWarranty.TendersAuctionsID, Tbl_LetterWarranty.LetterProcessID, Tbl_LetterWarranty.OrderID, Tbl_LetterWarranty.AssayesID, Tbl_LetterWarranty.BankID, 
+                         Tbl_LetterWarranty.ManagementExportLettrID AS 'كود_الجهه_المصدره', Tbl_LetterWarranty.ProjectID AS 'كود_المشروع', Tbl_LetterWarranty.LetterWarrantyNoFull AS 'رقم_الحطاب', Tbl_LetterWarranty.BeneficiaryID AS 'كود_المستفيد', 
+                         Tbl_LetterWarranty.DecisionsResponspilitiesID AS 'كود_قرار_اللجنه', Tbl_LetterWarranty.LetterWarrantyExpandDate AS 'تاريخ_المد', Tbl_LetterWarranty.ConfRecieveLetter, Tbl_Banks.Name AS 'البنك', Tbl_Order.Order_NO AS 'رقم_الامر',
+                          Tbl_Order.Order_Date AS 'تاريخ_الامر', Tbl_OrderKind.Name AS 'نوع_الامر', Tbl_Management.Name AS 'الجهه', Tbl_Projects.Name AS 'المشروع', Tbl_Beneficiary.Name AS 'اسم_المستفيد', Tbl_TendersAuctions.TenderNo AS 'رقم_المناقصه', 
+                         Tbl_TendersAuctions.TenderDate AS 'تاريخ_المناقصه', Tbl_TendersAuctions.Note AS 'الغرض_من_المناقصه', Tbl_PurchaseMethods.Name AS 'طريقة_الشراء'
+FROM            Tbl_Supplier RIGHT OUTER JOIN
+                         Tbl_Projects RIGHT OUTER JOIN
+                         Tbl_Beneficiary RIGHT OUTER JOIN
+                         Tbl_Banks RIGHT OUTER JOIN
+                         Tbl_LetterWarranty LEFT OUTER JOIN
+                         Tbl_TendersAuctions LEFT OUTER JOIN
+                         Tbl_PurchaseMethods ON Tbl_TendersAuctions.PurchaseMethodeID = Tbl_PurchaseMethods.ID ON Tbl_LetterWarranty.TendersAuctionsID = Tbl_TendersAuctions.ID LEFT OUTER JOIN
+                         Tbl_Order ON Tbl_LetterWarranty.OrderID = Tbl_Order.ID ON Tbl_Banks.ID = Tbl_LetterWarranty.BankID ON Tbl_Beneficiary.ID = Tbl_LetterWarranty.BeneficiaryID LEFT OUTER JOIN
+                         Tbl_Management ON Tbl_LetterWarranty.ManagementExportLettrID = Tbl_Management.Management_ID ON Tbl_Projects.ID = Tbl_LetterWarranty.ProjectID ON Tbl_Supplier.ID = Tbl_LetterWarranty.SupID LEFT OUTER JOIN
+                         Tbl_LetterWarrantyKind ON Tbl_LetterWarranty.LetterWarrantyKind = Tbl_LetterWarrantyKind.ID LEFT OUTER JOIN
+                         Tbl_OrderKind ON Tbl_Order.OrderKind_ID = Tbl_OrderKind.ID
+WHERE        (Tbl_LetterWarranty.LetterProcessID = @LetterID) AND (Tbl_LetterWarranty.LetterWarrantyDate &gt;= @D) AND (Tbl_LetterWarranty.LetterWarrantyDate &lt;= @D1)
+ORDER BY 'تاريخ_الحطاب'</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="LetterID" ColumnName="LetterProcessID" DataSourceName="FinancialSys.dbo.Tbl_LetterWarranty" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@LetterID" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="LetterProcessID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="D" ColumnName="LetterWarrantyDate" DataSourceName="FinancialSys.dbo.Tbl_LetterWarranty" DataTypeServer="date" DbType="AnsiString" Direction="Input" ParameterName="@D" Precision="0" ProviderType="Date" Scale="0" Size="3" SourceColumn="تاريخ_الحطاب" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="D1" ColumnName="LetterWarrantyDate" DataSourceName="FinancialSys.dbo.Tbl_LetterWarranty" DataTypeServer="date" DbType="AnsiString" Direction="Input" ParameterName="@D1" Precision="0" ProviderType="Date" Scale="0" Size="3" SourceColumn="تاريخ_الحطاب" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="الكود" DataSetColumn="الكود" />
+              <Mapping SourceColumn="المورد" DataSetColumn="المورد" />
+              <Mapping SourceColumn="المبلغ" DataSetColumn="المبلغ" />
+              <Mapping SourceColumn="LetterWarrantyKind" DataSetColumn="LetterWarrantyKind" />
+              <Mapping SourceColumn="TendersAuctionsID" DataSetColumn="TendersAuctionsID" />
+              <Mapping SourceColumn="LetterProcessID" DataSetColumn="LetterProcessID" />
+              <Mapping SourceColumn="OrderID" DataSetColumn="OrderID" />
+              <Mapping SourceColumn="AssayesID" DataSetColumn="AssayesID" />
+              <Mapping SourceColumn="BankID" DataSetColumn="BankID" />
+              <Mapping SourceColumn="ConfRecieveLetter" DataSetColumn="ConfRecieveLetter" />
+              <Mapping SourceColumn="البنك" DataSetColumn="البنك" />
+              <Mapping SourceColumn="الجهه" DataSetColumn="الجهه" />
+              <Mapping SourceColumn="المشروع" DataSetColumn="المشروع" />
+              <Mapping SourceColumn="نوع_الخطاب" DataSetColumn="نوع_الخطاب" />
+              <Mapping SourceColumn="رقم_الخطاب" DataSetColumn="رقم_الخطاب" />
+              <Mapping SourceColumn="تاريخ_الحطاب" DataSetColumn="تاريخ_الحطاب" />
+              <Mapping SourceColumn="تاريخ_صلاحية_الخطاب" DataSetColumn="تاريخ_صلاحية_الخطاب" />
+              <Mapping SourceColumn="رقم_الملف" DataSetColumn="رقم_الملف" />
+              <Mapping SourceColumn="كود_العمله" DataSetColumn="كود_العمله" />
+              <Mapping SourceColumn="كود_المورد" DataSetColumn="كود_المورد" />
+              <Mapping SourceColumn="الغرض_من_الامر" DataSetColumn="الغرض_من_الامر" />
+              <Mapping SourceColumn="كود_الجهه" DataSetColumn="كود_الجهه" />
+              <Mapping SourceColumn="كود_الجهه_المصدره" DataSetColumn="كود_الجهه_المصدره" />
+              <Mapping SourceColumn="كود_المشروع" DataSetColumn="كود_المشروع" />
+              <Mapping SourceColumn="رقم_الحطاب" DataSetColumn="رقم_الحطاب" />
+              <Mapping SourceColumn="كود_المستفيد" DataSetColumn="كود_المستفيد" />
+              <Mapping SourceColumn="كود_قرار_اللجنه" DataSetColumn="كود_قرار_اللجنه" />
+              <Mapping SourceColumn="تاريخ_المد" DataSetColumn="تاريخ_المد" />
+              <Mapping SourceColumn="رقم_الامر" DataSetColumn="رقم_الامر" />
+              <Mapping SourceColumn="تاريخ_الامر" DataSetColumn="تاريخ_الامر" />
+              <Mapping SourceColumn="نوع_الامر" DataSetColumn="نوع_الامر" />
+              <Mapping SourceColumn="اسم_المستفيد" DataSetColumn="اسم_المستفيد" />
+              <Mapping SourceColumn="رقم_المناقصه" DataSetColumn="رقم_المناقصه" />
+              <Mapping SourceColumn="تاريخ_المناقصه" DataSetColumn="تاريخ_المناقصه" />
+              <Mapping SourceColumn="الغرض_من_المناقصه" DataSetColumn="الغرض_من_المناقصه" />
+              <Mapping SourceColumn="طريقة_الشراء" DataSetColumn="طريقة_الشراء" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="FinancialSysConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy1" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy" GeneratorSourceName="FillBy1" GetMethodModifier="Public" GetMethodName="GetDataBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillBy1">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        Tbl_LetterWarranty.ID AS 'الكود', Tbl_LetterWarrantyKind.Name AS 'نوع_الخطاب', Tbl_Supplier.Name AS 'المورد', Tbl_LetterWarranty.LetterWarrantyNo AS 'رقم_الخطاب', Tbl_LetterWarranty.LetterWarrantyDate AS 'تاريخ_الحطاب', 
+                         Tbl_LetterWarranty.LetterWarrantyExpireDate AS 'تاريخ_صلاحية_الخطاب', Tbl_LetterWarranty.FileNo AS 'رقم_الملف', Tbl_LetterWarranty.Value AS 'المبلغ', Tbl_LetterWarranty.CurrencyID AS 'كود_العمله', 
+                         Tbl_LetterWarranty.SupID AS 'كود_المورد', Tbl_LetterWarranty.LetterWarrantyPurpose AS 'الغرض_من_الامر', Tbl_LetterWarranty.ManagementID AS 'كود_الجهه', Tbl_LetterWarranty.LetterWarrantyKind, 
+                         Tbl_LetterWarranty.TendersAuctionsID, Tbl_LetterWarranty.LetterProcessID, Tbl_LetterWarranty.OrderID, Tbl_LetterWarranty.AssayesID, Tbl_LetterWarranty.BankID, 
+                         Tbl_LetterWarranty.ManagementExportLettrID AS 'كود_الجهه_المصدره', Tbl_LetterWarranty.ProjectID AS 'كود_المشروع', Tbl_LetterWarranty.LetterWarrantyNoFull AS 'رقم_الحطاب', Tbl_LetterWarranty.BeneficiaryID AS 'كود_المستفيد', 
+                         Tbl_LetterWarranty.DecisionsResponspilitiesID AS 'كود_قرار_اللجنه', Tbl_LetterWarranty.LetterWarrantyExpandDate AS 'تاريخ_المد', Tbl_LetterWarranty.ConfRecieveLetter, Tbl_Banks.Name AS 'البنك', Tbl_Order.Order_NO AS 'رقم_الامر',
+                          Tbl_Order.Order_Date AS 'تاريخ_الامر', Tbl_OrderKind.Name AS 'نوع_الامر', Tbl_Management.Name AS 'الجهه', Tbl_Projects.Name AS 'المشروع', Tbl_Beneficiary.Name AS 'اسم_المستفيد', Tbl_TendersAuctions.TenderNo AS 'رقم_المناقصه', 
+                         Tbl_TendersAuctions.TenderDate AS 'تاريخ_المناقصه', Tbl_TendersAuctions.Note AS 'الغرض_من_المناقصه', Tbl_PurchaseMethods.Name AS 'طريقة_الشراء'
+FROM            Tbl_Supplier RIGHT OUTER JOIN
+                         Tbl_Projects RIGHT OUTER JOIN
+                         Tbl_Beneficiary RIGHT OUTER JOIN
+                         Tbl_Banks RIGHT OUTER JOIN
+                         Tbl_LetterWarranty LEFT OUTER JOIN
+                         Tbl_TendersAuctions LEFT OUTER JOIN
+                         Tbl_PurchaseMethods ON Tbl_TendersAuctions.PurchaseMethodeID = Tbl_PurchaseMethods.ID ON Tbl_LetterWarranty.TendersAuctionsID = Tbl_TendersAuctions.ID LEFT OUTER JOIN
+                         Tbl_Order ON Tbl_LetterWarranty.OrderID = Tbl_Order.ID ON Tbl_Banks.ID = Tbl_LetterWarranty.BankID ON Tbl_Beneficiary.ID = Tbl_LetterWarranty.BeneficiaryID LEFT OUTER JOIN
+                         Tbl_Management ON Tbl_LetterWarranty.ManagementExportLettrID = Tbl_Management.Management_ID ON Tbl_Projects.ID = Tbl_LetterWarranty.ProjectID ON Tbl_Supplier.ID = Tbl_LetterWarranty.SupID LEFT OUTER JOIN
+                         Tbl_LetterWarrantyKind ON Tbl_LetterWarranty.LetterWarrantyKind = Tbl_LetterWarrantyKind.ID LEFT OUTER JOIN
+                         Tbl_OrderKind ON Tbl_Order.OrderKind_ID = Tbl_OrderKind.ID
+WHERE        (Tbl_LetterWarranty.LetterProcessID = 0) AND (Tbl_LetterWarranty.LetterWarrantyDate &gt;= '1990-01-01') AND (Tbl_LetterWarranty.LetterWarrantyDate &lt;= '2024/12/31')
+ORDER BY 'تاريخ_الحطاب'</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="Letters" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_UserDSName="Letters" msprop:Generator_DataSetName="Letters">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="PrintLetter" msprop:Generator_RowClassName="PrintLetterRow" msprop:Generator_RowEvHandlerName="PrintLetterRowChangeEventHandler" msprop:Generator_RowDeletedName="PrintLetterRowDeleted" msprop:Generator_RowDeletingName="PrintLetterRowDeleting" msprop:Generator_RowEvArgName="PrintLetterRowChangeEvent" msprop:Generator_TablePropName="PrintLetter" msprop:Generator_RowChangedName="PrintLetterRowChanged" msprop:Generator_RowChangingName="PrintLetterRowChanging" msprop:Generator_TableClassName="PrintLetterDataTable" msprop:Generator_UserTableName="PrintLetter" msprop:Generator_TableVarName="tablePrintLetter">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="الكود" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnPropNameInRow="الكود" msprop:Generator_ColumnPropNameInTable="الكودColumn" msprop:Generator_ColumnVarNameInTable="columnالكود" msprop:Generator_UserColumnName="الكود" type="xs:int" />
+              <xs:element name="المورد" msprop:Generator_ColumnPropNameInRow="المورد" msprop:Generator_ColumnPropNameInTable="الموردColumn" msprop:Generator_ColumnVarNameInTable="columnالمورد" msprop:Generator_UserColumnName="المورد" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="المبلغ" msprop:Generator_ColumnPropNameInRow="المبلغ" msprop:Generator_ColumnPropNameInTable="المبلغColumn" msprop:Generator_ColumnVarNameInTable="columnالمبلغ" msprop:Generator_UserColumnName="المبلغ" type="xs:decimal" minOccurs="0" />
+              <xs:element name="LetterWarrantyKind" msprop:Generator_ColumnPropNameInRow="LetterWarrantyKind" msprop:Generator_ColumnPropNameInTable="LetterWarrantyKindColumn" msprop:Generator_ColumnVarNameInTable="columnLetterWarrantyKind" msprop:Generator_UserColumnName="LetterWarrantyKind" type="xs:int" minOccurs="0" />
+              <xs:element name="TendersAuctionsID" msprop:Generator_ColumnPropNameInRow="TendersAuctionsID" msprop:Generator_ColumnPropNameInTable="TendersAuctionsIDColumn" msprop:Generator_ColumnVarNameInTable="columnTendersAuctionsID" msprop:Generator_UserColumnName="TendersAuctionsID" type="xs:int" minOccurs="0" />
+              <xs:element name="LetterProcessID" msprop:Generator_ColumnPropNameInRow="LetterProcessID" msprop:Generator_ColumnPropNameInTable="LetterProcessIDColumn" msprop:Generator_ColumnVarNameInTable="columnLetterProcessID" msprop:Generator_UserColumnName="LetterProcessID" type="xs:int" minOccurs="0" />
+              <xs:element name="OrderID" msprop:Generator_ColumnPropNameInRow="OrderID" msprop:Generator_ColumnPropNameInTable="OrderIDColumn" msprop:Generator_ColumnVarNameInTable="columnOrderID" msprop:Generator_UserColumnName="OrderID" type="xs:long" minOccurs="0" />
+              <xs:element name="AssayesID" msprop:Generator_ColumnPropNameInRow="AssayesID" msprop:Generator_ColumnPropNameInTable="AssayesIDColumn" msprop:Generator_ColumnVarNameInTable="columnAssayesID" msprop:Generator_UserColumnName="AssayesID" type="xs:int" minOccurs="0" />
+              <xs:element name="BankID" msprop:Generator_ColumnPropNameInRow="BankID" msprop:Generator_ColumnPropNameInTable="BankIDColumn" msprop:Generator_ColumnVarNameInTable="columnBankID" msprop:Generator_UserColumnName="BankID" type="xs:int" minOccurs="0" />
+              <xs:element name="ConfRecieveLetter" msprop:Generator_ColumnPropNameInRow="ConfRecieveLetter" msprop:Generator_ColumnPropNameInTable="ConfRecieveLetterColumn" msprop:Generator_ColumnVarNameInTable="columnConfRecieveLetter" msprop:Generator_UserColumnName="ConfRecieveLetter" type="xs:boolean" minOccurs="0" />
+              <xs:element name="البنك" msprop:Generator_ColumnPropNameInRow="البنك" msprop:Generator_ColumnPropNameInTable="البنكColumn" msprop:Generator_ColumnVarNameInTable="columnالبنك" msprop:Generator_UserColumnName="البنك" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="الجهه" msprop:Generator_ColumnPropNameInRow="الجهه" msprop:Generator_ColumnPropNameInTable="الجههColumn" msprop:Generator_ColumnVarNameInTable="columnالجهه" msprop:Generator_UserColumnName="الجهه" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="المشروع" msprop:Generator_ColumnPropNameInRow="المشروع" msprop:Generator_ColumnPropNameInTable="المشروعColumn" msprop:Generator_ColumnVarNameInTable="columnالمشروع" msprop:Generator_UserColumnName="المشروع" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="نوع_الخطاب" msprop:Generator_ColumnPropNameInRow="نوع_الخطاب" msprop:Generator_ColumnPropNameInTable="نوع_الخطابColumn" msprop:Generator_ColumnVarNameInTable="columnنوع_الخطاب" msprop:Generator_UserColumnName="نوع_الخطاب" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="رقم_الخطاب" msprop:Generator_ColumnPropNameInRow="رقم_الخطاب" msprop:Generator_ColumnPropNameInTable="رقم_الخطابColumn" msprop:Generator_ColumnVarNameInTable="columnرقم_الخطاب" msprop:Generator_UserColumnName="رقم_الخطاب">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="تاريخ_الحطاب" msprop:Generator_ColumnPropNameInRow="تاريخ_الحطاب" msprop:Generator_ColumnPropNameInTable="تاريخ_الحطابColumn" msprop:Generator_ColumnVarNameInTable="columnتاريخ_الحطاب" msprop:Generator_UserColumnName="تاريخ_الحطاب" type="xs:dateTime" />
+              <xs:element name="تاريخ_صلاحية_الخطاب" msprop:Generator_ColumnPropNameInRow="تاريخ_صلاحية_الخطاب" msprop:Generator_ColumnPropNameInTable="تاريخ_صلاحية_الخطابColumn" msprop:Generator_ColumnVarNameInTable="columnتاريخ_صلاحية_الخطاب" msprop:Generator_UserColumnName="تاريخ_صلاحية_الخطاب" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="رقم_الملف" msprop:Generator_ColumnPropNameInRow="رقم_الملف" msprop:Generator_ColumnPropNameInTable="رقم_الملفColumn" msprop:Generator_ColumnVarNameInTable="columnرقم_الملف" msprop:Generator_UserColumnName="رقم_الملف" type="xs:int" minOccurs="0" />
+              <xs:element name="كود_العمله" msprop:Generator_ColumnPropNameInRow="كود_العمله" msprop:Generator_ColumnPropNameInTable="كود_العملهColumn" msprop:Generator_ColumnVarNameInTable="columnكود_العمله" msprop:Generator_UserColumnName="كود_العمله" type="xs:int" minOccurs="0" />
+              <xs:element name="كود_المورد" msprop:Generator_ColumnPropNameInRow="كود_المورد" msprop:Generator_ColumnPropNameInTable="كود_الموردColumn" msprop:Generator_ColumnVarNameInTable="columnكود_المورد" msprop:Generator_UserColumnName="كود_المورد" type="xs:int" minOccurs="0" />
+              <xs:element name="الغرض_من_الامر" msprop:Generator_ColumnPropNameInRow="الغرض_من_الامر" msprop:Generator_ColumnPropNameInTable="الغرض_من_الامرColumn" msprop:Generator_ColumnVarNameInTable="columnالغرض_من_الامر" msprop:Generator_UserColumnName="الغرض_من_الامر" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="كود_الجهه" msprop:Generator_ColumnPropNameInRow="كود_الجهه" msprop:Generator_ColumnPropNameInTable="كود_الجههColumn" msprop:Generator_ColumnVarNameInTable="columnكود_الجهه" msprop:Generator_UserColumnName="كود_الجهه" type="xs:int" minOccurs="0" />
+              <xs:element name="كود_الجهه_المصدره" msprop:Generator_ColumnPropNameInRow="كود_الجهه_المصدره" msprop:Generator_ColumnPropNameInTable="كود_الجهه_المصدرهColumn" msprop:Generator_ColumnVarNameInTable="columnكود_الجهه_المصدره" msprop:Generator_UserColumnName="كود_الجهه_المصدره" type="xs:int" minOccurs="0" />
+              <xs:element name="كود_المشروع" msprop:Generator_ColumnPropNameInRow="كود_المشروع" msprop:Generator_ColumnPropNameInTable="كود_المشروعColumn" msprop:Generator_ColumnVarNameInTable="columnكود_المشروع" msprop:Generator_UserColumnName="كود_المشروع" type="xs:int" minOccurs="0" />
+              <xs:element name="رقم_الحطاب" msprop:Generator_ColumnPropNameInRow="رقم_الحطاب" msprop:Generator_ColumnPropNameInTable="رقم_الحطابColumn" msprop:Generator_ColumnVarNameInTable="columnرقم_الحطاب" msprop:Generator_UserColumnName="رقم_الحطاب" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="كود_المستفيد" msprop:Generator_ColumnPropNameInRow="كود_المستفيد" msprop:Generator_ColumnPropNameInTable="كود_المستفيدColumn" msprop:Generator_ColumnVarNameInTable="columnكود_المستفيد" msprop:Generator_UserColumnName="كود_المستفيد" type="xs:int" minOccurs="0" />
+              <xs:element name="كود_قرار_اللجنه" msprop:Generator_ColumnPropNameInRow="كود_قرار_اللجنه" msprop:Generator_ColumnPropNameInTable="كود_قرار_اللجنهColumn" msprop:Generator_ColumnVarNameInTable="columnكود_قرار_اللجنه" msprop:Generator_UserColumnName="كود_قرار_اللجنه" type="xs:int" minOccurs="0" />
+              <xs:element name="تاريخ_المد" msprop:Generator_ColumnPropNameInRow="تاريخ_المد" msprop:Generator_ColumnPropNameInTable="تاريخ_المدColumn" msprop:Generator_ColumnVarNameInTable="columnتاريخ_المد" msprop:Generator_UserColumnName="تاريخ_المد" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="رقم_الامر" msprop:Generator_ColumnPropNameInRow="رقم_الامر" msprop:Generator_ColumnPropNameInTable="رقم_الامرColumn" msprop:Generator_ColumnVarNameInTable="columnرقم_الامر" msprop:Generator_UserColumnName="رقم_الامر" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="تاريخ_الامر" msprop:Generator_ColumnPropNameInRow="تاريخ_الامر" msprop:Generator_ColumnPropNameInTable="تاريخ_الامرColumn" msprop:Generator_ColumnVarNameInTable="columnتاريخ_الامر" msprop:Generator_UserColumnName="تاريخ_الامر" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="نوع_الامر" msprop:Generator_ColumnPropNameInRow="نوع_الامر" msprop:Generator_ColumnPropNameInTable="نوع_الامرColumn" msprop:Generator_ColumnVarNameInTable="columnنوع_الامر" msprop:Generator_UserColumnName="نوع_الامر" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="اسم_المستفيد" msprop:Generator_ColumnPropNameInRow="اسم_المستفيد" msprop:Generator_ColumnPropNameInTable="اسم_المستفيدColumn" msprop:Generator_ColumnVarNameInTable="columnاسم_المستفيد" msprop:Generator_UserColumnName="اسم_المستفيد" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="رقم_المناقصه" msprop:Generator_ColumnPropNameInRow="رقم_المناقصه" msprop:Generator_ColumnPropNameInTable="رقم_المناقصهColumn" msprop:Generator_ColumnVarNameInTable="columnرقم_المناقصه" msprop:Generator_UserColumnName="رقم_المناقصه" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="تاريخ_المناقصه" msprop:Generator_ColumnPropNameInRow="تاريخ_المناقصه" msprop:Generator_ColumnPropNameInTable="تاريخ_المناقصهColumn" msprop:Generator_ColumnVarNameInTable="columnتاريخ_المناقصه" msprop:Generator_UserColumnName="تاريخ_المناقصه" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="الغرض_من_المناقصه" msprop:Generator_ColumnPropNameInRow="الغرض_من_المناقصه" msprop:Generator_ColumnPropNameInTable="الغرض_من_المناقصهColumn" msprop:Generator_ColumnVarNameInTable="columnالغرض_من_المناقصه" msprop:Generator_UserColumnName="الغرض_من_المناقصه" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="طريقة_الشراء" msprop:Generator_ColumnPropNameInRow="طريقة_الشراء" msprop:Generator_ColumnPropNameInTable="طريقة_الشراءColumn" msprop:Generator_ColumnVarNameInTable="columnطريقة_الشراء" msprop:Generator_UserColumnName="طريقة_الشراء" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:PrintLetter" />
+      <xs:field xpath="mstns:الكود" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

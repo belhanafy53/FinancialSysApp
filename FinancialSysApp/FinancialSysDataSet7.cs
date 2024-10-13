@@ -1,0 +1,7 @@
+﻿namespace FinancialSysApp
+{
+}
+
+namespace FinancialSysApp
+{
+}
