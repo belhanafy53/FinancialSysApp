@@ -188,6 +188,7 @@ namespace FinancialSysApp.Forms
                 Vint_OrderID = int.Parse(txtOrderId.Text);
                 Vint_IdManagement = int.Parse(txtManagementId.Text);
                 SaveOrderStores();
+                MessageBox.Show("تم الحفظ");
                 this.orderStoresTableAdapter.FillByOrder(this.dataSet1.OrderStores, int.Parse(txtOrderId.Text));
             }
             catch { }
