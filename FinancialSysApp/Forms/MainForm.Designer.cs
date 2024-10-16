@@ -158,6 +158,12 @@
             this.barButtonItem162 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem163 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem164 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem165 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem166 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem167 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem168 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem169 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem170 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem93 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem104 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem105 = new DevExpress.XtraBars.BarButtonItem();
@@ -230,8 +236,12 @@
             this.barSubItem24 = new DevExpress.XtraBars.BarSubItem();
             this.barSubItem25 = new DevExpress.XtraBars.BarSubItem();
             this.barSubItem26 = new DevExpress.XtraBars.BarSubItem();
+            this.barSubItem20 = new DevExpress.XtraBars.BarSubItem();
+            this.barButtonItem172 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem173 = new DevExpress.XtraBars.BarButtonItem();
             this.barSubItem27 = new DevExpress.XtraBars.BarSubItem();
             this.barButtonItem159 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem171 = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup9 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -335,12 +345,7 @@
             this.getLogInDataForUserTableAdapter = new FinancialSysApp.GetDataUserActionDSTableAdapters.GetLogInDataForUserTableAdapter();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.timer3 = new System.Windows.Forms.Timer(this.components);
-            this.barButtonItem165 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem166 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem167 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem168 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem169 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem170 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem174 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl1)).BeginInit();
@@ -560,9 +565,14 @@
             this.barButtonItem167,
             this.barButtonItem168,
             this.barButtonItem169,
-            this.barButtonItem170});
+            this.barButtonItem170,
+            this.barButtonItem171,
+            this.barSubItem20,
+            this.barButtonItem172,
+            this.barButtonItem173,
+            this.barButtonItem174});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.MaxItemId = 230;
+            this.ribbonControl1.MaxItemId = 235;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.PageHeaderItemLinks.Add(this.barHeaderItem1);
             this.ribbonControl1.PageHeaderItemLinks.Add(this.barButtonItem47);
@@ -1582,6 +1592,44 @@
             this.barButtonItem164.Name = "barButtonItem164";
             this.barButtonItem164.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem164_ItemClick);
             // 
+            // barButtonItem165
+            // 
+            this.barButtonItem165.Caption = "--";
+            this.barButtonItem165.Id = 224;
+            this.barButtonItem165.Name = "barButtonItem165";
+            // 
+            // barButtonItem166
+            // 
+            this.barButtonItem166.Caption = "تقرير خطابات الضمان الوارده  طبقا لتاريخ التسليم خلال فتره";
+            this.barButtonItem166.Id = 225;
+            this.barButtonItem166.Name = "barButtonItem166";
+            this.barButtonItem166.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem166_ItemClick);
+            // 
+            // barButtonItem167
+            // 
+            this.barButtonItem167.Caption = "تقرير خطابات الضمان الصادره طبقا لتاريخ التسليم خلال فتره";
+            this.barButtonItem167.Id = 226;
+            this.barButtonItem167.Name = "barButtonItem167";
+            // 
+            // barButtonItem168
+            // 
+            this.barButtonItem168.Caption = "--";
+            this.barButtonItem168.Id = 227;
+            this.barButtonItem168.Name = "barButtonItem168";
+            // 
+            // barButtonItem169
+            // 
+            this.barButtonItem169.Caption = "تقرير خطابات الضمان الوارده طبقا لأخر تاريخ سريان خلال فتره";
+            this.barButtonItem169.Id = 228;
+            this.barButtonItem169.Name = "barButtonItem169";
+            this.barButtonItem169.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem169_ItemClick);
+            // 
+            // barButtonItem170
+            // 
+            this.barButtonItem170.Caption = "تقرير خطابات الضمان الصادره طبقا لأخر تاريخ سريان خلال فتره";
+            this.barButtonItem170.Id = 229;
+            this.barButtonItem170.Name = "barButtonItem170";
+            // 
             // barButtonItem93
             // 
             this.barButtonItem93.Caption = "اضافة الشيكات للحسابات البنكيه";
@@ -2187,8 +2235,39 @@
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem77),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem80),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem79),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem78)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem78),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.Caption, this.barSubItem20, "المستخلصات")});
             this.barSubItem26.Name = "barSubItem26";
+            // 
+            // barSubItem20
+            // 
+            this.barSubItem20.Caption = "المستخلصات";
+            this.barSubItem20.Id = 231;
+            this.barSubItem20.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barSubItem20.ImageOptions.Image")));
+            this.barSubItem20.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barSubItem20.ImageOptions.LargeImage")));
+            this.barSubItem20.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem172),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem173),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButtonItem174, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
+            this.barSubItem20.Name = "barSubItem20";
+            // 
+            // barButtonItem172
+            // 
+            this.barButtonItem172.Caption = "انوع التربه";
+            this.barButtonItem172.Id = 232;
+            this.barButtonItem172.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem172.ImageOptions.Image")));
+            this.barButtonItem172.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem172.ImageOptions.LargeImage")));
+            this.barButtonItem172.Name = "barButtonItem172";
+            this.barButtonItem172.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem172_ItemClick);
+            // 
+            // barButtonItem173
+            // 
+            this.barButtonItem173.Caption = "البنود الرئيسه للمستخلصات ";
+            this.barButtonItem173.Id = 233;
+            this.barButtonItem173.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem173.ImageOptions.Image")));
+            this.barButtonItem173.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem173.ImageOptions.LargeImage")));
+            this.barButtonItem173.Name = "barButtonItem173";
+            this.barButtonItem173.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem173_ItemClick);
             // 
             // barSubItem27
             // 
@@ -2210,6 +2289,12 @@
             this.barButtonItem159.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem159.ImageOptions.SvgImage")));
             this.barButtonItem159.Name = "barButtonItem159";
             this.barButtonItem159.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem159_ItemClick);
+            // 
+            // barButtonItem171
+            // 
+            this.barButtonItem171.Caption = "المستخلصات";
+            this.barButtonItem171.Id = 230;
+            this.barButtonItem171.Name = "barButtonItem171";
             // 
             // ribbonPage1
             // 
@@ -2853,7 +2938,7 @@
             // 
             this.OldPassTextBox.Location = new System.Drawing.Point(14, 3);
             this.OldPassTextBox.Name = "OldPassTextBox";
-            this.OldPassTextBox.Size = new System.Drawing.Size(84, 20);
+            this.OldPassTextBox.Size = new System.Drawing.Size(84, 21);
             this.OldPassTextBox.TabIndex = 12;
             this.OldPassTextBox.Visible = false;
             // 
@@ -2890,7 +2975,7 @@
             // 
             this.textBox5.Location = new System.Drawing.Point(12, 235);
             this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(184, 20);
+            this.textBox5.Size = new System.Drawing.Size(184, 21);
             this.textBox5.TabIndex = 8;
             this.textBox5.UseSystemPasswordChar = true;
             this.textBox5.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox5_KeyDown);
@@ -2908,7 +2993,7 @@
             // 
             this.textBox4.Location = new System.Drawing.Point(14, 179);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(184, 20);
+            this.textBox4.Size = new System.Drawing.Size(184, 21);
             this.textBox4.TabIndex = 6;
             this.textBox4.UseSystemPasswordChar = true;
             this.textBox4.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox4_KeyDown);
@@ -2927,7 +3012,7 @@
             this.textBox3.Location = new System.Drawing.Point(12, 124);
             this.textBox3.Name = "textBox3";
             this.textBox3.PasswordChar = '*';
-            this.textBox3.Size = new System.Drawing.Size(184, 20);
+            this.textBox3.Size = new System.Drawing.Size(184, 21);
             this.textBox3.TabIndex = 4;
             this.textBox3.UseSystemPasswordChar = true;
             this.textBox3.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox3_KeyDown);
@@ -2946,7 +3031,7 @@
             this.textBox2.Enabled = false;
             this.textBox2.Location = new System.Drawing.Point(12, 76);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(184, 20);
+            this.textBox2.Size = new System.Drawing.Size(184, 21);
             this.textBox2.TabIndex = 2;
             // 
             // textBox1
@@ -2954,7 +3039,7 @@
             this.textBox1.Enabled = false;
             this.textBox1.Location = new System.Drawing.Point(12, 30);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(184, 20);
+            this.textBox1.Size = new System.Drawing.Size(184, 21);
             this.textBox1.TabIndex = 1;
             // 
             // label1
@@ -3003,7 +3088,7 @@
             this.textBox6.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.getLogInLogOutDataOneUserBindingSource, "TimeAction", true));
             this.textBox6.Location = new System.Drawing.Point(365, 189);
             this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(126, 20);
+            this.textBox6.Size = new System.Drawing.Size(126, 21);
             this.textBox6.TabIndex = 30;
             // 
             // textBox7
@@ -3011,7 +3096,7 @@
             this.textBox7.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.getLogInLogOutDataOneUserBindingSource, "ActionName", true));
             this.textBox7.Location = new System.Drawing.Point(365, 235);
             this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(126, 20);
+            this.textBox7.Size = new System.Drawing.Size(126, 21);
             this.textBox7.TabIndex = 35;
             // 
             // textBox8
@@ -3019,7 +3104,7 @@
             this.textBox8.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.getLogInDataForUserBindingSource, "LoginTime", true));
             this.textBox8.Location = new System.Drawing.Point(365, 283);
             this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(126, 20);
+            this.textBox8.Size = new System.Drawing.Size(126, 21);
             this.textBox8.TabIndex = 41;
             // 
             // getLogInDataForUserBindingSource
@@ -3043,43 +3128,14 @@
             this.timer3.Interval = 45000000;
             this.timer3.Tick += new System.EventHandler(this.timer3_Tick);
             // 
-            // barButtonItem165
+            // barButtonItem174
             // 
-            this.barButtonItem165.Caption = "--";
-            this.barButtonItem165.Id = 224;
-            this.barButtonItem165.Name = "barButtonItem165";
-            // 
-            // barButtonItem166
-            // 
-            this.barButtonItem166.Caption = "تقرير خطابات الضمان الوارده  طبقا لتاريخ التسليم خلال فتره";
-            this.barButtonItem166.Id = 225;
-            this.barButtonItem166.Name = "barButtonItem166";
-            this.barButtonItem166.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem166_ItemClick);
-            // 
-            // barButtonItem167
-            // 
-            this.barButtonItem167.Caption = "تقرير خطابات الضمان الصادره طبقا لتاريخ التسليم خلال فتره";
-            this.barButtonItem167.Id = 226;
-            this.barButtonItem167.Name = "barButtonItem167";
-            // 
-            // barButtonItem168
-            // 
-            this.barButtonItem168.Caption = "--";
-            this.barButtonItem168.Id = 227;
-            this.barButtonItem168.Name = "barButtonItem168";
-            // 
-            // barButtonItem169
-            // 
-            this.barButtonItem169.Caption = "تقرير خطابات الضمان الوارده طبقا لأخر تاريخ سريان خلال فتره";
-            this.barButtonItem169.Id = 228;
-            this.barButtonItem169.Name = "barButtonItem169";
-            this.barButtonItem169.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem169_ItemClick);
-            // 
-            // barButtonItem170
-            // 
-            this.barButtonItem170.Caption = "تقرير خطابات الضمان الصادره طبقا لأخر تاريخ سريان خلال فتره";
-            this.barButtonItem170.Id = 229;
-            this.barButtonItem170.Name = "barButtonItem170";
+            this.barButtonItem174.Caption = "المتغيرات المطلوبه للمارسات";
+            this.barButtonItem174.Id = 234;
+            this.barButtonItem174.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem174.ImageOptions.Image")));
+            this.barButtonItem174.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem174.ImageOptions.LargeImage")));
+            this.barButtonItem174.Name = "barButtonItem174";
+            this.barButtonItem174.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem174_ItemClick);
             // 
             // MainForm
             // 
@@ -3432,5 +3488,10 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem168;
         private DevExpress.XtraBars.BarButtonItem barButtonItem169;
         private DevExpress.XtraBars.BarButtonItem barButtonItem170;
+        private DevExpress.XtraBars.BarSubItem barSubItem20;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem172;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem171;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem173;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem174;
     }
 }

@@ -633,6 +633,7 @@
     <Compile Include="DataBase\Model\Tbl_RestrictionItemsCategory_With_AccountNumber.cs" />
     <Compile Include="DataBase\Model\TBL_Restrictions_checks.cs" />
     <Compile Include="DataBase\Model\TBL_RESULT.cs" />
+    <Compile Include="DataBase\Model\Tbl_RuleTender.cs" />
     <Compile Include="DataBase\Model\TBL_ShowMenue_Report.cs" />
     <Compile Include="DataBase\Model\Tbl_SoilKind.cs" />
     <Compile Include="DataBase\Model\Tbl_SpecificationItems.cs" />
@@ -825,6 +826,12 @@
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Abstracts\RulesAbstractsFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Abstracts\RulesAbstractsFrm.Designer.cs">
+      <DependentUpon>RulesAbstractsFrm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Banks\AuditingCheqFrm.cs">
       <SubType>Form</SubType>
@@ -1401,6 +1408,18 @@
     </Compile>
     <Compile Include="Forms\BasicCodeForms\SecurityActionRestFrm.Designer.cs">
       <DependentUpon>SecurityActionRestFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\BasicCodeForms\SolidKindFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\BasicCodeForms\SolidKindFrm.Designer.cs">
+      <DependentUpon>SolidKindFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\BasicCodeForms\SpecificationItemsFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\BasicCodeForms\SpecificationItemsFrm.Designer.cs">
+      <DependentUpon>SpecificationItemsFrm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\BasicCodeForms\StampsFeesFrm.cs">
       <SubType>Form</SubType>
@@ -2517,6 +2536,9 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Abstracts\RulesAbstractsFrm.resx">
+      <DependentUpon>RulesAbstractsFrm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Banks\AuditingCheqFrm.resx">
       <DependentUpon>AuditingCheqFrm.cs</DependentUpon>
     </EmbeddedResource>
@@ -2805,6 +2827,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\BasicCodeForms\SecurityActionRestFrm.resx">
       <DependentUpon>SecurityActionRestFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\BasicCodeForms\SolidKindFrm.resx">
+      <DependentUpon>SolidKindFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\BasicCodeForms\SpecificationItemsFrm.resx">
+      <DependentUpon>SpecificationItemsFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\BasicCodeForms\StampsFeesFrm.resx">
       <DependentUpon>StampsFeesFrm.cs</DependentUpon>

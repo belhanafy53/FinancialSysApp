@@ -73,8 +73,6 @@ namespace FinancialSysApp.DataBase.Model
         [StringLength(50)]
         public string ImplementationPeriodTo { get; set; }
 
-      
-
         public virtual Tbl_DecisionsResponspilities Tbl_DecisionsResponspilities { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

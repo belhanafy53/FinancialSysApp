@@ -770,6 +770,10 @@ namespace FinancialSysApp.Forms
 
             barButtonItem166.Enabled = Program.SecurityFormsList.Contains(133) ? true : false;
             barButtonItem169.Enabled = Program.SecurityFormsList.Contains(135) ? true : false;
+
+            barButtonItem172.Enabled = Program.SecurityFormsList.Contains(136) ? true : false;
+            barButtonItem173.Enabled = Program.SecurityFormsList.Contains(137) ? true : false;
+            barButtonItem174.Enabled = Program.SecurityFormsList.Contains(138) ? true : false;
         }
 
         private void barButtonItem22_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -3282,6 +3286,63 @@ namespace FinancialSysApp.Forms
             else
             {
                 f.radioGroup1.SelectedIndex = 0;
+                f.Show();
+
+                f.BringToFront();
+            }
+        }
+
+        private void barButtonItem172_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Forms.BasicCodeForms.SolidKindFrm f = new Forms.BasicCodeForms.SolidKindFrm();
+            if ((Application.OpenForms["SolidKindFrm"] as Forms.BasicCodeForms.SolidKindFrm != null))
+            {
+                f.BringToFront();
+                 
+                this.SendToBack();
+
+            }
+            else
+            {
+                
+                f.Show();
+
+                f.BringToFront();
+            }
+        }
+
+        private void barButtonItem173_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Forms.BasicCodeForms.SpecificationItemsFrm f = new Forms.BasicCodeForms.SpecificationItemsFrm();
+            if ((Application.OpenForms["SpecificationItemsFrm"] as Forms.BasicCodeForms.SpecificationItemsFrm != null))
+            {
+                f.BringToFront();
+
+                this.SendToBack();
+
+            }
+            else
+            {
+
+                f.Show();
+
+                f.BringToFront();
+            }
+        }
+
+        private void barButtonItem174_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Forms.Abstracts.RulesAbstractsFrm f = new Forms.Abstracts.RulesAbstractsFrm();
+            if ((Application.OpenForms["RulesAbstractsFrm"] as Forms.Abstracts.RulesAbstractsFrm != null))
+            {
+                f.BringToFront();
+
+                this.SendToBack();
+
+            }
+            else
+            {
+
                 f.Show();
 
                 f.BringToFront();

@@ -12,6 +12,7 @@ namespace FinancialSysApp.DataBase.Model
         public Tbl_TendersAuctions()
         {
             Tbl_Order = new HashSet<Tbl_Order>();
+            Tbl_RuleTender = new HashSet<Tbl_RuleTender>();
         }
 
         public int ID { get; set; }
@@ -37,5 +38,8 @@ namespace FinancialSysApp.DataBase.Model
         public virtual ICollection<Tbl_Order> Tbl_Order { get; set; }
 
         public virtual Tbl_PurchaseMethods Tbl_PurchaseMethods { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Tbl_RuleTender> Tbl_RuleTender { get; set; }
     }
 }

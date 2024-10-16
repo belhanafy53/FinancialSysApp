@@ -144,6 +144,7 @@
         public virtual DbSet<Tbl_RestrictionItemsCategory_With_AccountNumber> Tbl_RestrictionItemsCategory_With_AccountNumber { get; set; }
         public virtual DbSet<TBL_Restrictions_checks> TBL_Restrictions_checks { get; set; }
         public virtual DbSet<TBL_RESULT> TBL_RESULT { get; set; }
+        public virtual DbSet<Tbl_RuleTender> Tbl_RuleTender { get; set; }
         public virtual DbSet<TBL_ShowMenue_Report> TBL_ShowMenue_Report { get; set; }
         public virtual DbSet<Tbl_SoilKind> Tbl_SoilKind { get; set; }
         public virtual DbSet<Tbl_SpecificationItems> Tbl_SpecificationItems { get; set; }
@@ -1322,6 +1323,10 @@
                 .Property(e => e.YYear1)
                 .IsFixedLength();
 
+            modelBuilder.Entity<Tbl_RuleTender>()
+                .Property(e => e.RuleValue)
+                .HasPrecision(18, 0);
+
             modelBuilder.Entity<TBL_ShowMenue_Report>()
                 .Property(e => e.TotalDue_Blus)
                 .HasPrecision(18, 3);
@@ -1455,6 +1460,11 @@
 
             modelBuilder.Entity<Tbl_TendersAuctions>()
                 .HasMany(e => e.Tbl_Order)
+                .WithOptional(e => e.Tbl_TendersAuctions)
+                .HasForeignKey(e => e.TendersAuctionsID);
+
+            modelBuilder.Entity<Tbl_TendersAuctions>()
+                .HasMany(e => e.Tbl_RuleTender)
                 .WithOptional(e => e.Tbl_TendersAuctions)
                 .HasForeignKey(e => e.TendersAuctionsID);
 
