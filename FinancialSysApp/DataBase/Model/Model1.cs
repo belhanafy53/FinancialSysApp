@@ -147,7 +147,10 @@
         public virtual DbSet<Tbl_RuleTender> Tbl_RuleTender { get; set; }
         public virtual DbSet<TBL_ShowMenue_Report> TBL_ShowMenue_Report { get; set; }
         public virtual DbSet<Tbl_SoilKind> Tbl_SoilKind { get; set; }
+        public virtual DbSet<Tbl_SpecificationBranchItems> Tbl_SpecificationBranchItems { get; set; }
+        public virtual DbSet<Tbl_SpecificationBranchItemsSolidKind> Tbl_SpecificationBranchItemsSolidKind { get; set; }
         public virtual DbSet<Tbl_SpecificationItems> Tbl_SpecificationItems { get; set; }
+        public virtual DbSet<Tbl_SpecificationPrice> Tbl_SpecificationPrice { get; set; }
         public virtual DbSet<Tbl_StampsFees> Tbl_StampsFees { get; set; }
         public virtual DbSet<Tbl_Stores> Tbl_Stores { get; set; }
         public virtual DbSet<Tbl_Supplier> Tbl_Supplier { get; set; }
@@ -1363,6 +1366,30 @@
                 .Property(e => e.TotalDue_Min4)
                 .HasPrecision(18, 3);
 
+            modelBuilder.Entity<Tbl_SoilKind>()
+                .HasMany(e => e.Tbl_SpecificationBranchItemsSolidKind)
+                .WithOptional(e => e.Tbl_SoilKind)
+                .HasForeignKey(e => e.SolidKindID);
+
+            modelBuilder.Entity<Tbl_SoilKind>()
+                .HasMany(e => e.Tbl_SpecificationPrice)
+                .WithOptional(e => e.Tbl_SoilKind)
+                .HasForeignKey(e => e.SolidKindID);
+
+            modelBuilder.Entity<Tbl_SpecificationBranchItems>()
+                .HasMany(e => e.Tbl_SpecificationBranchItemsSolidKind)
+                .WithOptional(e => e.Tbl_SpecificationBranchItems)
+                .HasForeignKey(e => e.SpecificationBranchItems);
+
+            modelBuilder.Entity<Tbl_SpecificationItems>()
+                .HasMany(e => e.Tbl_SpecificationBranchItems)
+                .WithOptional(e => e.Tbl_SpecificationItems)
+                .HasForeignKey(e => e.SpecificationItemsID);
+
+            modelBuilder.Entity<Tbl_SpecificationPrice>()
+                .Property(e => e.Peice)
+                .HasPrecision(18, 0);
+
             modelBuilder.Entity<Tbl_StampsFees>()
                 .Property(e => e.Value1)
                 .HasPrecision(18, 3);
@@ -1465,6 +1492,16 @@
 
             modelBuilder.Entity<Tbl_TendersAuctions>()
                 .HasMany(e => e.Tbl_RuleTender)
+                .WithOptional(e => e.Tbl_TendersAuctions)
+                .HasForeignKey(e => e.TendersAuctionsID);
+
+            modelBuilder.Entity<Tbl_TendersAuctions>()
+                .HasMany(e => e.Tbl_SpecificationBranchItems)
+                .WithOptional(e => e.Tbl_TendersAuctions)
+                .HasForeignKey(e => e.TendersAuctionsID);
+
+            modelBuilder.Entity<Tbl_TendersAuctions>()
+                .HasMany(e => e.Tbl_SpecificationPrice)
                 .WithOptional(e => e.Tbl_TendersAuctions)
                 .HasForeignKey(e => e.TendersAuctionsID);
 

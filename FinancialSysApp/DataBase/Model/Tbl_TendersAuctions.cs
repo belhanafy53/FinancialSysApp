@@ -13,6 +13,8 @@ namespace FinancialSysApp.DataBase.Model
         {
             Tbl_Order = new HashSet<Tbl_Order>();
             Tbl_RuleTender = new HashSet<Tbl_RuleTender>();
+            Tbl_SpecificationBranchItems = new HashSet<Tbl_SpecificationBranchItems>();
+            Tbl_SpecificationPrice = new HashSet<Tbl_SpecificationPrice>();
         }
 
         public int ID { get; set; }
@@ -41,5 +43,11 @@ namespace FinancialSysApp.DataBase.Model
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Tbl_RuleTender> Tbl_RuleTender { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Tbl_SpecificationBranchItems> Tbl_SpecificationBranchItems { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Tbl_SpecificationPrice> Tbl_SpecificationPrice { get; set; }
     }
 }

@@ -636,7 +636,10 @@
     <Compile Include="DataBase\Model\Tbl_RuleTender.cs" />
     <Compile Include="DataBase\Model\TBL_ShowMenue_Report.cs" />
     <Compile Include="DataBase\Model\Tbl_SoilKind.cs" />
+    <Compile Include="DataBase\Model\Tbl_SpecificationBranchItems.cs" />
+    <Compile Include="DataBase\Model\Tbl_SpecificationBranchItemsSolidKind.cs" />
     <Compile Include="DataBase\Model\Tbl_SpecificationItems.cs" />
+    <Compile Include="DataBase\Model\Tbl_SpecificationPrice.cs" />
     <Compile Include="DataBase\Model\Tbl_StampsFees.cs" />
     <Compile Include="DataBase\Model\Tbl_Stores.cs" />
     <Compile Include="DataBase\Model\Tbl_Supplier.cs" />
@@ -827,11 +830,28 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Abstracts\AbstractDs.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AbstractDs.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Abstracts\RulesAbstractsFrm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Abstracts\RulesAbstractsFrm.Designer.cs">
       <DependentUpon>RulesAbstractsFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Abstracts\SpecificationPriceFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Abstracts\SpecificationPriceFrm.Designer.cs">
+      <DependentUpon>SpecificationPriceFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Abstracts\SpecificatiosBranchItemsFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Abstracts\SpecificatiosBranchItemsFrm.Designer.cs">
+      <DependentUpon>SpecificatiosBranchItemsFrm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Banks\AuditingCheqFrm.cs">
       <SubType>Form</SubType>
@@ -2501,6 +2521,11 @@
       <DependentUpon>RestrictionCheque.xsd</DependentUpon>
     </Compile>
     <Compile Include="Security\Security.cs" />
+    <Compile Include="SolidKindDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SolidKindDS.xsd</DependentUpon>
+    </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="SystemUnitesDataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -2538,6 +2563,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Abstracts\RulesAbstractsFrm.resx">
       <DependentUpon>RulesAbstractsFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Abstracts\SpecificationPriceFrm.resx">
+      <DependentUpon>SpecificationPriceFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Abstracts\SpecificatiosBranchItemsFrm.resx">
+      <DependentUpon>SpecificatiosBranchItemsFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Banks\AuditingCheqFrm.resx">
       <DependentUpon>AuditingCheqFrm.cs</DependentUpon>
@@ -3782,6 +3813,17 @@
     <EmbeddedResource Include="Forms\DocumentsForms\Letter.rdlc" />
     <EmbeddedResource Include="Forms\Banks\PrintDateAdded-Copy.rdlc" />
     <EmbeddedResource Include="Forms\Banks\PrintDateAdded.rdlc" />
+    <None Include="Forms\Abstracts\AbstractDs.xsc">
+      <DependentUpon>AbstractDs.xsd</DependentUpon>
+    </None>
+    <None Include="Forms\Abstracts\AbstractDs.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>AbstractDs.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Forms\Abstracts\AbstractDs.xss">
+      <DependentUpon>AbstractDs.xsd</DependentUpon>
+    </None>
     <None Include="Forms\ReportsDevX\DeuPayment1Column.rdlc" />
     <None Include="Forms\ReportsDevX\DeuPayment3Columns.rdlc" />
     <None Include="Forms\ReportsDevX\DeuPayment4Columns.rdlc" />
@@ -3909,6 +3951,17 @@
     </None>
     <None Include="RestrictionCheque.xss">
       <DependentUpon>RestrictionCheque.xsd</DependentUpon>
+    </None>
+    <None Include="SolidKindDS.xsc">
+      <DependentUpon>SolidKindDS.xsd</DependentUpon>
+    </None>
+    <None Include="SolidKindDS.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SolidKindDS.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SolidKindDS.xss">
+      <DependentUpon>SolidKindDS.xsd</DependentUpon>
     </None>
     <None Include="SystemUnitesDataSet.xsc">
       <DependentUpon>SystemUnitesDataSet.xsd</DependentUpon>

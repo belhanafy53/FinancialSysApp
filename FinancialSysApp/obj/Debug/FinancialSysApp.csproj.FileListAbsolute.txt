@@ -3416,3 +3416,5 @@ D:\FinancialSysApp\FinancialSysApp\bin\Debug\DevExpress.XtraPdfViewer.v19.2.dll
 D:\FinancialSysApp\FinancialSysApp\obj\Debug\FinancialSysApp.Forms.BasicCodeForms.SolidKindFrm.resources
 D:\FinancialSysApp\FinancialSysApp\obj\Debug\FinancialSysApp.Forms.BasicCodeForms.SpecificationItemsFrm.resources
 D:\FinancialSysApp\FinancialSysApp\obj\Debug\FinancialSysApp.Forms.Abstracts.RulesAbstractsFrm.resources
+D:\FinancialSysApp\FinancialSysApp\obj\Debug\FinancialSysApp.Forms.Abstracts.SpecificationPriceFrm.resources
+D:\FinancialSysApp\FinancialSysApp\obj\Debug\FinancialSysApp.Forms.Abstracts.SpecificatiosBranchItemsFrm.resources

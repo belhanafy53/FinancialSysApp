@@ -770,10 +770,12 @@ namespace FinancialSysApp.Forms
 
             barButtonItem166.Enabled = Program.SecurityFormsList.Contains(133) ? true : false;
             barButtonItem169.Enabled = Program.SecurityFormsList.Contains(135) ? true : false;
-
+            //***********المستخلصات
             barButtonItem172.Enabled = Program.SecurityFormsList.Contains(136) ? true : false;
             barButtonItem173.Enabled = Program.SecurityFormsList.Contains(137) ? true : false;
             barButtonItem174.Enabled = Program.SecurityFormsList.Contains(138) ? true : false;
+            barButtonItem175.Enabled = Program.SecurityFormsList.Contains(139) ? true : false;
+           // barButtonItem176.Enabled = Program.SecurityFormsList.Contains(140) ? true : false;
         }
 
         private void barButtonItem22_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -3334,6 +3336,44 @@ namespace FinancialSysApp.Forms
         {
             Forms.Abstracts.RulesAbstractsFrm f = new Forms.Abstracts.RulesAbstractsFrm();
             if ((Application.OpenForms["RulesAbstractsFrm"] as Forms.Abstracts.RulesAbstractsFrm != null))
+            {
+                f.BringToFront();
+
+                this.SendToBack();
+
+            }
+            else
+            {
+
+                f.Show();
+
+                f.BringToFront();
+            }
+        }
+
+        private void barButtonItem175_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Forms.Abstracts.SpecificationPriceFrm f = new Forms.Abstracts.SpecificationPriceFrm();
+            if ((Application.OpenForms["SpecificationPriceFrm"] as Forms.Abstracts.SpecificationPriceFrm != null))
+            {
+                f.BringToFront();
+
+                this.SendToBack();
+
+            }
+            else
+            {
+
+                f.Show();
+
+                f.BringToFront();
+            }
+        }
+
+        private void barButtonItem176_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Forms.Abstracts.SpecificatiosBranchItemsFrm f = new Forms.Abstracts.SpecificatiosBranchItemsFrm();
+            if ((Application.OpenForms["SpecificatiosBranchItemsFrm"] as Forms.Abstracts.SpecificatiosBranchItemsFrm != null))
             {
                 f.BringToFront();
 

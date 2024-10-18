@@ -77,10 +77,64 @@ namespace FinancialSysApp.Forms.Abstracts
             dataGridView1.Columns["TenderDate"].Width = 100;
 
         }
+        private void dgid(int Vintid)
+        {
+            if (Vintid > 0)
+            {
+                var list = (from Rt in FsDb.Tbl_RuleTender
+                            join tac in FsDb.Tbl_TendersAuctions on Rt.TendersAuctionsID equals tac.ID
+                            where (Rt.TendersAuctionsID == Vintid)
+                            select new
+                            {
+                                ID = Rt.ID,
+                                RuleName = Rt.RuleName,
+                                RuleValue = Rt.RuleValue,
+                                TendersAuctionsID = Rt.TendersAuctionsID,
+                                TenderNo = tac.TenderNo,
+                                TenderDate = tac.TenderDate,
+
+                            }).OrderByDescending(x => x.TenderNo).ToList();
+
+                dataGridView1.DataSource = list;
+            }
+            else {
+                var list = (from Rt in FsDb.Tbl_RuleTender
+                            join tac in FsDb.Tbl_TendersAuctions on Rt.TendersAuctionsID equals tac.ID
+                            where (Rt.TendersAuctionsID == Vintid)
+                            select new
+                            {
+                                ID = Rt.ID,
+                                RuleName = Rt.RuleName,
+                                RuleValue = Rt.RuleValue,
+                                TendersAuctionsID = Rt.TendersAuctionsID,
+                                TenderNo = tac.TenderNo,
+                                TenderDate = tac.TenderDate,
+
+                            }).OrderByDescending(x => x.TenderNo).ToList();
+
+                dataGridView1.DataSource = list;
+            }
+            dataGridView1.Columns["RuleName"].HeaderText = "المتغيرات";
+            dataGridView1.Columns["RuleValue"].HeaderText = "الكمية";
+            dataGridView1.Columns["ID"].Visible = false;
+            dataGridView1.Columns["TendersAuctionsID"].Visible = false;
+            dataGridView1.Columns["TenderNo"].HeaderText = "رقم الممارسه";
+            dataGridView1.Columns["TenderDate"].HeaderText = "تاريخ الممارسه";
+
+            dataGridView1.Columns["RuleName"].Width = 200;
+            dataGridView1.Columns["RuleValue"].Width = 100;
+
+            dataGridView1.Columns["TenderNo"].Width = 100;
+            dataGridView1.Columns["TenderDate"].Width = 100;
+            return;
+
+        }
         private void RulesAbstractsFrm_Load(object sender, EventArgs e)
         {
-
-            dg();
+            int VintID = 0;
+            if (txtTenderID.Text == "") { VintID = 0; } else {
+                VintID = int.Parse(txtTenderID.Text); }
+            dgid(VintID);
 
 
             textBox1.Text = "";
@@ -91,7 +145,15 @@ namespace FinancialSysApp.Forms.Abstracts
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text == "")
+            if (txtTenderID.Text == "")
+            {
+                MessageBox.Show("من فضلك اختر الممارسه ");
+                textBox1.Select();
+                this.ActiveControl = textBox1;
+                textBox1.Focus();
+            }
+
+            else  if (textBox1.Text == "")
             {
                 MessageBox.Show("من فضلك ادخل البيان ");
                 textBox1.Select();

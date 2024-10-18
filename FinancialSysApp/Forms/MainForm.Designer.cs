@@ -239,6 +239,8 @@
             this.barSubItem20 = new DevExpress.XtraBars.BarSubItem();
             this.barButtonItem172 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem173 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem174 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem175 = new DevExpress.XtraBars.BarButtonItem();
             this.barSubItem27 = new DevExpress.XtraBars.BarSubItem();
             this.barButtonItem159 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem171 = new DevExpress.XtraBars.BarButtonItem();
@@ -345,7 +347,7 @@
             this.getLogInDataForUserTableAdapter = new FinancialSysApp.GetDataUserActionDSTableAdapters.GetLogInDataForUserTableAdapter();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.timer3 = new System.Windows.Forms.Timer(this.components);
-            this.barButtonItem174 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem176 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl1)).BeginInit();
@@ -570,9 +572,11 @@
             this.barSubItem20,
             this.barButtonItem172,
             this.barButtonItem173,
-            this.barButtonItem174});
+            this.barButtonItem174,
+            this.barButtonItem175,
+            this.barButtonItem176});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.MaxItemId = 235;
+            this.ribbonControl1.MaxItemId = 237;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.PageHeaderItemLinks.Add(this.barHeaderItem1);
             this.ribbonControl1.PageHeaderItemLinks.Add(this.barButtonItem47);
@@ -2248,7 +2252,9 @@
             this.barSubItem20.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem172),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem173),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButtonItem174, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButtonItem174, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem175),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem176)});
             this.barSubItem20.Name = "barSubItem20";
             // 
             // barButtonItem172
@@ -2268,6 +2274,24 @@
             this.barButtonItem173.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem173.ImageOptions.LargeImage")));
             this.barButtonItem173.Name = "barButtonItem173";
             this.barButtonItem173.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem173_ItemClick);
+            // 
+            // barButtonItem174
+            // 
+            this.barButtonItem174.Caption = "المتغيرات المطلوبه للمارسات";
+            this.barButtonItem174.Id = 234;
+            this.barButtonItem174.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem174.ImageOptions.Image")));
+            this.barButtonItem174.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem174.ImageOptions.LargeImage")));
+            this.barButtonItem174.Name = "barButtonItem174";
+            this.barButtonItem174.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem174_ItemClick);
+            // 
+            // barButtonItem175
+            // 
+            this.barButtonItem175.Caption = "اسعار مواصفات الممارسات";
+            this.barButtonItem175.Id = 235;
+            this.barButtonItem175.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem175.ImageOptions.Image")));
+            this.barButtonItem175.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem175.ImageOptions.LargeImage")));
+            this.barButtonItem175.Name = "barButtonItem175";
+            this.barButtonItem175.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem175_ItemClick);
             // 
             // barSubItem27
             // 
@@ -3128,14 +3152,14 @@
             this.timer3.Interval = 45000000;
             this.timer3.Tick += new System.EventHandler(this.timer3_Tick);
             // 
-            // barButtonItem174
+            // barButtonItem176
             // 
-            this.barButtonItem174.Caption = "المتغيرات المطلوبه للمارسات";
-            this.barButtonItem174.Id = 234;
-            this.barButtonItem174.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem174.ImageOptions.Image")));
-            this.barButtonItem174.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem174.ImageOptions.LargeImage")));
-            this.barButtonItem174.Name = "barButtonItem174";
-            this.barButtonItem174.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem174_ItemClick);
+            this.barButtonItem176.Caption = "البنود الفرعيه لمواصفات الممارسات";
+            this.barButtonItem176.Id = 236;
+            this.barButtonItem176.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem176.ImageOptions.Image")));
+            this.barButtonItem176.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem176.ImageOptions.LargeImage")));
+            this.barButtonItem176.Name = "barButtonItem176";
+            this.barButtonItem176.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem176_ItemClick);
             // 
             // MainForm
             // 
@@ -3493,5 +3517,7 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem171;
         private DevExpress.XtraBars.BarButtonItem barButtonItem173;
         private DevExpress.XtraBars.BarButtonItem barButtonItem174;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem175;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem176;
     }
 }

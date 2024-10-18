@@ -322,6 +322,9 @@ namespace FinancialSysApp.Forms.DocumentsForms
                     txtPaperCount.Text = "";
                     textBox4.Text = "";
                     textBox3.Text = "";
+                    textBox9.Text = "";
+                    dtpimpdatefrom.Text = "";
+                    dtpimpdateTo.Text = "";
                     chckBxBasicData.Checked = false;
 
                 }
@@ -543,6 +546,30 @@ namespace FinancialSysApp.Forms.DocumentsForms
                     txtSupliers.Text = listSupp.Name.ToString();
                 }
                 //if (listOrder.OrderAddEsnID)
+                if (listOrder.ImplementationPeriod > 0)
+                {
+                    textBox9.Text = listOrder.ImplementationPeriod.ToString();
+                }
+                else
+                {
+                    textBox9.Text = "";
+                }
+                if (listOrder.ImplementationPeriodFrom !="" && listOrder.ImplementationPeriodFrom !=null)
+                {
+                    dtpimpdatefrom.Text = listOrder.ImplementationPeriodFrom.ToString();
+                }
+                else
+                {
+                    dtpimpdatefrom.Text = "";
+                }
+                if (listOrder.ImplementationPeriodTo != "" && listOrder.ImplementationPeriodTo != null)
+                {
+                    dtpimpdateTo.Text = listOrder.ImplementationPeriodTo.ToString();
+                }
+                else
+                {
+                    dtpimpdateTo.Text = "";
+                }
                 if (listOrder.Cust_ID != null)
                 {
                     Vint_CustId = int.Parse(listOrder.Cust_ID.ToString());
@@ -830,6 +857,9 @@ namespace FinancialSysApp.Forms.DocumentsForms
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
+            short Vint_ImplementPeriod = 0;
+            string vst_impperiodfrom = "";
+            string vst_impperiodto = "";
             Vint_KindOrder = int.Parse(comboBox1.SelectedValue.ToString());
             if (comboBox1.SelectedValue == null)
             {
@@ -953,6 +983,17 @@ namespace FinancialSysApp.Forms.DocumentsForms
                         {
                             txtPaperCount.Text = "0";
                         }
+                        if (textBox9.Text != "") { Vint_ImplementPeriod = short.Parse(textBox9.Text); }
+
+
+                        if (dtpimpdatefrom.Text != "")
+                        {
+                            vst_impperiodfrom = dtpimpdatefrom.Text;
+                        }
+                        if (dtpimpdateTo.Text != "")
+                        {
+                            vst_impperiodto = dtpimpdateTo.Text;
+                        }
                         Tbl_Order Ordf = new Tbl_Order
                         {
                             Order_NO = (textBox1.Text).Trim(),
@@ -969,7 +1010,11 @@ namespace FinancialSysApp.Forms.DocumentsForms
                             OrderPurposeID = Vint_OrderPurposeID,
                             ProcessName = txtProcissName.Text,
                             OrderDircEsdarID = int.Parse(txtDirEsdarID.Text),
-                            Cust_ID = Vint_CustId
+                            Cust_ID = Vint_CustId,
+                            ImplementationPeriod = Vint_ImplementPeriod,
+                            ImplementationPeriodFrom = vst_impperiodfrom,
+                            ImplementationPeriodTo = vst_impperiodto
+
                         };
 
                         FsDb.Tbl_Order.Add(Ordf);
@@ -1120,6 +1165,9 @@ namespace FinancialSysApp.Forms.DocumentsForms
                             textBox3.Text = "";
                             txtOrderPuprposeId.Text = "";
                             txtOrderPurpose.Text = "";
+                            textBox9.Text = "";
+                            dtpimpdatefrom.Text = "";
+                            dtpimpdateTo.Text = "";
                             comboBox1.Select();
                             this.ActiveControl = comboBox1;
                             comboBox1.Focus();
@@ -1222,6 +1270,17 @@ namespace FinancialSysApp.Forms.DocumentsForms
                         if (txtProcissName.Text != "")
                         {
                             result.ProcessName = txtProcissName.Text;
+                        }
+                        if (textBox9.Text != "") { result.ImplementationPeriod = short.Parse(textBox9.Text); }
+
+
+                        if (dtpimpdatefrom.Text != "")
+                        {
+                            result.ImplementationPeriodFrom = dtpimpdatefrom.Text;
+                        }
+                        if (dtpimpdateTo.Text != "")
+                        {
+                            result.ImplementationPeriodTo = dtpimpdateTo.Text;
                         }
                         result.OrderDircEsdarID = int.Parse(txtDirEsdarID.Text);
                         if (txtManagementID.Text != "" && Program.GlbV_SysUnite_ID == 3)
@@ -1367,6 +1426,9 @@ namespace FinancialSysApp.Forms.DocumentsForms
                         txtForYear.Text = "";
                         txtOrderPuprposeId.Text = "";
                         txtOrderPurpose.Text = "";
+                        textBox9.Text = "";
+                        dtpimpdatefrom.Text = "";
+                        dtpimpdateTo.Text = "";
                         comboBox1.Select();
                         this.ActiveControl = comboBox1;
                         comboBox1.Focus();
@@ -1497,6 +1559,9 @@ namespace FinancialSysApp.Forms.DocumentsForms
                         dtpResponsipilityDecision.Value = Convert.ToDateTime(DateTime.Now.ToString());
                         txtForYear.Text = "";
                         txtProcissName.Text = "";
+                        textBox9.Text = "";
+                        dtpimpdatefrom.Text = "";
+                        dtpimpdateTo.Text = "";
                         comboBox1.Select();
                         this.ActiveControl = comboBox1;
                         comboBox1.Focus();
@@ -1558,6 +1623,9 @@ namespace FinancialSysApp.Forms.DocumentsForms
                     dtpResponsipilityDecision.Value = Convert.ToDateTime(DateTime.Now.ToString());
                     txtForYear.Text = "";
                     txtProcissName.Text = "";
+                    textBox9.Text = "";
+                    dtpimpdatefrom.Text = "";
+                    dtpimpdateTo.Text = "";
                     comboBox1.Select();
                     this.ActiveControl = comboBox1;
                     comboBox1.Focus();
@@ -2395,7 +2463,7 @@ namespace FinancialSysApp.Forms.DocumentsForms
         {
             if (e.KeyCode == Keys.Enter)
             {
-                simpleButton1.Focus();
+                textBox9.Focus();
 
             }
             else if (e.KeyCode == Keys.Down)
@@ -2448,7 +2516,7 @@ namespace FinancialSysApp.Forms.DocumentsForms
         {
             if (e.KeyCode == Keys.Enter)
             {
-                simpleButton1.Focus();
+                textBox9.Focus();
             }
         }
 
@@ -2456,7 +2524,7 @@ namespace FinancialSysApp.Forms.DocumentsForms
         {
             if (e.KeyCode == Keys.Enter)
             {
-                simpleButton1.Focus();
+                textBox9.Focus();
             }
             else if (e.KeyCode == Keys.Down)
             {
@@ -2539,6 +2607,30 @@ namespace FinancialSysApp.Forms.DocumentsForms
             t.Show();
             t.textBox9.Focus();
             t.BringToFront();
+        }
+
+        private void label37_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox9_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label36_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox9_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                simpleButton1.Focus();
+
+            }
         }
     }
 }

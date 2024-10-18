@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle41 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle48 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle42 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle43 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle44 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle45 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle46 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle47 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OrderFrm));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -157,6 +157,15 @@
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.label36 = new System.Windows.Forms.Label();
+            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.label37 = new System.Windows.Forms.Label();
+            this.dtpimpdateTo = new System.Windows.Forms.MaskedTextBox();
+            this.dtpimpdatefrom = new System.Windows.Forms.MaskedTextBox();
+            this.label38 = new System.Windows.Forms.Label();
+            this.label39 = new System.Windows.Forms.Label();
+            this.label40 = new System.Windows.Forms.Label();
+            this.label41 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dTBOrdersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.financialSysDataSet)).BeginInit();
@@ -177,8 +186,8 @@
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle41.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle41;
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -197,8 +206,8 @@
             this.dataGridView1.Location = new System.Drawing.Point(12, 110);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle48.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle48;
             this.dataGridView1.Size = new System.Drawing.Size(611, 320);
             this.dataGridView1.TabIndex = 65;
             this.dataGridView1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dataGridView1_MouseClick);
@@ -206,8 +215,8 @@
             // iDDataGridViewTextBoxColumn
             // 
             this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iDDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle42.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iDDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle42;
             this.iDDataGridViewTextBoxColumn.HeaderText = "ID";
             this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
             this.iDDataGridViewTextBoxColumn.ReadOnly = true;
@@ -216,27 +225,27 @@
             // orderNODataGridViewTextBoxColumn
             // 
             this.orderNODataGridViewTextBoxColumn.DataPropertyName = "Order_NO";
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
-            this.orderNODataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle43.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
+            this.orderNODataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle43;
             this.orderNODataGridViewTextBoxColumn.HeaderText = "رقم الامر";
             this.orderNODataGridViewTextBoxColumn.Name = "orderNODataGridViewTextBoxColumn";
             // 
             // orderDateDataGridViewTextBoxColumn
             // 
             this.orderDateDataGridViewTextBoxColumn.DataPropertyName = "Order_Date";
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle4.Format = "yyyy-MM-dd";
-            dataGridViewCellStyle4.NullValue = null;
-            this.orderDateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle44.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle44.Format = "yyyy-MM-dd";
+            dataGridViewCellStyle44.NullValue = null;
+            this.orderDateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle44;
             this.orderDateDataGridViewTextBoxColumn.HeaderText = "تاريخ الامر";
             this.orderDateDataGridViewTextBoxColumn.Name = "orderDateDataGridViewTextBoxColumn";
             // 
             // suppNameDataGridViewTextBoxColumn
             // 
             this.suppNameDataGridViewTextBoxColumn.DataPropertyName = "SuppName";
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.suppNameDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle45.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle45.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.suppNameDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle45;
             this.suppNameDataGridViewTextBoxColumn.HeaderText = "المورد / المقاول";
             this.suppNameDataGridViewTextBoxColumn.Name = "suppNameDataGridViewTextBoxColumn";
             this.suppNameDataGridViewTextBoxColumn.Width = 250;
@@ -256,8 +265,8 @@
             // purshaseMethNameDataGridViewTextBoxColumn
             // 
             this.purshaseMethNameDataGridViewTextBoxColumn.DataPropertyName = "PurshaseMethName";
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
-            this.purshaseMethNameDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle46.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
+            this.purshaseMethNameDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle46;
             this.purshaseMethNameDataGridViewTextBoxColumn.HeaderText = "طريقة الشراء";
             this.purshaseMethNameDataGridViewTextBoxColumn.Name = "purshaseMethNameDataGridViewTextBoxColumn";
             this.purshaseMethNameDataGridViewTextBoxColumn.Width = 130;
@@ -272,8 +281,8 @@
             // orderKindNameDataGridViewTextBoxColumn
             // 
             this.orderKindNameDataGridViewTextBoxColumn.DataPropertyName = "OrderKindName";
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
-            this.orderKindNameDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle47.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
+            this.orderKindNameDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle47;
             this.orderKindNameDataGridViewTextBoxColumn.HeaderText = "نوع الامر";
             this.orderKindNameDataGridViewTextBoxColumn.Name = "orderKindNameDataGridViewTextBoxColumn";
             // 
@@ -759,7 +768,7 @@
             this.simpleButton4.Appearance.Options.UseFont = true;
             this.simpleButton4.Enabled = false;
             this.simpleButton4.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton4.ImageOptions.Image")));
-            this.simpleButton4.Location = new System.Drawing.Point(497, 490);
+            this.simpleButton4.Location = new System.Drawing.Point(488, 455);
             this.simpleButton4.Name = "simpleButton4";
             this.simpleButton4.Size = new System.Drawing.Size(108, 36);
             this.simpleButton4.TabIndex = 129;
@@ -1254,7 +1263,7 @@
             this.txtDirectEsdr.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.txtDirectEsdr.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.txtDirectEsdr.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDirectEsdr.Location = new System.Drawing.Point(632, 490);
+            this.txtDirectEsdr.Location = new System.Drawing.Point(632, 460);
             this.txtDirectEsdr.Multiline = true;
             this.txtDirectEsdr.Name = "txtDirectEsdr";
             this.txtDirectEsdr.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -1267,7 +1276,7 @@
             // 
             this.label32.AutoSize = true;
             this.label32.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label32.Location = new System.Drawing.Point(865, 470);
+            this.label32.Location = new System.Drawing.Point(865, 440);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(109, 17);
             this.label32.TabIndex = 270;
@@ -1276,7 +1285,7 @@
             // txtDirEsdarID
             // 
             this.txtDirEsdarID.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDirEsdarID.Location = new System.Drawing.Point(650, 465);
+            this.txtDirEsdarID.Location = new System.Drawing.Point(650, 435);
             this.txtDirEsdarID.Name = "txtDirEsdarID";
             this.txtDirEsdarID.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtDirEsdarID.Size = new System.Drawing.Size(50, 26);
@@ -1299,11 +1308,11 @@
             // textBox4
             // 
             this.textBox4.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(216, 461);
+            this.textBox4.Location = new System.Drawing.Point(174, 461);
             this.textBox4.Multiline = true;
             this.textBox4.Name = "textBox4";
             this.textBox4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.textBox4.Size = new System.Drawing.Size(243, 49);
+            this.textBox4.Size = new System.Drawing.Size(302, 49);
             this.textBox4.TabIndex = 274;
             this.textBox4.Enter += new System.EventHandler(this.textBox4_Enter);
             this.textBox4.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox4_KeyDown_1);
@@ -1312,7 +1321,7 @@
             // 
             this.label33.AutoSize = true;
             this.label33.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label33.Location = new System.Drawing.Point(381, 438);
+            this.label33.Location = new System.Drawing.Point(339, 438);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(78, 19);
             this.label33.TabIndex = 273;
@@ -1356,7 +1365,7 @@
             this.label35.AutoSize = true;
             this.label35.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label35.ForeColor = System.Drawing.Color.Red;
-            this.label35.Location = new System.Drawing.Point(161, 439);
+            this.label35.Location = new System.Drawing.Point(120, 439);
             this.label35.Name = "label35";
             this.label35.Size = new System.Drawing.Size(48, 19);
             this.label35.TabIndex = 278;
@@ -1370,7 +1379,7 @@
             this.textBox6.Multiline = true;
             this.textBox6.Name = "textBox6";
             this.textBox6.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.textBox6.Size = new System.Drawing.Size(198, 49);
+            this.textBox6.Size = new System.Drawing.Size(157, 49);
             this.textBox6.TabIndex = 279;
             this.textBox6.Visible = false;
             // 
@@ -1389,7 +1398,7 @@
             this.checkBox1.AutoSize = true;
             this.checkBox1.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox1.ForeColor = System.Drawing.Color.Red;
-            this.checkBox1.Location = new System.Drawing.Point(42, 440);
+            this.checkBox1.Location = new System.Drawing.Point(14, 440);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.checkBox1.Size = new System.Drawing.Size(87, 19);
@@ -1398,11 +1407,122 @@
             this.checkBox1.UseVisualStyleBackColor = true;
             this.checkBox1.Visible = false;
             // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label36.ForeColor = System.Drawing.Color.Black;
+            this.label36.Location = new System.Drawing.Point(835, 511);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(24, 17);
+            this.label36.TabIndex = 284;
+            this.label36.Text = "يوم";
+            this.label36.Click += new System.EventHandler(this.label36_Click);
+            // 
+            // textBox9
+            // 
+            this.textBox9.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox9.Location = new System.Drawing.Point(868, 508);
+            this.textBox9.Name = "textBox9";
+            this.textBox9.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.textBox9.Size = new System.Drawing.Size(104, 26);
+            this.textBox9.TabIndex = 283;
+            this.textBox9.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox9.TextChanged += new System.EventHandler(this.textBox9_TextChanged);
+            this.textBox9.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox9_KeyDown);
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label37.ForeColor = System.Drawing.Color.Black;
+            this.label37.Location = new System.Drawing.Point(907, 488);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(58, 17);
+            this.label37.TabIndex = 282;
+            this.label37.Text = "مدة التنفيذ";
+            this.label37.Click += new System.EventHandler(this.label37_Click);
+            // 
+            // dtpimpdateTo
+            // 
+            this.dtpimpdateTo.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
+            this.dtpimpdateTo.Location = new System.Drawing.Point(566, 509);
+            this.dtpimpdateTo.Mask = "0000/00/00";
+            this.dtpimpdateTo.Name = "dtpimpdateTo";
+            this.dtpimpdateTo.Size = new System.Drawing.Size(111, 22);
+            this.dtpimpdateTo.TabIndex = 290;
+            this.dtpimpdateTo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.dtpimpdateTo.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
+            // 
+            // dtpimpdatefrom
+            // 
+            this.dtpimpdatefrom.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
+            this.dtpimpdatefrom.Location = new System.Drawing.Point(700, 509);
+            this.dtpimpdatefrom.Mask = "0000/00/00";
+            this.dtpimpdatefrom.Name = "dtpimpdatefrom";
+            this.dtpimpdatefrom.Size = new System.Drawing.Size(111, 22);
+            this.dtpimpdatefrom.TabIndex = 289;
+            this.dtpimpdatefrom.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.dtpimpdatefrom.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label38.ForeColor = System.Drawing.Color.Black;
+            this.label38.Location = new System.Drawing.Point(545, 509);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(13, 17);
+            this.label38.TabIndex = 288;
+            this.label38.Text = "(";
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label39.ForeColor = System.Drawing.Color.Black;
+            this.label39.Location = new System.Drawing.Point(817, 512);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(13, 17);
+            this.label39.TabIndex = 287;
+            this.label39.Text = ")";
+            // 
+            // label40
+            // 
+            this.label40.AutoSize = true;
+            this.label40.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label40.ForeColor = System.Drawing.Color.Black;
+            this.label40.Location = new System.Drawing.Point(623, 486);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(54, 17);
+            this.label40.TabIndex = 286;
+            this.label40.Text = "الى تاريخ";
+            // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label41.ForeColor = System.Drawing.Color.Black;
+            this.label41.Location = new System.Drawing.Point(759, 489);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(52, 17);
+            this.label41.TabIndex = 285;
+            this.label41.Text = "من تاريخ";
+            // 
             // OrderFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1287, 588);
+            this.Controls.Add(this.dtpimpdateTo);
+            this.Controls.Add(this.dtpimpdatefrom);
+            this.Controls.Add(this.label38);
+            this.Controls.Add(this.label39);
+            this.Controls.Add(this.label40);
+            this.Controls.Add(this.label41);
+            this.Controls.Add(this.label36);
+            this.Controls.Add(this.textBox9);
+            this.Controls.Add(this.label37);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.textBox7);
             this.Controls.Add(this.textBox6);
@@ -1637,5 +1757,14 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn الغرض;
         private System.Windows.Forms.DataGridViewTextBoxColumn orderKindNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn orderKindIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Label label36;
+        public System.Windows.Forms.TextBox textBox9;
+        public System.Windows.Forms.Label label37;
+        private System.Windows.Forms.MaskedTextBox dtpimpdateTo;
+        private System.Windows.Forms.MaskedTextBox dtpimpdatefrom;
+        private System.Windows.Forms.Label label38;
+        private System.Windows.Forms.Label label39;
+        private System.Windows.Forms.Label label40;
+        private System.Windows.Forms.Label label41;
     }
 }
