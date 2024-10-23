@@ -242,6 +242,7 @@
     <Reference Include="System.Security" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -365,6 +366,10 @@
     <Reference Include="UserRoles">
       <HintPath>..\..\..\Files Admin User Privileges_2\Files Admin User Privileges\UserRoles.dll</HintPath>
     </Reference>
+    <Reference Include="WiaDotNet, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WiaDotNet.1.0\lib\net40\WiaDotNet.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
@@ -392,14 +397,15 @@
       <DependentUpon>BankTransmentDS.xsd</DependentUpon>
     </Compile>
     <Compile Include="Class1.cs" />
-    <Compile Include="Classes\CalcCheqNoQNBCs.cs" />
-    <Compile Include="Classes\CalcOrderItemsValue.cs" />
-    <Compile Include="Classes\CalcQuantityItemOrderManagement.cs" />
-    <Compile Include="Classes\DateAddedStatlmentCs.cs" />
-    <Compile Include="Classes\FinancialYearDuDate.cs" />
-    <Compile Include="Classes\FormProcedures.cs" />
-    <Compile Include="Classes\GetServerDate.cs" />
-    <Compile Include="Classes\ViewTree.cs" />
+    <Compile Include="DataBase\Model\Model1.cs" />
+    <Compile Include="Forms\Classes\CalcCheqNoQNBCs.cs" />
+    <Compile Include="Forms\Classes\CalcOrderItemsValue.cs" />
+    <Compile Include="Forms\Classes\CalcQuantityItemOrderManagement.cs" />
+    <Compile Include="Forms\Classes\DateAddedStatlmentCs.cs" />
+    <Compile Include="Forms\Classes\FinancialYearDuDate.cs" />
+    <Compile Include="Forms\Classes\FormProcedures.cs" />
+    <Compile Include="Forms\Classes\GetServerDate.cs" />
+    <Compile Include="Forms\Classes\ViewTree.cs" />
     <Compile Include="CollectedDataOrNoDS.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -493,7 +499,6 @@
     <Compile Include="DataBase\ModelSecurity\Tbl_UserType.cs" />
     <Compile Include="DataBase\Model\account_bank.cs" />
     <Compile Include="DataBase\Model\Cash_FlowDoc.cs" />
-    <Compile Include="DataBase\Model\Model1.cs" />
     <Compile Include="DataBase\Model\Mohsen1.cs" />
     <Compile Include="DataBase\Model\relation_restriction.cs" />
     <Compile Include="DataBase\Model\Tbl_BankMovingType3.cs" />
@@ -638,6 +643,7 @@
     <Compile Include="DataBase\Model\Tbl_SoilKind.cs" />
     <Compile Include="DataBase\Model\Tbl_SpecificationBranchItems.cs" />
     <Compile Include="DataBase\Model\Tbl_SpecificationBranchItemsSolidKind.cs" />
+    <Compile Include="DataBase\Model\Tbl_SpecificationBrnchItemsCode.cs" />
     <Compile Include="DataBase\Model\Tbl_SpecificationItems.cs" />
     <Compile Include="DataBase\Model\Tbl_SpecificationPrice.cs" />
     <Compile Include="DataBase\Model\Tbl_StampsFees.cs" />
@@ -1434,6 +1440,12 @@
     </Compile>
     <Compile Include="Forms\BasicCodeForms\SolidKindFrm.Designer.cs">
       <DependentUpon>SolidKindFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\BasicCodeForms\SpecificationBrnchItemsCodeFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\BasicCodeForms\SpecificationBrnchItemsCodeFrm.Designer.cs">
+      <DependentUpon>SpecificationBrnchItemsCodeFrm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\BasicCodeForms\SpecificationItemsFrm.cs">
       <SubType>Form</SubType>
@@ -2861,6 +2873,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\BasicCodeForms\SolidKindFrm.resx">
       <DependentUpon>SolidKindFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\BasicCodeForms\SpecificationBrnchItemsCodeFrm.resx">
+      <DependentUpon>SpecificationBrnchItemsCodeFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\BasicCodeForms\SpecificationItemsFrm.resx">
       <DependentUpon>SpecificationItemsFrm.cs</DependentUpon>

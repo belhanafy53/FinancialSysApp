@@ -26,7 +26,15 @@ namespace FinancialSysApp.Forms.BasicCodeForms
 
         private void SpecificationItemsFrm_Load(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = FsDb.Tbl_SpecificationItems.ToList();
+            dataGridView1.DataSource = (from sk in FsDb.Tbl_SpecificationItems
+
+
+                                        select new
+                                        {
+                                            ID = sk.ID,
+                                            Name = sk.Name,
+                                        }).OrderByDescending(x => x.ID).ToList();
+            
             dataGridView1.Columns["Name"].HeaderText = "البند";
             //dataGridView1.Columns["TaxAuthority_Code"].HeaderText = "كود الماموريه";
             dataGridView1.Columns["ID"].Visible = false;

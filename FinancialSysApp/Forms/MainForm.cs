@@ -775,7 +775,7 @@ namespace FinancialSysApp.Forms
             barButtonItem173.Enabled = Program.SecurityFormsList.Contains(137) ? true : false;
             barButtonItem174.Enabled = Program.SecurityFormsList.Contains(138) ? true : false;
             barButtonItem175.Enabled = Program.SecurityFormsList.Contains(139) ? true : false;
-           // barButtonItem176.Enabled = Program.SecurityFormsList.Contains(140) ? true : false;
+            barButtonItem176.Enabled = Program.SecurityFormsList.Contains(139) ? true : false;
         }
 
         private void barButtonItem22_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -3353,8 +3353,8 @@ namespace FinancialSysApp.Forms
 
         private void barButtonItem175_ItemClick(object sender, ItemClickEventArgs e)
         {
-            Forms.Abstracts.SpecificationPriceFrm f = new Forms.Abstracts.SpecificationPriceFrm();
-            if ((Application.OpenForms["SpecificationPriceFrm"] as Forms.Abstracts.SpecificationPriceFrm != null))
+            Forms.BasicCodeForms.SpecificationBrnchItemsCodeFrm f = new Forms.BasicCodeForms.SpecificationBrnchItemsCodeFrm();
+            if ((Application.OpenForms["SpecificationBrnchItemsCodeFrm"] as Forms.BasicCodeForms.SpecificationBrnchItemsCodeFrm != null))
             {
                 f.BringToFront();
 

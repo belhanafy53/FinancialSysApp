@@ -96,6 +96,8 @@ namespace FinancialSysApp.DataBase.Model
 
         public int? MoveType3 { get; set; }
 
+        public int? AccountBankCode { get; set; }
+
         public virtual Tbl_Banks Tbl_Banks { get; set; }
 
         public virtual Tbl_MovementBankType Tbl_MovementBankType { get; set; }

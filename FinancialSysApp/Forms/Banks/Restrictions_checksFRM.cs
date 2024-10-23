@@ -14,14 +14,13 @@ using FinancialSysApp.DataBase.ModelEvents;
 using DevExpress.XtraEditors;
 using DevComponents.DotNetBar.Controls;
 using FinancialSysApp.Classes;
-
+using WIA;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 using FinancialSysApp.Forms.DocumentsForms;
 using DevExpress.PivotGrid.PivotTable;
 using DevExpress.ClipboardSource.SpreadsheetML;
 using DevExpress.CodeParser;
 using System.Runtime.InteropServices;
-using WIA;
 using System.IO;
 using DevExpress.Office.Drawing;
 using System.Data.SqlClient;

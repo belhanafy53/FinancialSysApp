@@ -44,7 +44,7 @@ namespace FinancialSysApp.Forms.Banks.TransferDataBanks
         int Vint_BankID = 0;
         int Vint_BankAcc = 0;
         int Vint_FiscYear = 0;
-        int Vint_CountMb = 0;
+        int? Vint_CountMb = 0;
         string VS_DatebankDay = "";
         DateTime Vd_DateMov = Convert.ToDateTime(DateTime.Now.ToString());
         string VS_DatebankDue = "";
@@ -708,7 +708,8 @@ namespace FinancialSysApp.Forms.Banks.TransferDataBanks
                 DepositCashID = 0,
                 MoveType1 = Vint_MoveType,
                 MoveType2 = Vint_MoveType1,
-                TradeCode = Vlng_TradeCode
+                TradeCode = Vlng_TradeCode,
+                AccountBankCode = Vint_CountMb + 1
             };
             FsDb.Tbl_BankMovement.Add(bnm);
             FsDb.SaveChanges();
@@ -738,7 +739,8 @@ namespace FinancialSysApp.Forms.Banks.TransferDataBanks
                 FisicalYeariD = Vint_FiscYear,
                 IsSelectedType = false,
                 BankCheqID = 0,
-                DepositCashID = 0
+                DepositCashID = 0,
+                AccountBankCode = Vint_CountMb + 1
             };
             FsDb.Tbl_BankMovement.Add(bnm);
             FsDb.SaveChanges();
@@ -995,13 +997,15 @@ namespace FinancialSysApp.Forms.Banks.TransferDataBanks
                             }
                             Vst_FinancialYear = FsDb.Tbl_Fiscalyear.Where(x => x.ID == Vint_FiscYear).Select(x => x.FinancialYear).FirstOrDefault();
 
-                            Vint_CountMb = FsDb.Tbl_BankMovement.Where(x => x.FisicalYeariD == Vint_FiscYear).Count();
-
-                            Vst_CodeGenerate = Vst_FinancialYear + "/" + (Vint_CountMb + 1).ToString();
+                            //    Vint_BankID     Vint_BankAcc 
+                            Vint_CountMb = FsDb.Tbl_BankMovement.Where(x => x.FisicalYeariD == Vint_FiscYear && x.BankAccID == Vint_BankAcc).ToList().Max(x => x.AccountBankCode);
+                            if (Vint_CountMb == null) { Vint_CountMb = 0; }
+                            string BankAccNo = FsDb.Tbl_AccountsBank.Where(x => x.ID == Vint_BankAcc).Select(x => x.AccountBankNo).FirstOrDefault();
+                            string bnkacc4charch = BankAccNo.Substring(BankAccNo.Length - 2);
+                            Vst_CodeGenerate = Vst_FinancialYear + "/" + bnkacc4charch + "/" + (Vint_CountMb + 1).ToString();
                             //**************************
 
-
-                            //Vint_CountMb = FsDb.Tbl_BankMovement.Where(x => x.FisicalYeariD == Vint_FiscYear).Count();
+                           //Vint_CountMb = FsDb.Tbl_BankMovement.Where(x => x.FisicalYeariD == Vint_FiscYear).Count();
                             //string Vst_FinancialYear = FsDb.Tbl_Fiscalyear.Where(x => x.ID == Vint_FiscYear).Select(x => x.FinancialYear).FirstOrDefault();
                             //Vst_CodeGenerate = Vst_FinancialYear + "/" + "/" + (Vint_CountMb + 1).ToString();
                             var ListBank_Chield = FsDb.Tbl_Banks.Where(x => x.Parent_ID == Vint_BankID).ToList();
@@ -1043,9 +1047,12 @@ namespace FinancialSysApp.Forms.Banks.TransferDataBanks
                         }
                         Vst_FinancialYear = FsDb.Tbl_Fiscalyear.Where(x => x.ID == Vint_FiscYear).Select(x => x.FinancialYear).FirstOrDefault();
 
-                        Vint_CountMb = FsDb.Tbl_BankMovement.Where(x => x.FisicalYeariD == Vint_FiscYear).Count();
-
-                        Vst_CodeGenerate = Vst_FinancialYear + "/" + (Vint_CountMb + 1).ToString();
+                        //    Vint_BankID     Vint_BankAcc 
+                        Vint_CountMb = FsDb.Tbl_BankMovement.Where(x => x.FisicalYeariD == Vint_FiscYear && x.BankAccID == Vint_BankAcc).ToList().Max(x => x.AccountBankCode);
+                        if (Vint_CountMb == null) { Vint_CountMb = 0; }
+                        string BankAccNo = FsDb.Tbl_AccountsBank.Where(x => x.ID == Vint_BankAcc).Select(x => x.AccountBankNo).FirstOrDefault();
+                        string bnkacc4charch = BankAccNo.Substring(BankAccNo.Length - 2);
+                        Vst_CodeGenerate = Vst_FinancialYear + "/" + bnkacc4charch + "/" + (Vint_CountMb + 1).ToString();
                         //**************************
                         //Vint_CountMb = FsDb.Tbl_BankMovement.Where(x => x.BankID == Vint_BankID && x.BankAccID == Vint_BankAcc && x.FisicalYeariD == Vint_FiscYear).Count();
                         //string Vst_FinancialYear = FsDb.Tbl_Fiscalyear.Where(x => x.ID == Vint_FiscYear).Select(x => x.Name).FirstOrDefault();
@@ -1070,7 +1077,7 @@ namespace FinancialSysApp.Forms.Banks.TransferDataBanks
                             C2 = Vs_C2,
                             C3 = Vs_C3,
                             C4 = Vs_C4,
-                            C5 = Vs_C5,
+                            C5 = Vst_CodeGenerate,
                             C6 = Vs_C6,
                             BankID = Vint_BankID,
                             BankAccID = Vint_BankAcc,
@@ -1083,7 +1090,8 @@ namespace FinancialSysApp.Forms.Banks.TransferDataBanks
                             IsCollected = vbl_SelectType,
                             MoveType1 = Vint_MoveType,
                             MoveType2 = Vint_MoveType1,
-                            TradeCode = Vlng_TradeCode
+                            TradeCode = Vlng_TradeCode,
+                            AccountBankCode = Vint_CountMb + 1
                         };
                         FsDb.Tbl_BankMovement.Add(bnm);
                         FsDb.SaveChanges();

@@ -26,7 +26,14 @@ namespace FinancialSysApp.Forms.BasicCodeForms
 
         private void SolidKindFrm_Load(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = FsDb.Tbl_SoilKind.ToList();
+            dataGridView1.DataSource =  (from sk in FsDb.Tbl_SoilKind
+                                                   
+
+                                                   select new
+                                                   {
+                                                       ID = sk.ID,
+                                                       Name = sk.Name,
+                                                   }).OrderByDescending(x => x.ID).ToList();
             dataGridView1.Columns["Name"].HeaderText = "نوع التربه";
             //dataGridView1.Columns["TaxAuthority_Code"].HeaderText = "كود الماموريه";
             dataGridView1.Columns["ID"].Visible = false;

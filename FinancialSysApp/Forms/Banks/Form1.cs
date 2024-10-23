@@ -46,7 +46,7 @@ namespace FinancialSysApp.Forms.Banks
                string Vst_CodeGenerate = "";
 
                 Vint_id = int.Parse(row.Cells[0].Value.ToString());
-                var listBnkMv = FsDb.Tbl_BankMovement.Where(x => x.ID == Vint_id).ToList();
+                var listBnkMv = FsDb.Tbl_BankMovement.Where(x => x.ID == Vint_id).OrderBy(x=>x.MoveDat).ToList();
                 Vd_Date = Convert.ToDateTime(row.Cells[1].Value.ToString());
 
                 var list =  FsDb.Tbl_Fiscalyear.Where(x => x.DateFrom <= Vd_Date && x.DateTo >= Vd_Date).ToList();
@@ -57,14 +57,20 @@ namespace FinancialSysApp.Forms.Banks
                     Vint_FiscYear = int.Parse(list[0].ID.ToString());
                 }
                 
-
+                int bnkid = int.Parse(row.Cells[16].Value.ToString());
+                int bnkaccid = int.Parse(row.Cells[17].Value.ToString());
                 Vst_FinancialYear = FsDb.Tbl_Fiscalyear.Where(x => x.ID == Vint_FiscYear).Select(x => x.FinancialYear).FirstOrDefault();
 
-                Vint_CountMb = FsDb.Tbl_BankMovement.Where(x => x.FisicalYeariD == Vint_FiscYear).Count();
+                Vint_CountMb = FsDb.Tbl_BankMovement.Where(x => x.FisicalYeariD == Vint_FiscYear && x.BankAccID == bnkaccid).ToList().Max(x => x.AccountBankCode);
+                if (Vint_CountMb == null) { Vint_CountMb = 0; }
+                string BankAccNo = FsDb.Tbl_AccountsBank.Where(x => x.ID == bnkaccid).Select(x => x.AccountBankNo).FirstOrDefault();
+                string bnkacc4charch = BankAccNo.Substring(BankAccNo.Length - 2);
+                Vst_CodeGenerate = Vst_FinancialYear + "/" + bnkacc4charch  + "/"+ (Vint_CountMb + 1).ToString();
+                //**************************
 
-                 Vst_CodeGenerate = Vst_FinancialYear + "/" + (Vint_CountMb + 1).ToString();
-                listBnkMv[0].MovementCode = Vst_CodeGenerate;
-                listBnkMv[0].FisicalYeariD = Vint_FiscYear;
+                listBnkMv[0].AccountBankCode = Vint_CountMb + 1 ;
+                //listBnkMv[0].C5 = Vst_CodeGenerate;
+                
                 FsDb.SaveChanges();
 
 
@@ -72,3 +78,4 @@ namespace FinancialSysApp.Forms.Banks
         }
     }
 }
+ 

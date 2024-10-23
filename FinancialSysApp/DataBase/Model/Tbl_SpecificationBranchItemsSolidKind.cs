@@ -12,10 +12,10 @@ namespace FinancialSysApp.DataBase.Model
 
         public int? SpecificationBranchItems { get; set; }
 
-        public int? SolidKindID { get; set; }
-
-        public virtual Tbl_SoilKind Tbl_SoilKind { get; set; }
+        public int? SpecificationBrnchitemsCode { get; set; }
 
         public virtual Tbl_SpecificationBranchItems Tbl_SpecificationBranchItems { get; set; }
+
+        public virtual Tbl_SpecificationBrnchItemsCode Tbl_SpecificationBrnchItemsCode { get; set; }
     }
 }

@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SpecificatiosBranchItemsFrm));
             this.label7 = new System.Windows.Forms.Label();
             this.txtRuleid = new System.Windows.Forms.TextBox();
@@ -60,26 +60,33 @@
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.checkedComboBoxEdit1 = new DevExpress.XtraEditors.CheckedComboBoxEdit();
+            this.checkBox4 = new System.Windows.Forms.CheckBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.checkedComboBoxEdit2 = new DevExpress.XtraEditors.CheckedComboBoxEdit();
+            this.label13 = new System.Windows.Forms.Label();
             this.tblSoilKindBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.solidKindDS = new FinancialSysApp.SolidKindDS();
             this.tbl_SoilKindTableAdapter = new FinancialSysApp.SolidKindDSTableAdapters.Tbl_SoilKindTableAdapter();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
+            this.tblSpecificationBrnchItemsCodeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tbl_SpecificationBrnchItemsCodeTableAdapter = new FinancialSysApp.SolidKindDSTableAdapters.Tbl_SpecificationBrnchItemsCodeTableAdapter();
+            this.comboBox4 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkedComboBoxEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkedComboBoxEdit2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblSoilKindBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.solidKindDS)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tblSpecificationBrnchItemsCodeBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(503, 237);
+            this.label7.Location = new System.Drawing.Point(496, 295);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(72, 19);
+            this.label7.Size = new System.Drawing.Size(75, 19);
             this.label7.TabIndex = 157;
-            this.label7.Text = "البند الفرعي";
+            this.label7.Text = " عنوان البند ";
             // 
             // txtRuleid
             // 
@@ -95,15 +102,16 @@
             // 
             // dataGridView1
             // 
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(18, 350);
+            this.dataGridView1.Location = new System.Drawing.Point(18, 370);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.dataGridView1.Size = new System.Drawing.Size(568, 154);
+            this.dataGridView1.Size = new System.Drawing.Size(568, 134);
             this.dataGridView1.TabIndex = 153;
+            this.dataGridView1.Visible = false;
             this.dataGridView1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridView1_KeyDown);
             this.dataGridView1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dataGridView1_MouseClick);
             // 
@@ -111,7 +119,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(357, 182);
+            this.label6.Location = new System.Drawing.Point(150, 182);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(73, 19);
             this.label6.TabIndex = 152;
@@ -122,11 +130,10 @@
             this.textBox2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.textBox2.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.textBox2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(174, 261);
-            this.textBox2.Multiline = true;
+            this.textBox2.Location = new System.Drawing.Point(154, 319);
             this.textBox2.Name = "textBox2";
             this.textBox2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.textBox2.Size = new System.Drawing.Size(405, 83);
+            this.textBox2.Size = new System.Drawing.Size(416, 26);
             this.textBox2.TabIndex = 150;
             this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
@@ -246,7 +253,7 @@
             this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.groupBox1.Location = new System.Drawing.Point(26, 52);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(567, 135);
+            this.groupBox1.Size = new System.Drawing.Size(567, 127);
             this.groupBox1.TabIndex = 148;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = " ";
@@ -300,7 +307,7 @@
             this.textBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.textBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.textBox1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(352, 205);
+            this.textBox1.Location = new System.Drawing.Point(145, 205);
             this.textBox1.Name = "textBox1";
             this.textBox1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.textBox1.Size = new System.Drawing.Size(73, 26);
@@ -313,7 +320,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(160, 182);
+            this.label8.Location = new System.Drawing.Point(42, 260);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(59, 19);
             this.label8.TabIndex = 162;
@@ -323,7 +330,7 @@
             // 
             this.comboBox3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(125, 205);
+            this.comboBox3.Location = new System.Drawing.Point(7, 283);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(121, 27);
             this.comboBox3.TabIndex = 163;
@@ -332,11 +339,11 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(95, 236);
+            this.label9.Location = new System.Drawing.Point(509, 238);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(71, 19);
+            this.label9.Size = new System.Drawing.Size(67, 19);
             this.label9.TabIndex = 165;
-            this.label9.Text = "انواع التربه";
+            this.label9.Text = "نوع  التربه";
             // 
             // textBox3
             // 
@@ -344,7 +351,7 @@
             this.textBox3.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.textBox3.Enabled = false;
             this.textBox3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(251, 205);
+            this.textBox3.Location = new System.Drawing.Point(22, 205);
             this.textBox3.Name = "textBox3";
             this.textBox3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.textBox3.Size = new System.Drawing.Size(73, 26);
@@ -354,7 +361,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(262, 182);
+            this.label11.Location = new System.Drawing.Point(33, 182);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(47, 19);
             this.label11.TabIndex = 167;
@@ -363,19 +370,20 @@
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(324, 238);
+            this.checkBox1.Location = new System.Drawing.Point(108, 237);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.checkBox1.Size = new System.Drawing.Size(110, 17);
             this.checkBox1.TabIndex = 170;
             this.checkBox1.Text = "تحديد عدد الكابلات";
             this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.Visible = false;
             this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // checkBox2
             // 
             this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(239, 236);
+            this.checkBox2.Location = new System.Drawing.Point(11, 240);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.checkBox2.Size = new System.Drawing.Size(84, 17);
@@ -387,7 +395,7 @@
             // checkBox3
             // 
             this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(6, 199);
+            this.checkBox3.Location = new System.Drawing.Point(14, 314);
             this.checkBox3.Name = "checkBox3";
             this.checkBox3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.checkBox3.Size = new System.Drawing.Size(114, 17);
@@ -396,22 +404,68 @@
             this.checkBox3.UseVisualStyleBackColor = true;
             this.checkBox3.CheckedChanged += new System.EventHandler(this.checkBox3_CheckedChanged);
             // 
-            // checkedComboBoxEdit1
+            // checkBox4
             // 
-            this.checkedComboBoxEdit1.Location = new System.Drawing.Point(18, 263);
-            this.checkedComboBoxEdit1.Name = "checkedComboBoxEdit1";
-            this.checkedComboBoxEdit1.Properties.AllowMultiSelect = true;
-            this.checkedComboBoxEdit1.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkedComboBoxEdit1.Properties.Appearance.Options.UseFont = true;
-            this.checkedComboBoxEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.checkBox4.AutoSize = true;
+            this.checkBox4.Location = new System.Drawing.Point(20, 337);
+            this.checkBox4.Name = "checkBox4";
+            this.checkBox4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.checkBox4.Size = new System.Drawing.Size(108, 17);
+            this.checkBox4.TabIndex = 172;
+            this.checkBox4.Text = "تحديد  نص المتغير";
+            this.checkBox4.UseVisualStyleBackColor = true;
+            this.checkBox4.CheckedChanged += new System.EventHandler(this.checkBox4_CheckedChanged);
+            // 
+            // textBox4
+            // 
+            this.textBox4.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.textBox4.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.textBox4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox4.Location = new System.Drawing.Point(301, 263);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.textBox4.Size = new System.Drawing.Size(109, 26);
+            this.textBox4.TabIndex = 174;
+            this.textBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(358, 240);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(40, 19);
+            this.label12.TabIndex = 173;
+            this.label12.Text = "السعر";
+            // 
+            // checkedComboBoxEdit2
+            // 
+            this.checkedComboBoxEdit2.EditValue = "";
+            this.checkedComboBoxEdit2.Location = new System.Drawing.Point(224, 205);
+            this.checkedComboBoxEdit2.Name = "checkedComboBoxEdit2";
+            this.checkedComboBoxEdit2.Properties.AllowMultiSelect = true;
+            this.checkedComboBoxEdit2.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkedComboBoxEdit2.Properties.Appearance.Options.UseFont = true;
+            this.checkedComboBoxEdit2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.checkedComboBoxEdit1.Properties.DataSource = this.tblSoilKindBindingSource;
-            this.checkedComboBoxEdit1.Properties.DisplayMember = "Name";
-            this.checkedComboBoxEdit1.Properties.SelectAllItemVisible = false;
-            this.checkedComboBoxEdit1.Properties.ValueMember = "ID";
-            this.checkedComboBoxEdit1.Size = new System.Drawing.Size(148, 26);
-            this.checkedComboBoxEdit1.TabIndex = 171;
-            this.checkedComboBoxEdit1.EditValueChanged += new System.EventHandler(this.checkedComboBoxEdit1_EditValueChanged);
+            this.checkedComboBoxEdit2.Properties.DataSource = this.tblSpecificationBrnchItemsCodeBindingSource;
+            this.checkedComboBoxEdit2.Properties.DisplayMember = "Name";
+            this.checkedComboBoxEdit2.Properties.SelectAllItemVisible = false;
+            this.checkedComboBoxEdit2.Properties.ValueMember = "ID";
+            this.checkedComboBoxEdit2.Size = new System.Drawing.Size(195, 26);
+            this.checkedComboBoxEdit2.TabIndex = 176;
+            this.checkedComboBoxEdit2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.checkedComboBoxEdit2_KeyDown);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(329, 182);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(81, 19);
+            this.label13.TabIndex = 175;
+            this.label13.Text = "البنود الفرعيه";
+            this.label13.Click += new System.EventHandler(this.label13_Click);
             // 
             // tblSoilKindBindingSource
             // 
@@ -427,25 +481,40 @@
             // 
             this.tbl_SoilKindTableAdapter.ClearBeforeFill = true;
             // 
-            // checkBox4
+            // tblSpecificationBrnchItemsCodeBindingSource
             // 
-            this.checkBox4.AutoSize = true;
-            this.checkBox4.Location = new System.Drawing.Point(12, 222);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.checkBox4.Size = new System.Drawing.Size(108, 17);
-            this.checkBox4.TabIndex = 172;
-            this.checkBox4.Text = "تحديد  نص المتغير";
-            this.checkBox4.UseVisualStyleBackColor = true;
-            this.checkBox4.CheckedChanged += new System.EventHandler(this.checkBox4_CheckedChanged);
+            this.tblSpecificationBrnchItemsCodeBindingSource.DataMember = "Tbl_SpecificationBrnchItemsCode";
+            this.tblSpecificationBrnchItemsCodeBindingSource.DataSource = this.solidKindDS;
+            // 
+            // tbl_SpecificationBrnchItemsCodeTableAdapter
+            // 
+            this.tbl_SpecificationBrnchItemsCodeTableAdapter.ClearBeforeFill = true;
+            // 
+            // comboBox4
+            // 
+            this.comboBox4.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.tblSoilKindBindingSource, "ID", true));
+            this.comboBox4.DataSource = this.tblSoilKindBindingSource;
+            this.comboBox4.DisplayMember = "Name";
+            this.comboBox4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox4.FormattingEnabled = true;
+            this.comboBox4.Location = new System.Drawing.Point(430, 262);
+            this.comboBox4.Name = "comboBox4";
+            this.comboBox4.Size = new System.Drawing.Size(142, 27);
+            this.comboBox4.TabIndex = 177;
+            this.comboBox4.ValueMember = "ID";
+            this.comboBox4.KeyDown += new System.Windows.Forms.KeyEventHandler(this.comboBox4_KeyDown);
             // 
             // SpecificatiosBranchItemsFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(594, 571);
+            this.Controls.Add(this.comboBox4);
+            this.Controls.Add(this.checkedComboBoxEdit2);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.label12);
             this.Controls.Add(this.checkBox4);
-            this.Controls.Add(this.checkedComboBoxEdit1);
             this.Controls.Add(this.checkBox3);
             this.Controls.Add(this.checkBox2);
             this.Controls.Add(this.checkBox1);
@@ -480,9 +549,10 @@
             this.Text = "SpecificatiosBranchItemsFrm";
             this.Load += new System.EventHandler(this.SpecificatiosBranchItemsFrm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkedComboBoxEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkedComboBoxEdit2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblSoilKindBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.solidKindDS)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tblSpecificationBrnchItemsCodeBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -518,10 +588,16 @@
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.CheckBox checkBox3;
-        private DevExpress.XtraEditors.CheckedComboBoxEdit checkedComboBoxEdit1;
         private SolidKindDS solidKindDS;
         private System.Windows.Forms.BindingSource tblSoilKindBindingSource;
         private SolidKindDSTableAdapters.Tbl_SoilKindTableAdapter tbl_SoilKindTableAdapter;
         private System.Windows.Forms.CheckBox checkBox4;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.Label label12;
+        private DevExpress.XtraEditors.CheckedComboBoxEdit checkedComboBoxEdit2;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.BindingSource tblSpecificationBrnchItemsCodeBindingSource;
+        private SolidKindDSTableAdapters.Tbl_SpecificationBrnchItemsCodeTableAdapter tbl_SpecificationBrnchItemsCodeTableAdapter;
+        private System.Windows.Forms.ComboBox comboBox4;
     }
 }

@@ -26,6 +26,8 @@ namespace FinancialSysApp.Forms.Abstracts
        
         private void SpecificatiosBranchItemsFrm_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'solidKindDS.Tbl_SpecificationBrnchItemsCode' table. You can move, or remove it, as needed.
+            this.tbl_SpecificationBrnchItemsCodeTableAdapter.Fill(this.solidKindDS.Tbl_SpecificationBrnchItemsCode);
             // TODO: This line of code loads data into the 'solidKindDS.Tbl_SoilKind' table. You can move, or remove it, as needed.
             this.tbl_SoilKindTableAdapter.Fill(this.solidKindDS.Tbl_SoilKind);
             int Vint_idTender = 0;
@@ -34,6 +36,9 @@ namespace FinancialSysApp.Forms.Abstracts
             comboBox3.Text = "";
             comboBox3.SelectedIndex = -1;
             comboBox3.Text = "اختر المتغير ";
+            comboBox4.Text = "";
+            comboBox4.SelectedIndex = -1;
+            comboBox4.Text = "اختر نوع التربه ";
             ckbSpecificationItem();
             textBox1.Text = "";
             textBox2.Text = "";
@@ -171,8 +176,8 @@ namespace FinancialSysApp.Forms.Abstracts
         private void simpleButton1_Click(object sender, EventArgs e)
         {
 
-            //******************استدعاء انواع التربه
-            var selecteditems = checkedComboBoxEdit1.Properties.GetItems().GetCheckedValues();
+            //******************استدعاء الاصناف الفرعيه 
+            var selecteditems = checkedComboBoxEdit2.Properties.GetItems().GetCheckedValues();
            
 
             if (txtTenderID.Text == "")
@@ -197,12 +202,19 @@ namespace FinancialSysApp.Forms.Abstracts
                 this.ActiveControl = comboBox1;
                 comboBox1.Focus();
             }
-            else if (textBox2.Text == "")
+            else if (selecteditems == null)
             {
-                MessageBox.Show("من فضلك ادخل البند الفرعي ");
-                comboBox1.Select();
-                this.ActiveControl = comboBox1;
-                comboBox1.Focus();
+                MessageBox.Show("من فضلك ادخل البنود الفرعي ");
+                checkedComboBoxEdit2.Select();
+                this.ActiveControl = checkedComboBoxEdit2;
+                checkedComboBoxEdit2.Focus();
+            }
+            else if (comboBox4.SelectedValue == null)
+            {
+                MessageBox.Show("من فضلك ادخل نوع التربه ");
+                comboBox4.Select();
+                this.ActiveControl = comboBox4;
+                comboBox4.Focus();
             }
 
 
@@ -224,7 +236,9 @@ namespace FinancialSysApp.Forms.Abstracts
                             
                             TendersAuctionsID = int.Parse(txtTenderID.Text),
                             SpecificationItemsID = int.Parse(comboBox1.SelectedValue.ToString()),
-                            CableNumber = int.Parse(textBox1.Text)
+                            SolidKindID = int.Parse(comboBox4.SelectedValue.ToString()),
+                            CableNumber = int.Parse(textBox1.Text),
+                            Width = int.Parse(textBox3.Text)
 
                         };
                         FsDb.Tbl_SpecificationBranchItems.Add(taxaF);
@@ -233,11 +247,11 @@ namespace FinancialSysApp.Forms.Abstracts
                         int Vint_LastRow = taxaF.ID;
                         foreach (var value in selecteditems)
                         {
-                            int Vint_SolidKindID = int.Parse(value.ToString());
+                            int Vint_itemBranchID = int.Parse(value.ToString());
                             Tbl_SpecificationBranchItemsSolidKind spBrsk = new Tbl_SpecificationBranchItemsSolidKind
                             {
                                 SpecificationBranchItems = Vint_LastRow,
-                                SolidKindID = Vint_SolidKindID
+                                SpecificationBrnchitemsCode = Vint_itemBranchID
                             };
                             FsDb.Tbl_SpecificationBranchItemsSolidKind.Add(spBrsk);
                             FsDb.SaveChanges();
@@ -274,7 +288,7 @@ namespace FinancialSysApp.Forms.Abstracts
                     }
                     else
                     {
-                        MessageBox.Show("ليس لديك صلاحية اضافة  بند فرعي لمواصفة ممارسه .. برجاء مراجعة مدير المنظومه");
+                        MessageBox.Show("ليس لديك صلاحية اضافة  بند  لمواصفة ممارسه .. برجاء مراجعة مدير المنظومه");
                     }
                 }
                 else
@@ -288,18 +302,19 @@ namespace FinancialSysApp.Forms.Abstracts
                         result.Name = textBox2.Text;
                         result.CableNumber = int.Parse(textBox1.Text);
                         result.TendersAuctionsID = int.Parse(txtTenderID.Text);
-                        //************انواع التربه
+                        result.Width = int.Parse(textBox3.Text);
+                        //************البنود الفرعيه
                         foreach (var value in selecteditems)
                         {
-                            int Vint_SolidKindID = int.Parse(value.ToString());
+                            int Vint_itembranchID = int.Parse(value.ToString());
 
-                            var resultsk = FsDb.Tbl_SpecificationBranchItemsSolidKind.Where(x => x.SolidKindID == Vint_SolidKindID && x.SpecificationBranchItems == xcatid).ToList();
+                            var resultsk = FsDb.Tbl_SpecificationBranchItemsSolidKind.Where(x => x.SpecificationBrnchitemsCode == Vint_itembranchID && x.SpecificationBranchItems == xcatid).ToList();
                             if (resultsk.Count == 0)
                             {
                                 Tbl_SpecificationBranchItemsSolidKind spBrsk = new Tbl_SpecificationBranchItemsSolidKind
                                 {
                                     SpecificationBranchItems = xcatid,
-                                    SolidKindID = Vint_SolidKindID
+                                    SpecificationBrnchitemsCode = Vint_itembranchID
                                 };
                            
                             FsDb.Tbl_SpecificationBranchItemsSolidKind.Add(spBrsk);
@@ -494,9 +509,9 @@ namespace FinancialSysApp.Forms.Abstracts
         {
             if (e.KeyCode == Keys.Enter)
             {
-                textBox1.Select();
-                this.ActiveControl = textBox1;
-                textBox1.Focus();
+                checkedComboBoxEdit2.Select();
+                this.ActiveControl = checkedComboBoxEdit2;
+                checkedComboBoxEdit2.Focus();
                
             }
 
@@ -586,6 +601,27 @@ namespace FinancialSysApp.Forms.Abstracts
                 textBox2.Text += " " + comboBox3.Text;
                 //checkBox3.Checked = false;
                 textBox2.Focus();
+            }
+        }
+
+        private void label13_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkedComboBoxEdit2_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode==Keys.Enter)
+            {
+                textBox1.Focus();
+            }
+        }
+
+        private void comboBox4_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                textBox4.Focus();
             }
         }
     }

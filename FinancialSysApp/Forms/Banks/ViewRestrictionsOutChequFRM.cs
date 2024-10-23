@@ -16,7 +16,7 @@ using DevExpress.PivotGrid.PivotTable;
 using DevExpress.ClipboardSource.SpreadsheetML;
 using DevExpress.CodeParser;
 using System.Runtime.InteropServices;
-using WIA;
+
 using System.IO;
 using DevExpress.Office.Drawing;
 using System.Data.SqlClient;

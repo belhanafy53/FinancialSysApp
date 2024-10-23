@@ -8,12 +8,6 @@ namespace FinancialSysApp.DataBase.Model
 
     public partial class Tbl_Forms
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Tbl_Forms()
-        {
-            Tbl_ProceduresForms = new HashSet<Tbl_ProceduresForms>();
-        }
-
         public int ID { get; set; }
 
         [Required]
@@ -22,8 +16,5 @@ namespace FinancialSysApp.DataBase.Model
 
         [StringLength(30)]
         public string Name_English { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Tbl_ProceduresForms> Tbl_ProceduresForms { get; set; }
     }
 }

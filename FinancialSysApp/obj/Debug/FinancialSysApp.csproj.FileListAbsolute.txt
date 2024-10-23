@@ -3418,3 +3418,6 @@ D:\FinancialSysApp\FinancialSysApp\obj\Debug\FinancialSysApp.Forms.BasicCodeForm
 D:\FinancialSysApp\FinancialSysApp\obj\Debug\FinancialSysApp.Forms.Abstracts.RulesAbstractsFrm.resources
 D:\FinancialSysApp\FinancialSysApp\obj\Debug\FinancialSysApp.Forms.Abstracts.SpecificationPriceFrm.resources
 D:\FinancialSysApp\FinancialSysApp\obj\Debug\FinancialSysApp.Forms.Abstracts.SpecificatiosBranchItemsFrm.resources
+D:\FinancialSysApp\FinancialSysApp\obj\Debug\FinancialSysApp.Forms.BasicCodeForms.SpecificationBrnchItemsCodeFrm.resources
+D:\FinancialSysApp\FinancialSysApp\bin\Debug\WiaDotNet.dll
+D:\FinancialSysApp\FinancialSysApp\bin\Debug\WiaDotNet.pdb

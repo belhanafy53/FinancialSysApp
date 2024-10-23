@@ -20,8 +20,6 @@ namespace FinancialSysApp.DataBase.Model
 
         public int Procedure_ID { get; set; }
 
-        public virtual Tbl_Forms Tbl_Forms { get; set; }
-
         public virtual Tbl_Procedures Tbl_Procedures { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

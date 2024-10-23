@@ -149,6 +149,7 @@
         public virtual DbSet<Tbl_SoilKind> Tbl_SoilKind { get; set; }
         public virtual DbSet<Tbl_SpecificationBranchItems> Tbl_SpecificationBranchItems { get; set; }
         public virtual DbSet<Tbl_SpecificationBranchItemsSolidKind> Tbl_SpecificationBranchItemsSolidKind { get; set; }
+        public virtual DbSet<Tbl_SpecificationBrnchItemsCode> Tbl_SpecificationBrnchItemsCode { get; set; }
         public virtual DbSet<Tbl_SpecificationItems> Tbl_SpecificationItems { get; set; }
         public virtual DbSet<Tbl_SpecificationPrice> Tbl_SpecificationPrice { get; set; }
         public virtual DbSet<Tbl_StampsFees> Tbl_StampsFees { get; set; }
@@ -763,12 +764,6 @@
                 .Property(e => e.Name_English)
                 .IsFixedLength();
 
-            modelBuilder.Entity<Tbl_Forms>()
-                .HasMany(e => e.Tbl_ProceduresForms)
-                .WithRequired(e => e.Tbl_Forms)
-                .HasForeignKey(e => e.Form_ID)
-                .WillCascadeOnDelete(false);
-
             modelBuilder.Entity<Tbl_Handler>()
                 .HasMany(e => e.TBL_Document)
                 .WithOptional(e => e.Tbl_Handler)
@@ -1367,11 +1362,6 @@
                 .HasPrecision(18, 3);
 
             modelBuilder.Entity<Tbl_SoilKind>()
-                .HasMany(e => e.Tbl_SpecificationBranchItemsSolidKind)
-                .WithOptional(e => e.Tbl_SoilKind)
-                .HasForeignKey(e => e.SolidKindID);
-
-            modelBuilder.Entity<Tbl_SoilKind>()
                 .HasMany(e => e.Tbl_SpecificationPrice)
                 .WithOptional(e => e.Tbl_SoilKind)
                 .HasForeignKey(e => e.SolidKindID);
@@ -1380,6 +1370,16 @@
                 .HasMany(e => e.Tbl_SpecificationBranchItemsSolidKind)
                 .WithOptional(e => e.Tbl_SpecificationBranchItems)
                 .HasForeignKey(e => e.SpecificationBranchItems);
+
+            modelBuilder.Entity<Tbl_SpecificationBrnchItemsCode>()
+                .HasMany(e => e.Tbl_SpecificationBranchItems)
+                .WithOptional(e => e.Tbl_SpecificationBrnchItemsCode)
+                .HasForeignKey(e => e.SolidKindID);
+
+            modelBuilder.Entity<Tbl_SpecificationBrnchItemsCode>()
+                .HasMany(e => e.Tbl_SpecificationBranchItemsSolidKind)
+                .WithOptional(e => e.Tbl_SpecificationBrnchItemsCode)
+                .HasForeignKey(e => e.SpecificationBrnchitemsCode);
 
             modelBuilder.Entity<Tbl_SpecificationItems>()
                 .HasMany(e => e.Tbl_SpecificationBranchItems)

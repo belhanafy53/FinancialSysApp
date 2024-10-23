@@ -24,7 +24,15 @@ namespace FinancialSysApp.Forms.Abstracts
         }
         private void cmbSolidKind()
         {
-            comboBox1.DataSource = FsDb.Tbl_SoilKind.ToList();
+            comboBox1.DataSource = (from Sik in FsDb.Tbl_SoilKind
+                                                 select new
+                                               {
+                                                   ID = Sik.ID,
+                                                   Name = Sik.Name,
+                                                  
+                                               }).OrderByDescending(x => x.ID).ToList();
+          
+              
             comboBox1.DisplayMember = "Name";
             comboBox1.ValueMember = "ID";
             comboBox1.SelectedText = "";
@@ -158,13 +166,8 @@ namespace FinancialSysApp.Forms.Abstracts
                 this.ActiveControl = comboBox1;
                 comboBox1.Focus();
             }
-           else if (textBox1.Text == "")
-            {
-                MessageBox.Show("من فضلك ادخل عدد الكابلات ");
-                comboBox1.Select();
-                this.ActiveControl = comboBox1;
-                comboBox1.Focus();
-            }
+          
+          
             else if (textBox2.Text == "")
             {
                 MessageBox.Show("من فضلك ادخل السعر ");
@@ -188,7 +191,7 @@ namespace FinancialSysApp.Forms.Abstracts
 
                         Tbl_SpecificationPrice taxaF = new Tbl_SpecificationPrice
                         {
-                            CableNumber = int.Parse( textBox1.Text),
+                           
                             Peice = Vd_value,
                             TendersAuctionsID = int.Parse(txtTenderID.Text),
                             SolidKindID = int.Parse(comboBox1.SelectedValue.ToString())
@@ -240,7 +243,7 @@ namespace FinancialSysApp.Forms.Abstracts
                         xcatid = int.Parse(txtRuleid.Text);
                         var result = FsDb.Tbl_SpecificationPrice.SingleOrDefault(x => x.ID == xcatid);
                         result.SolidKindID = int.Parse(comboBox1.SelectedValue.ToString());
-                        result.CableNumber = int.Parse(textBox1.Text);
+                       
                         result.Peice = decimal.Parse(textBox2.Text);
                         result.TendersAuctionsID = int.Parse(txtTenderID.Text);
 
@@ -416,7 +419,7 @@ namespace FinancialSysApp.Forms.Abstracts
         {
             if (e.KeyCode == Keys.Enter)
             {
-                textBox1.Focus();
+                textBox2.Focus();
             }
         }
     }

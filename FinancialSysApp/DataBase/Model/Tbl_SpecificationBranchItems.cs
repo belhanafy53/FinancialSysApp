@@ -25,6 +25,12 @@ namespace FinancialSysApp.DataBase.Model
 
         public int? CableNumber { get; set; }
 
+        public int? Width { get; set; }
+
+        public int? SolidKindID { get; set; }
+
+        public virtual Tbl_SpecificationBrnchItemsCode Tbl_SpecificationBrnchItemsCode { get; set; }
+
         public virtual Tbl_SpecificationItems Tbl_SpecificationItems { get; set; }
 
         public virtual Tbl_TendersAuctions Tbl_TendersAuctions { get; set; }
