@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle41 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle48 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle42 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle43 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle44 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle45 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle46 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle47 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OrderFrm));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -186,8 +186,8 @@
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
-            dataGridViewCellStyle41.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle41;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -206,8 +206,8 @@
             this.dataGridView1.Location = new System.Drawing.Point(12, 110);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            dataGridViewCellStyle48.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle48;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle16;
             this.dataGridView1.Size = new System.Drawing.Size(611, 320);
             this.dataGridView1.TabIndex = 65;
             this.dataGridView1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dataGridView1_MouseClick);
@@ -215,8 +215,8 @@
             // iDDataGridViewTextBoxColumn
             // 
             this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
-            dataGridViewCellStyle42.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iDDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle42;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iDDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle10;
             this.iDDataGridViewTextBoxColumn.HeaderText = "ID";
             this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
             this.iDDataGridViewTextBoxColumn.ReadOnly = true;
@@ -225,27 +225,27 @@
             // orderNODataGridViewTextBoxColumn
             // 
             this.orderNODataGridViewTextBoxColumn.DataPropertyName = "Order_NO";
-            dataGridViewCellStyle43.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
-            this.orderNODataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle43;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
+            this.orderNODataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle11;
             this.orderNODataGridViewTextBoxColumn.HeaderText = "رقم الامر";
             this.orderNODataGridViewTextBoxColumn.Name = "orderNODataGridViewTextBoxColumn";
             // 
             // orderDateDataGridViewTextBoxColumn
             // 
             this.orderDateDataGridViewTextBoxColumn.DataPropertyName = "Order_Date";
-            dataGridViewCellStyle44.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle44.Format = "yyyy-MM-dd";
-            dataGridViewCellStyle44.NullValue = null;
-            this.orderDateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle44;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle12.Format = "yyyy-MM-dd";
+            dataGridViewCellStyle12.NullValue = null;
+            this.orderDateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle12;
             this.orderDateDataGridViewTextBoxColumn.HeaderText = "تاريخ الامر";
             this.orderDateDataGridViewTextBoxColumn.Name = "orderDateDataGridViewTextBoxColumn";
             // 
             // suppNameDataGridViewTextBoxColumn
             // 
             this.suppNameDataGridViewTextBoxColumn.DataPropertyName = "SuppName";
-            dataGridViewCellStyle45.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle45.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.suppNameDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle45;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.suppNameDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle13;
             this.suppNameDataGridViewTextBoxColumn.HeaderText = "المورد / المقاول";
             this.suppNameDataGridViewTextBoxColumn.Name = "suppNameDataGridViewTextBoxColumn";
             this.suppNameDataGridViewTextBoxColumn.Width = 250;
@@ -265,8 +265,8 @@
             // purshaseMethNameDataGridViewTextBoxColumn
             // 
             this.purshaseMethNameDataGridViewTextBoxColumn.DataPropertyName = "PurshaseMethName";
-            dataGridViewCellStyle46.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
-            this.purshaseMethNameDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle46;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
+            this.purshaseMethNameDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle14;
             this.purshaseMethNameDataGridViewTextBoxColumn.HeaderText = "طريقة الشراء";
             this.purshaseMethNameDataGridViewTextBoxColumn.Name = "purshaseMethNameDataGridViewTextBoxColumn";
             this.purshaseMethNameDataGridViewTextBoxColumn.Width = 130;
@@ -281,8 +281,8 @@
             // orderKindNameDataGridViewTextBoxColumn
             // 
             this.orderKindNameDataGridViewTextBoxColumn.DataPropertyName = "OrderKindName";
-            dataGridViewCellStyle47.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
-            this.orderKindNameDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle47;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
+            this.orderKindNameDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle15;
             this.orderKindNameDataGridViewTextBoxColumn.HeaderText = "نوع الامر";
             this.orderKindNameDataGridViewTextBoxColumn.Name = "orderKindNameDataGridViewTextBoxColumn";
             // 
@@ -1453,6 +1453,7 @@
             this.dtpimpdateTo.TabIndex = 290;
             this.dtpimpdateTo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.dtpimpdateTo.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
+            this.dtpimpdateTo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dtpimpdateTo_KeyDown);
             // 
             // dtpimpdatefrom
             // 
@@ -1464,6 +1465,7 @@
             this.dtpimpdatefrom.TabIndex = 289;
             this.dtpimpdatefrom.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.dtpimpdatefrom.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
+            this.dtpimpdatefrom.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dtpimpdatefrom_KeyDown);
             // 
             // label38
             // 

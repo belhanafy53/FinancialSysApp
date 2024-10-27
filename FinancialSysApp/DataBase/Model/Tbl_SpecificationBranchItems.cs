@@ -29,6 +29,7 @@ namespace FinancialSysApp.DataBase.Model
 
         public int? SolidKindID { get; set; }
 
+        public decimal? Price { get; set; }
         public virtual Tbl_SpecificationBrnchItemsCode Tbl_SpecificationBrnchItemsCode { get; set; }
 
         public virtual Tbl_SpecificationItems Tbl_SpecificationItems { get; set; }

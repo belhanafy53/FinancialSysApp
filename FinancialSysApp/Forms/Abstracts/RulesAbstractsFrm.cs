@@ -400,5 +400,13 @@ namespace FinancialSysApp.Forms.Abstracts
         {
 
         }
+
+        private void txtTenderNo_Enter(object sender, EventArgs e)
+        {
+            TextBox TB = (TextBox)sender;
+            int VisibleTime = 2000;
+            ToolTip tt = new ToolTip();
+            tt.Show("اضغط على زر السهم لاسفل لإختيار الممارسه المطلوبه", TB, 0, 0, VisibleTime);
+        }
     }
 }

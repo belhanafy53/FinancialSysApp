@@ -2632,5 +2632,23 @@ namespace FinancialSysApp.Forms.DocumentsForms
 
             }
         }
+
+        private void dtpimpdatefrom_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                dtpimpdateTo.Focus();
+
+            }
+        }
+
+        private void dtpimpdateTo_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                simpleButton1.Focus();
+
+            }
+        }
     }
 }
