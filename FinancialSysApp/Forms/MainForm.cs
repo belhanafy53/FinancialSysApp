@@ -776,6 +776,7 @@ namespace FinancialSysApp.Forms
             barButtonItem174.Enabled = Program.SecurityFormsList.Contains(138) ? true : false;
             barButtonItem175.Enabled = Program.SecurityFormsList.Contains(139) ? true : false;
             barButtonItem176.Enabled = Program.SecurityFormsList.Contains(139) ? true : false;
+            barButtonItem177.Enabled = Program.SecurityFormsList.Contains(136) ? true : false;
         }
 
         private void barButtonItem22_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -3374,6 +3375,25 @@ namespace FinancialSysApp.Forms
         {
             Forms.Abstracts.SpecificatiosBranchItemsFrm f = new Forms.Abstracts.SpecificatiosBranchItemsFrm();
             if ((Application.OpenForms["SpecificatiosBranchItemsFrm"] as Forms.Abstracts.SpecificatiosBranchItemsFrm != null))
+            {
+                f.BringToFront();
+
+                this.SendToBack();
+
+            }
+            else
+            {
+
+                f.Show();
+
+                f.BringToFront();
+            }
+        }
+
+        private void barButtonItem177_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Forms.BasicCodeForms.VariableTenderFrm f = new Forms.BasicCodeForms.VariableTenderFrm();
+            if ((Application.OpenForms["VariableTenderFrm"] as Forms.BasicCodeForms.VariableTenderFrm != null))
             {
                 f.BringToFront();
 

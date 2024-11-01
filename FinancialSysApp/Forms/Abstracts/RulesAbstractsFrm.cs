@@ -44,17 +44,20 @@ namespace FinancialSysApp.Forms.Abstracts
                 if (result.ElectricalEffortID != null) { comboBox2.SelectedIndex = int.Parse(result.ElectricalEffortID.ToString()); }
                  
                 txtTenderPurpose.Text = Forms.ProcessingForms.FindTendersFrm.SelectedRow.Cells[4].Value.ToString();
+                dgid(int.Parse(txtTenderID.Text));
                 }
-            textBox1.Focus();
+            comboBox1.Focus();
             
         }
         private void dg()
         {
             var list = (from Rt in FsDb.Tbl_RuleTender
                         join tac in FsDb.Tbl_TendersAuctions on Rt.TendersAuctionsID equals tac.ID
+                        join vr in FsDb.Tbl_VariabeTender on Rt.VariableTenderID equals vr.ID
                         select new
                         {
                             ID = Rt.ID,
+                            variable = vr.Name,
                             RuleName = Rt.RuleName,
                             RuleValue = Rt.RuleValue,
                             TendersAuctionsID = Rt.TendersAuctionsID,
@@ -63,13 +66,14 @@ namespace FinancialSysApp.Forms.Abstracts
 
                         }).OrderByDescending(x => x.TenderNo).ToList();
             dataGridView1.DataSource = list;
-            dataGridView1.Columns["RuleName"].HeaderText = "المتغيرات";
+            dataGridView1.Columns["variable"].HeaderText = "المتغيرات";
             dataGridView1.Columns["RuleValue"].HeaderText = "الكمية";
             dataGridView1.Columns["ID"].Visible = false;
+            dataGridView1.Columns["RuleName"].Visible = false;
             dataGridView1.Columns["TendersAuctionsID"].Visible = false;
             dataGridView1.Columns["TenderNo"].HeaderText = "رقم الممارسه";
             dataGridView1.Columns["TenderDate"].HeaderText = "تاريخ الممارسه";
-            
+
             dataGridView1.Columns["RuleName"].Width = 200;
             dataGridView1.Columns["RuleValue"].Width = 100;
 
@@ -83,10 +87,12 @@ namespace FinancialSysApp.Forms.Abstracts
             {
                 var list = (from Rt in FsDb.Tbl_RuleTender
                             join tac in FsDb.Tbl_TendersAuctions on Rt.TendersAuctionsID equals tac.ID
+                            join vr in FsDb.Tbl_VariabeTender on Rt.VariableTenderID equals vr.ID
                             where (Rt.TendersAuctionsID == Vintid)
                             select new
                             {
                                 ID = Rt.ID,
+                                variable = vr.Name,
                                 RuleName = Rt.RuleName,
                                 RuleValue = Rt.RuleValue,
                                 TendersAuctionsID = Rt.TendersAuctionsID,
@@ -100,10 +106,12 @@ namespace FinancialSysApp.Forms.Abstracts
             else {
                 var list = (from Rt in FsDb.Tbl_RuleTender
                             join tac in FsDb.Tbl_TendersAuctions on Rt.TendersAuctionsID equals tac.ID
+                            join vr in FsDb.Tbl_VariabeTender on Rt.VariableTenderID equals vr.ID
                             where (Rt.TendersAuctionsID == Vintid)
                             select new
                             {
                                 ID = Rt.ID,
+                                variable = vr.Name,
                                 RuleName = Rt.RuleName,
                                 RuleValue = Rt.RuleValue,
                                 TendersAuctionsID = Rt.TendersAuctionsID,
@@ -114,9 +122,10 @@ namespace FinancialSysApp.Forms.Abstracts
 
                 dataGridView1.DataSource = list;
             }
-            dataGridView1.Columns["RuleName"].HeaderText = "المتغيرات";
+            dataGridView1.Columns["variable"].HeaderText = "المتغيرات";
             dataGridView1.Columns["RuleValue"].HeaderText = "الكمية";
             dataGridView1.Columns["ID"].Visible = false;
+            dataGridView1.Columns["RuleName"].Visible = false;
             dataGridView1.Columns["TendersAuctionsID"].Visible = false;
             dataGridView1.Columns["TenderNo"].HeaderText = "رقم الممارسه";
             dataGridView1.Columns["TenderDate"].HeaderText = "تاريخ الممارسه";
@@ -131,12 +140,23 @@ namespace FinancialSysApp.Forms.Abstracts
         }
         private void RulesAbstractsFrm_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'solidKindDS.Tbl_VariabeTender' table. You can move, or remove it, as needed.
+            this.tbl_VariabeTenderTableAdapter.Fill(this.solidKindDS.Tbl_VariabeTender);
             int VintID = 0;
-            if (txtTenderID.Text == "") { VintID = 0; } else {
-                VintID = int.Parse(txtTenderID.Text); }
-            dgid(VintID);
+            if   (txtTenderID.Text == "")
+            { VintID = 0;
+                dg();
+            }
+            
+            else
+            {
+                VintID = int.Parse(txtTenderID.Text);
+                dgid(VintID);
+            }
 
 
+            comboBox1.SelectedIndex = -1;
+            comboBox1.Text = "اختر المتغير";
             textBox1.Text = "";
             txtTenderNo.Select();
             this.ActiveControl = txtTenderNo;
@@ -153,12 +173,12 @@ namespace FinancialSysApp.Forms.Abstracts
                 textBox1.Focus();
             }
 
-            else  if (textBox1.Text == "")
+            else  if (comboBox1.SelectedValue == null)
             {
-                MessageBox.Show("من فضلك ادخل البيان ");
-                textBox1.Select();
-                this.ActiveControl = textBox1;
-                textBox1.Focus();
+                MessageBox.Show("من فضلك اختر المتغير ");
+                comboBox1.Select();
+                this.ActiveControl = comboBox1;
+                comboBox1.Focus();
             }
             else if (textBox2.Text == "")
             {
@@ -183,11 +203,12 @@ namespace FinancialSysApp.Forms.Abstracts
 
                         Tbl_RuleTender taxaF = new Tbl_RuleTender
                         {
-                            RuleName = textBox1.Text,
+                            RuleName = comboBox1.Text,
                             RuleValue = Vd_value,
-                            TendersAuctionsID =int.Parse(txtTenderID.Text)
+                            TendersAuctionsID =int.Parse(txtTenderID.Text),
+                            VariableTenderID = int.Parse(comboBox1.SelectedValue.ToString())
 
-                        };
+                    };
                         FsDb.Tbl_RuleTender.Add(taxaF);
                         FsDb.SaveChanges();
                         //---------------خفظ ااحداث 
@@ -211,13 +232,15 @@ namespace FinancialSysApp.Forms.Abstracts
                         FsEvDb.SaveChanges();
                         //***************************
                         MessageBox.Show("تم الحفظ");
-                        dg();
+                        comboBox1.SelectedIndex = -1;
+                        comboBox1.Text = "اختر المتغير";
+                        dgid(int.Parse(txtTenderID.Text));
                         textBox1.Text = "";
                         textBox2.Text = "";
                         //CodeTxt.Text = "";
-                        textBox1.Select();
-                        this.ActiveControl = textBox1;
-                        textBox1.Focus();
+                        comboBox1.Select();
+                        this.ActiveControl = comboBox1;
+                        comboBox1.Focus();
                     }
                     else
                     {
@@ -231,10 +254,10 @@ namespace FinancialSysApp.Forms.Abstracts
                     {
                         xcatid = int.Parse(txtRuleid.Text);
                         var result = FsDb.Tbl_RuleTender.SingleOrDefault(x => x.ID == xcatid);
-                        result.RuleName = textBox1.Text;
+                        result.RuleName = comboBox1.Text;
                         result.RuleValue = decimal.Parse( textBox2.Text);
                         result.TendersAuctionsID =int.Parse( txtTenderID.Text);
-                        
+                        result.VariableTenderID = int.Parse(comboBox1.SelectedValue.ToString());
                         FsDb.SaveChanges();
                         //---------------خفظ ااحداث 
                         //int Vint_LastRow = taxaF.ID;
@@ -257,13 +280,15 @@ namespace FinancialSysApp.Forms.Abstracts
                         FsEvDb.SaveChanges();
                         //***************************
                         MessageBox.Show("تم التعديل");
-                        dg();
+                        comboBox1.SelectedIndex = -1;
+                        comboBox1.Text = "اختر المتغير";
+                        dgid(int.Parse(txtTenderID.Text));
                         textBox1.Text = "";
                         textBox2.Text = "";
                         //CodeTxt.Text = "";
-                        textBox1.Select();
-                        this.ActiveControl = textBox1;
-                        textBox1.Focus();
+                        comboBox1.Select();
+                        this.ActiveControl = comboBox1;
+                        comboBox1.Focus();
                     }
                     else
                     {
@@ -313,12 +338,14 @@ namespace FinancialSysApp.Forms.Abstracts
                             //***************************
                             MessageBox.Show("  تم الحدف");
                             textBox1.Text = "";
-                        dg();
+                        dgid(int.Parse(txtTenderID.Text));
+                        comboBox1.SelectedIndex = -1;
+                        comboBox1.Text = "اختر المتغير";
                         textBox1.Text = "";
                         textBox2.Text = "";
-                        textBox1.Select();
-                            this.ActiveControl = textBox1;
-                            textBox1.Focus();
+                        comboBox1.Select();
+                            this.ActiveControl = comboBox1;
+                        comboBox1.Focus();
                         
                     }
 
@@ -326,9 +353,9 @@ namespace FinancialSysApp.Forms.Abstracts
                 else
                 {
                     MessageBox.Show("من فضلك حدد المتغير المراد حدفه");
-                    textBox1.Select();
-                    this.ActiveControl = textBox1;
-                    textBox1.Focus();
+                    comboBox1.Select();
+                    this.ActiveControl = comboBox1;
+                    comboBox1.Focus();
                 }
             }
             else
@@ -345,6 +372,7 @@ namespace FinancialSysApp.Forms.Abstracts
             textBox1.Text = result.RuleName.ToString();
             textBox2.Text = result.RuleValue.ToString();
             txtTenderID.Text = result.TendersAuctionsID.ToString();
+            comboBox1.SelectedValue   = result.VariableTenderID;
             txtRuleid.Text = xcatid.ToString();
             //*****************
             
@@ -407,6 +435,14 @@ namespace FinancialSysApp.Forms.Abstracts
             int VisibleTime = 2000;
             ToolTip tt = new ToolTip();
             tt.Show("اضغط على زر السهم لاسفل لإختيار الممارسه المطلوبه", TB, 0, 0, VisibleTime);
+        }
+
+        private void comboBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                textBox2.Focus();
+            }
         }
     }
 }

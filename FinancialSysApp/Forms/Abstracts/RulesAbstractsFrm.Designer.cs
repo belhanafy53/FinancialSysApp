@@ -28,7 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RulesAbstractsFrm));
             this.label4 = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
@@ -50,7 +51,13 @@
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.txtRuleid = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.solidKindDS = new FinancialSysApp.SolidKindDS();
+            this.tblVariabeTenderBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tbl_VariabeTenderTableAdapter = new FinancialSysApp.SolidKindDSTableAdapters.Tbl_VariabeTenderTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.solidKindDS)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tblVariabeTenderBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label4
@@ -180,11 +187,12 @@
             this.textBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.textBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.textBox1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(269, 201);
+            this.textBox1.Location = new System.Drawing.Point(86, 12);
             this.textBox1.Name = "textBox1";
             this.textBox1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.textBox1.Size = new System.Drawing.Size(296, 26);
+            this.textBox1.Size = new System.Drawing.Size(91, 26);
             this.textBox1.TabIndex = 107;
+            this.textBox1.Visible = false;
             this.textBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyDown);
             // 
             // textBox2
@@ -203,11 +211,11 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(527, 176);
+            this.label5.Location = new System.Drawing.Point(519, 176);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(38, 19);
+            this.label5.Size = new System.Drawing.Size(45, 19);
             this.label5.TabIndex = 109;
-            this.label5.Text = "البيان";
+            this.label5.Text = "المتغير";
             // 
             // label6
             // 
@@ -221,9 +229,9 @@
             // 
             // dataGridView1
             // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(12, 252);
             this.dataGridView1.Name = "dataGridView1";
@@ -280,11 +288,42 @@
             this.label7.TabIndex = 115;
             this.label7.Text = "الكمية";
             // 
+            // comboBox1
+            // 
+            this.comboBox1.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.tblVariabeTenderBindingSource, "ID", true));
+            this.comboBox1.DataSource = this.tblVariabeTenderBindingSource;
+            this.comboBox1.DisplayMember = "Name";
+            this.comboBox1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(268, 201);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.comboBox1.Size = new System.Drawing.Size(295, 27);
+            this.comboBox1.TabIndex = 116;
+            this.comboBox1.Text = "اختر المتغير";
+            this.comboBox1.ValueMember = "ID";
+            this.comboBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.comboBox1_KeyDown);
+            // 
+            // solidKindDS
+            // 
+            this.solidKindDS.DataSetName = "SolidKindDS";
+            this.solidKindDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // tblVariabeTenderBindingSource
+            // 
+            this.tblVariabeTenderBindingSource.DataMember = "Tbl_VariabeTender";
+            this.tblVariabeTenderBindingSource.DataSource = this.solidKindDS;
+            // 
+            // tbl_VariabeTenderTableAdapter
+            // 
+            this.tbl_VariabeTenderTableAdapter.ClearBeforeFill = true;
+            // 
             // RulesAbstractsFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(592, 517);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.txtRuleid);
             this.Controls.Add(this.simpleButton2);
@@ -310,6 +349,8 @@
             this.Text = "RulesAbstractsFrm";
             this.Load += new System.EventHandler(this.RulesAbstractsFrm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.solidKindDS)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tblVariabeTenderBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -337,5 +378,9 @@
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
         private System.Windows.Forms.TextBox txtRuleid;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private SolidKindDS solidKindDS;
+        private System.Windows.Forms.BindingSource tblVariabeTenderBindingSource;
+        private SolidKindDSTableAdapters.Tbl_VariabeTenderTableAdapter tbl_VariabeTenderTableAdapter;
     }
 }

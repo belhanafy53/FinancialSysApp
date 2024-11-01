@@ -175,6 +175,7 @@
         public virtual DbSet<Tbl_UserStatus> Tbl_UserStatus { get; set; }
         public virtual DbSet<Tbl_UserType> Tbl_UserType { get; set; }
         public virtual DbSet<Tbl_ValueAddedTax> Tbl_ValueAddedTax { get; set; }
+        public virtual DbSet<Tbl_VariabeTender> Tbl_VariabeTender { get; set; }
         public virtual DbSet<account_bank> account_bank { get; set; }
         public virtual DbSet<Cash_FlowDoc> Cash_FlowDoc { get; set; }
         public virtual DbSet<Classify> Classifies { get; set; }
@@ -1367,6 +1368,10 @@
                 .HasForeignKey(e => e.SolidKindID);
 
             modelBuilder.Entity<Tbl_SpecificationBranchItems>()
+                .Property(e => e.Price)
+                .HasPrecision(18, 3);
+
+            modelBuilder.Entity<Tbl_SpecificationBranchItems>()
                 .HasMany(e => e.Tbl_SpecificationBranchItemsSolidKind)
                 .WithOptional(e => e.Tbl_SpecificationBranchItems)
                 .HasForeignKey(e => e.SpecificationBranchItems);
@@ -1611,6 +1616,11 @@
             modelBuilder.Entity<Tbl_ValueAddedTax>()
                 .Property(e => e.Value)
                 .HasPrecision(18, 3);
+
+            modelBuilder.Entity<Tbl_VariabeTender>()
+                .HasMany(e => e.Tbl_RuleTender)
+                .WithOptional(e => e.Tbl_VariabeTender)
+                .HasForeignKey(e => e.VariableTenderID);
 
             modelBuilder.Entity<account_bank>()
                 .Property(e => e.TransferValue)

@@ -72,7 +72,22 @@ namespace FinancialSysApp.Forms.BasicCodeForms
 
         private void Nametxt_TextChanged(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = FsDb.Tbl_SpecificationItems.Where(x => x.Name.Contains(Nametxt.Text)).ToList();
+            dataGridView1.DataSource = (from sk in FsDb.Tbl_SpecificationItems
+
+                                        where (sk.Name.Contains(Nametxt.Text))
+
+                                        select new
+                                        {
+                                            ID = sk.ID,
+                                            Name = sk.Name,
+                                        }).OrderByDescending(x => x.ID).ToList();
+
+            dataGridView1.Columns["Name"].HeaderText = "البند";
+            //dataGridView1.Columns["TaxAuthority_Code"].HeaderText = "كود الماموريه";
+            dataGridView1.Columns["ID"].Visible = false;
+            //dataGridView1.Columns["Tbl_Supplier"].Visible = false;
+            dataGridView1.Columns["Name"].Width = 200;
+            //FsDb.Tbl_SpecificationItems.Where(x => x.Name.Contains(Nametxt.Text)).ToList();
         }
 
         private void Nametxt_KeyDown(object sender, KeyEventArgs e)
@@ -132,7 +147,21 @@ namespace FinancialSysApp.Forms.BasicCodeForms
                         FsEvDb.SaveChanges();
                         //***************************
                         MessageBox.Show("تم الحفظ");
-                        dataGridView1.DataSource = FsDb.Tbl_SpecificationItems.ToList();
+                        dataGridView1.DataSource = (from sk in FsDb.Tbl_SpecificationItems
+
+                                                    
+
+                                                    select new
+                                                    {
+                                                        ID = sk.ID,
+                                                        Name = sk.Name,
+                                                    }).OrderByDescending(x => x.ID).ToList();
+
+                        dataGridView1.Columns["Name"].HeaderText = "البند";
+                        //dataGridView1.Columns["TaxAuthority_Code"].HeaderText = "كود الماموريه";
+                        dataGridView1.Columns["ID"].Visible = false;
+                        //dataGridView1.Columns["Tbl_Supplier"].Visible = false;
+                        dataGridView1.Columns["Name"].Width = 200;
                         textBox1.Text = "";
                         Nametxt.Text = "";
                         //CodeTxt.Text = "";
@@ -176,7 +205,21 @@ namespace FinancialSysApp.Forms.BasicCodeForms
                         FsEvDb.SaveChanges();
                         //***************************
                         MessageBox.Show("تم التعديل");
-                        dataGridView1.DataSource = FsDb.Tbl_SpecificationItems.ToList();
+                        dataGridView1.DataSource = (from sk in FsDb.Tbl_SpecificationItems
+
+
+
+                                                    select new
+                                                    {
+                                                        ID = sk.ID,
+                                                        Name = sk.Name,
+                                                    }).OrderByDescending(x => x.ID).ToList();
+
+                        dataGridView1.Columns["Name"].HeaderText = "البند";
+                        //dataGridView1.Columns["TaxAuthority_Code"].HeaderText = "كود الماموريه";
+                        dataGridView1.Columns["ID"].Visible = false;
+                        //dataGridView1.Columns["Tbl_Supplier"].Visible = false;
+                        dataGridView1.Columns["Name"].Width = 200;
                         textBox1.Text = "";
                         Nametxt.Text = "";
                         //CodeTxt.Text = "";
@@ -231,7 +274,21 @@ namespace FinancialSysApp.Forms.BasicCodeForms
                             FsEvDb.SaveChanges();
                             //***************************
                             MessageBox.Show("  تم الحدف");
-                            dataGridView1.DataSource = FsDb.Tbl_SpecificationItems.ToList();
+                            dataGridView1.DataSource = (from sk in FsDb.Tbl_SpecificationItems
+
+
+
+                                                        select new
+                                                        {
+                                                            ID = sk.ID,
+                                                            Name = sk.Name,
+                                                        }).OrderByDescending(x => x.ID).ToList();
+
+                            dataGridView1.Columns["Name"].HeaderText = "البند";
+                            //dataGridView1.Columns["TaxAuthority_Code"].HeaderText = "كود الماموريه";
+                            dataGridView1.Columns["ID"].Visible = false;
+                            //dataGridView1.Columns["Tbl_Supplier"].Visible = false;
+                            dataGridView1.Columns["Name"].Width = 200;
                             textBox1.Text = "";
                             Nametxt.Text = "";
                             //CodeTxt.Text = "";

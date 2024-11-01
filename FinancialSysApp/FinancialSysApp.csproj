@@ -398,6 +398,13 @@
     </Compile>
     <Compile Include="Class1.cs" />
     <Compile Include="DataBase\Model\Model1.cs" />
+    <Compile Include="DataBase\Model\Tbl_VariabeTender.cs" />
+    <Compile Include="Forms\BasicCodeForms\VariableTenderFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\BasicCodeForms\VariableTenderFrm.Designer.cs">
+      <DependentUpon>VariableTenderFrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Classes\CalcCheqNoQNBCs.cs" />
     <Compile Include="Forms\Classes\CalcOrderItemsValue.cs" />
     <Compile Include="Forms\Classes\CalcQuantityItemOrderManagement.cs" />
@@ -2909,6 +2916,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\BasicCodeForms\UnitesFrm.resx">
       <DependentUpon>UnitesFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\BasicCodeForms\VariableTenderFrm.resx">
+      <DependentUpon>VariableTenderFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\BasicCodeForms\XtraForm1.resx">
       <DependentUpon>XtraForm1.cs</DependentUpon>

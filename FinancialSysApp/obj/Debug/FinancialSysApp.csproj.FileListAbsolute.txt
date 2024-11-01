@@ -3421,3 +3421,4 @@ D:\FinancialSysApp\FinancialSysApp\obj\Debug\FinancialSysApp.Forms.Abstracts.Spe
 D:\FinancialSysApp\FinancialSysApp\obj\Debug\FinancialSysApp.Forms.BasicCodeForms.SpecificationBrnchItemsCodeFrm.resources
 D:\FinancialSysApp\FinancialSysApp\bin\Debug\WiaDotNet.dll
 D:\FinancialSysApp\FinancialSysApp\bin\Debug\WiaDotNet.pdb
+D:\FinancialSysApp\FinancialSysApp\obj\Debug\FinancialSysApp.Forms.BasicCodeForms.VariableTenderFrm.resources

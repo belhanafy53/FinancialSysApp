@@ -18,6 +18,10 @@ namespace FinancialSysApp.DataBase.Model
 
         public int? TendersAuctionsID { get; set; }
 
+        public int? VariableTenderID { get; set; }
+
         public virtual Tbl_TendersAuctions Tbl_TendersAuctions { get; set; }
+
+        public virtual Tbl_VariabeTender Tbl_VariabeTender { get; set; }
     }
 }
